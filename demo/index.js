@@ -11,7 +11,7 @@ const loaders = [
 const App = () => (
   <div className="App">
     <div className="App-title">
-      <h1>React SVG Loading</h1>
+      <h1>React SVG Spinners</h1>
     </div>
     <div className="App-demo">
       {loaders.map((loader, idx) => (

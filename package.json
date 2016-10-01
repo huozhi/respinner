@@ -4,6 +4,10 @@
   "description": "react components for loadere or spinner",
   "main": "src/index.js",
   "scripts": {
+    "build:demo": "npm run clean:demo && NODE_ENV=production webpack --colors --progress --config demo/webpack.config.js",
+    "deploy:demo": "npm run build:demo && gh-pages -d demo/dist",
+    "clean:demo": "rm -rf demo/dist",
+    "build": "NODE_ENV=production webpack --colors --progress --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --progress --colors --content-base demo --config demo/webpack.config.js --port 3000"
   },
@@ -29,6 +33,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "classnames": "^2.2.5",
     "css-loader": "^0.25.0",
+    "gh-pages": "^0.11.0",
     "html-webpack-plugin": "^2.22.0",
     "postcss-cssnext": "^2.8.0",
     "postcss-import": "^8.1.2",
