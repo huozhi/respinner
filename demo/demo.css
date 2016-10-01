@@ -1,0 +1,59 @@
+html, body {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+  font-size: 14px;
+  color: #404040;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+  font-weight: 300;
+}
+
+.App {
+  height: 100%;
+  padding: 0 1em;
+}
+
+.App-title {
+  position: relative;
+  padding: 8px 0;
+  border-bottom: 1px dashed #ddd;
+}
+
+.App-demo {
+  position: relative;
+  padding: 2em 8px;
+  display: flex;
+  align-items: center;
+}
+
+.App-loader {
+  width: 120px;
+  height: 120px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  & + & {
+    margin-left: 3em;
+  }
+}
+
+@media (max-width: 650px) {
+  .App-loader {
+    width: 50vw;
+    max-height: 50vw;
+  }
+
+  .App-title {
+    text-align: center;
+  }
+}
