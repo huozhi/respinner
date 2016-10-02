@@ -2,41 +2,43 @@ import React from 'react'
 import cx from 'classnames'
 import './BounceLoader.css'
 
-const BounceLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
-  const viewWidth = (size + gap) * count - gap
+const BounceLoader = ({
+  className, duration, count, fill, barWidth, barHeight, gap, ...rest
+}) => {
+  const viewWidth = (barWidth + gap) * count - gap
 
   return (
     <svg
       width={viewWidth}
-      height={size}
+      height={barHeight * 3}
       className={cx('BounceLoader', className)}
       {...rest}
     >
       {Array.apply(null, Array(count)).map((_, i) => {
-        const style = (i < count - 1) ? {
-          animationDelay: `${duration / count * (i + 1)}s`
+        const style = i > 0 ? {
+          animationDelay: `${duration / count * (i)}s`
         } : {}
 
         return (
-          <circle
-            key={`b-${i}`}
+          <rect key={`rect-${i}`}
             style={style}
             fill={fill}
-            r={size / 2}
-            cx={size / 2 + (size + gap) * (i + 1)}
-            cy={size / 2}
-            className="BounceLoader-child"
+            height={barHeight}
+            width={barWidth}
+            x={(barWidth + gap) * i}
+            y={barHeight}
           />
-        )
-      })}
+        )}
+      )}
     </svg>
   )
 }
 
 BounceLoader.defaultProps = {
   gap: 6,
-  size: 8,
-  count: 6,
+  count: 4,
+  barWidth: 4,
+  barHeight: 16,
   duration: 0.8,
 }
 

@@ -41,7 +41,7 @@ module.exports = {
       output: {comments: false},
     }),
     new HtmlWebpackPlugin({
-      template: joinPath('index.html'),
+      template: joinPath('index-tpl.html'),
       minify: false,
     }),
   ] : [

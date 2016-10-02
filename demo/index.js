@@ -1,11 +1,15 @@
 import React from 'react'
 import {render} from 'react-dom'
-import {BounceLoader, CircularLoader} from '..'
+import {BeatLoader, CircularLoader, RotateLoader, BounceLoader} from '..'
 import './demo.css'
 
+const color = '#4197ff'
+
 const loaders = [
-  (<BounceLoader fill={'#0f88eb'} />),
-  (<CircularLoader stroke={'#4197ff'} />),
+  (<BeatLoader fill={color} />),
+  (<CircularLoader stroke={color} />),
+  (<BounceLoader fill={color} />),
+  (<RotateLoader stroke={color} />),
 ]
 
 const App = () => (
