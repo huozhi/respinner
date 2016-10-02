@@ -1,3 +1,9 @@
+html {
+  &, * {
+    box-sizing: border-box;
+  }
+}
+
 html, body {
   position: relative;
   height: 100%;
@@ -26,30 +32,47 @@ h1, h2, h3, h4, h5, h6, p, span {
 .App-title {
   position: relative;
   padding: 8px 0;
-  border-bottom: 1px dashed #ccc;
+  border-bottom: 2px dashed #ccc;
   text-align: center;
+}
+
+.App-container {
+  position: relative;
+  padding: 2em 1em;
 }
 
 .App-demo {
-  position: relative;
-  padding: 2em 8px;
-  text-align: center;
-}
-
-.App-loader {
-  width: 120px;
-  height: 120px;
-  padding: 2em;
+  width: 33.3%;
+  min-height: 150px;
+  margin-bottom: 4em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   vertical-align: middle;
 }
 
+.App-loader {
+  padding: 2em;
+}
+
+.App-code {
+  padding: 4px 1em;
+  margin-top: auto;
+  background: rgba(255, 243, 243, 0.07);
+  color: #cc7171;
+  border-radius: 3px;
+  white-space: nowrap;
+  text-align: center;
+}
+
 @media (max-width: 650px) {
-  .App-loader {
+  .App-code {
+    margin-top: 2em;
+  }
+
+  .App-demo {
     padding: 0;
-    margin: auto;
     width: 100%;
     max-height: 30vw;
   }
