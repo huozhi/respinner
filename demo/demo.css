@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 
 .App-container {
   position: relative;
-  padding: 2em 1em;
+  padding: 2em 0;
 }
 
 .App-demo {
@@ -53,27 +53,30 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 .App-loader {
-  padding: 2em;
+  margin: 1em auto;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
 }
 
 .App-code {
   padding: 4px 1em;
-  margin-top: auto;
+  margin: auto 8px;
   background: rgba(255, 243, 243, 0.07);
   color: #cc7171;
   border-radius: 3px;
-  white-space: nowrap;
   text-align: center;
 }
 
 @media (max-width: 650px) {
   .App-code {
-    margin-top: 2em;
+    display: none;
   }
 
   .App-demo {
     padding: 0;
-    width: 100%;
-    max-height: 30vw;
+    width: 50%;
+    margin-bottom: 2em;
+    min-height: 25%;
   }
 }
