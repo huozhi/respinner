@@ -1,0 +1,17 @@
+.RotateLoader {
+  circle:first-child {
+    opacity: .2;
+  }
+
+  circle:last-child {
+    animation: Rotate .8s linear infinite;
+    stroke-dasharray: 20 180;
+    transform-origin: center;
+  }
+}
+
+@keyframes Rotate {
+  0% { transform: rotate(0deg); }
+  30% { transform: rotate(200deg); }
+  100% { transform: rotate(360deg); }
+}

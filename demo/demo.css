@@ -8,7 +8,9 @@ html, body {
 body {
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
   font-size: 14px;
-  color: #404040;
+  line-height: 1.5;
+  background: #282838;
+  color: #ccc;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
 }
@@ -19,41 +21,36 @@ h1, h2, h3, h4, h5, h6, p, span {
 
 .App {
   height: 100%;
-  padding: 0 1em;
 }
 
 .App-title {
   position: relative;
   padding: 8px 0;
-  border-bottom: 1px dashed #ddd;
+  border-bottom: 1px dashed #ccc;
+  text-align: center;
 }
 
 .App-demo {
   position: relative;
   padding: 2em 8px;
-  display: flex;
-  align-items: center;
+  text-align: center;
 }
 
 .App-loader {
   width: 120px;
   height: 120px;
+  padding: 2em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  & + & {
-    margin-left: 3em;
-  }
+  vertical-align: middle;
 }
 
 @media (max-width: 650px) {
   .App-loader {
-    width: 50vw;
-    max-height: 50vw;
-  }
-
-  .App-title {
-    text-align: center;
+    padding: 0;
+    margin: auto;
+    width: 100%;
+    max-height: 30vw;
   }
 }
