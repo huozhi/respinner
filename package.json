@@ -1,6 +1,6 @@
 {
   "name": "respinner",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "react components for loadere or spinner",
   "main": "lib/index.js",
   "scripts": {
