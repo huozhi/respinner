@@ -10,6 +10,7 @@ module.exports = {
   output: {
     publicPath: '/',
     path: joinPath('lib'),
+    filename: 'index.js',
   },
   module: {
     loaders: [
