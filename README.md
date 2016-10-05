@@ -8,6 +8,10 @@ website: [huozhi.github.io/respinner/](https://huozhi.github.io/respinner/)
 
 ### Usage
 
+```sh
+npm install --save respinner
+```
+
 **4** kinds of loaders supported yer, just import it when use with react.
 
 ```js
