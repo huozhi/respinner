@@ -1,7 +1,7 @@
 .CircularLoader {
   animation: CircularRotate 1s linear infinite;
 
-  circle {
+  .CircularLoader-bar {
     stroke-dasharray: 120;
     stroke-dashoffset: 0;
     transform-origin: center;

@@ -1,7 +1,7 @@
 import React from 'react'
 import {render} from 'react-dom'
 import {
-  BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader
+  BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader, WaveLoader
 } from '../src'
 import './demo.css'
 
@@ -23,6 +23,9 @@ const loaders = [
   }, {
     code: `<SpinLoader fill="${color}" borderRadius={2} />`,
     node: (<SpinLoader fill={color} borderRadius={2} />),
+  }, {
+    code: `<WaveLoader stroke="${color}" strokeWidth={3} />`,
+    node: (<WaveLoader stroke={color} strokeWidth={3} />),
   },
 ]
 

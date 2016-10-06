@@ -22,6 +22,7 @@ const BounceLoader = ({
 
         return (
           <rect key={`rect-${i}`}
+            className="BounceLoader-child"
             style={style}
             fill={fill}
             height={barHeight}

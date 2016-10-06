@@ -11,6 +11,7 @@ const RotateLoader = ({size, strokeWidth, opacity, className, ...rest}) => {
     cx: radius + strokeWidth,
     cy: radius + strokeWidth,
     fill: 'none',
+    className: 'RotateLoader-child',
     ...rest,
   }
 

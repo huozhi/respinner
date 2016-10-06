@@ -12,11 +12,11 @@ See more details in `demo` directory or visit website: [huozhi.github.io/respinn
 npm install --save respinner
 ```
 
-Yet **5** kinds of loaders supported, just import it when use with react.
+Yet **6** kinds of loaders supported, just import it when use with react.
 
 ```js
 import {
-  BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader
+  BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader, WaveLoader
 } from 'respinner'
 
 // ...
