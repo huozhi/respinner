@@ -8,10 +8,10 @@ const BeatLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
 
   return (
     <svg
+      {...rest}
       width={viewWidth}
       height={size}
       className={cx('BeatLoader', className)}
-      {...rest}
     >
       {repeat(count).map((_, i) => {
         const style = i > 0 ? {
@@ -20,7 +20,8 @@ const BeatLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
 
         return (
           <circle
-            key={`b-${i}`}
+            className="BeatLoader-child"
+            key={`c-${i}`}
             style={style}
             fill={fill}
             r={size / 2}

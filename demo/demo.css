@@ -32,7 +32,8 @@ h1, h2, h3, h4, h5, h6, p, span {
 .App-title {
   position: relative;
   padding: 8px 0;
-  border-bottom: 2px dashed #ccc;
+  border-bottom: 1px dashed #444261;
+  color: #ab8989;
   text-align: center;
 }
 

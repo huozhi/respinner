@@ -1,9 +1,9 @@
 .RotateLoader {
-  circle:first-child {
+  .RotateLoader-child:first-child {
     opacity: .2;
   }
 
-  circle:last-child {
+  .RotateLoader-child:last-child {
     animation: Rotate .8s linear infinite;
     stroke-dasharray: 20 180;
     transform-origin: center;

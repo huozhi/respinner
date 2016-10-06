@@ -1,4 +1,4 @@
-.SpinLoader-child {
+.SpinLoader > .SpinLoader-child {
   transform-origin: center;
   animation-name: SpinFade;
   animation-duration: .8s;

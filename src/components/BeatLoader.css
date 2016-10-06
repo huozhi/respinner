@@ -1,5 +1,5 @@
 .BeatLoader {
-  circle {
+  .BeatLoader-child {
     border-radius: 50%;
     display: inline-block;
     animation-fill-mode: both;

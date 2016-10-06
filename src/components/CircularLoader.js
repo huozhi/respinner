@@ -12,10 +12,11 @@ const CircularLoader = ({className, stroke, strokeWidth, linecap, size, ...rest}
       height={size}
     >
       <circle
+        className="CircularLoader-bar"
+        fill="none"
         stroke={stroke}
         strokeWidth={strokeWidth}
         strokeLinecap={linecap}
-        fill={'none'}
         cx={radius + strokeWidth}
         cy={radius + strokeWidth}
         r={radius}
