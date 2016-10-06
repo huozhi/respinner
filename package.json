@@ -9,7 +9,7 @@
     "clean:demo": "rm -rf demo/dist",
     "build": "NODE_ENV=production webpack --colors --progress --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tstart": "webpack-dev-server --progress --colors --content-base demo --config demo/webpack.config.js --port 3000",
+    "start": "webpack-dev-server --progress --colors --content-base demo --config demo/webpack.config.js --port 3000",
     "postversion": "git push --tags"
   },
   "files": [

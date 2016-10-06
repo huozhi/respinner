@@ -1,5 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
+import {repeat} from '../helpers'
 import './BeatLoader.css'
 
 const BeatLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
@@ -12,7 +13,7 @@ const BeatLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
       className={cx('BeatLoader', className)}
       {...rest}
     >
-      {Array.apply(null, Array(count)).map((_, i) => {
+      {repeat(count).map((_, i) => {
         const style = i > 0 ? {
           animationDelay: `${duration / count * (i)}s`
         } : {}
