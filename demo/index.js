@@ -1,6 +1,8 @@
 import React from 'react'
 import {render} from 'react-dom'
-import {BeatLoader, CircularLoader, RotateLoader, BounceLoader} from '..'
+import {
+  BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader
+} from '../src'
 import './demo.css'
 
 const color = '#4197ff'
@@ -16,9 +18,12 @@ const loaders = [
     code: `<BounceLoader fill="${color}" />`,
     node: (<BounceLoader fill={color} />),
   }, {
-    code: `<RotateLoader stroke="${color}" />`,
-    node: (<RotateLoader stroke={color} />),
-  }
+    code: `<RotateLoader stroke="${color}" opacity={0.4} />`,
+    node: (<RotateLoader stroke={color} opacity={0.4} />),
+  }, {
+    code: `<SpinLoader fill="${color}" borderRadius={2} />`,
+    node: (<SpinLoader fill={color} borderRadius={2} />),
+  },
 ]
 
 const App = () => (

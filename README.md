@@ -4,7 +4,7 @@ easily controlled by react porps.
 
 ### Examples
 
-website: [huozhi.github.io/respinner/](https://huozhi.github.io/respinner/)
+See more details in `demo` directory or visit website: [huozhi.github.io/respinner/](https://huozhi.github.io/respinner/)
 
 ### Usage
 
@@ -12,11 +12,11 @@ website: [huozhi.github.io/respinner/](https://huozhi.github.io/respinner/)
 npm install --save respinner
 ```
 
-**4** kinds of loaders supported yer, just import it when use with react.
+Yet **5** kinds of loaders supported, just import it when use with react.
 
 ```js
 import {
-  BeatLoader, CircularLoader, RotateLoader, BounceLoader
+  BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader
 } from 'respinner'
 
 // ...
@@ -25,21 +25,15 @@ render() {
   <div className="spinners">
     <BeatLoader fill="#333" count={3} />
     <CircularLoader stroke="#666" />
+    <SpinLoader fill="#777" borderRadius={4} />
   </div>
 }
-```
-
-See more details in `demo` directory.
-
-### Setup
-
-```sh
-npm install
 ```
 
 ### Development
 
 ```sh
+npm install
 npm start
 
 # see demo in http://localhost:3000

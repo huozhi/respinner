@@ -14,9 +14,13 @@ const RotateLoader = ({size, strokeWidth, opacity, className, ...rest}) => {
     ...rest,
   }
 
+  const bgStyle = {
+    opacity,
+  }
+
   return (
     <svg className={cx('RotateLoader', className)} width={size} height={size}>
-      <circle {...circleProps} />
+      <circle {...circleProps} style={bgStyle} />
       <circle {...circleProps} />
     </svg>
   )
@@ -24,6 +28,7 @@ const RotateLoader = ({size, strokeWidth, opacity, className, ...rest}) => {
 
 RotateLoader.defaultProps = {
   size: 40,
+  opacity: 0.2,
   strokeWidth: 4,
 }
 

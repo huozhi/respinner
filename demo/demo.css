@@ -60,6 +60,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 .App-code {
+  max-width: 320px;
   padding: 4px 1em;
   margin: auto 8px;
   background: rgba(255, 243, 243, 0.07);
