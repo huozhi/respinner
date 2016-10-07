@@ -37,6 +37,15 @@ h1, h2, h3, h4, h5, h6, p, span {
   text-align: center;
 }
 
+.App-github {
+  max-width: 360px;
+  margin: auto;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .App-container {
   position: relative;
   padding: 2em 0;
