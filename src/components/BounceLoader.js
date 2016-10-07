@@ -16,9 +16,9 @@ const BounceLoader = ({
       {...rest}
     >
       {repeat(count).map((_, i) => {
-        const style = i > 0 ? {
-          animationDelay: `${duration / count * (i)}s`
-        } : {}
+        const style = {
+          animationDelay: `${(duration - 0.2) / count * i}s`
+        }
 
         return (
           <rect key={`rect-${i}`}
