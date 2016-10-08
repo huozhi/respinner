@@ -27,6 +27,12 @@ module.exports = {
       }
     ],
   },
+  resolve: {
+    alias: {
+      'respinner': joinPath('../src/index.js'),
+    },
+    extensions: ['', '.js'],
+  },
   postcss: webpack => [
     require('postcss-import')({addDependencyTo: webpack}),
     require('postcss-nested'),

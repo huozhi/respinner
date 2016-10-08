@@ -2,7 +2,7 @@ import React from 'react'
 import {render} from 'react-dom'
 import {
   BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader, WaveLoader
-} from '../src'
+} from 'respinner'
 import './demo.css'
 
 const color = '#4197ff'

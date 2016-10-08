@@ -12,21 +12,22 @@ See more details in `demo` directory or visit website: [huozhi.github.io/respinn
 npm install --save respinner
 ```
 
-Yet **6** kinds of loaders supported, just import it when use with react.
+Yet **6** kinds of loaders supported, just import it when use with react. Any suggestions on [issues](https://github.com/huozhi/respinner/issues).
 
 ```js
+import React, {Component} from 'react'
 import {
   BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader, WaveLoader
 } from 'respinner'
 
-// ...
-
-render() {
-  <div className="spinners">
-    <BeatLoader fill="#333" count={3} />
-    <CircularLoader stroke="#666" />
-    <SpinLoader fill="#777" borderRadius={4} />
-  </div>
+class LoadingComponent extends Component {  
+  render() {
+    <div className="spinners">
+      <BeatLoader fill="#333" count={3} />
+      <CircularLoader stroke="#666" />
+      <SpinLoader fill="#777" borderRadius={4} />
+    </div>
+  }
 }
 ```
 
