@@ -15,14 +15,14 @@ const loaders = [
     code: `<CircularLoader stroke="${color}" />`,
     node: (<CircularLoader stroke={color} />),
   }, {
-    code: `<BounceLoader fill="${color}" />`,
-    node: (<BounceLoader fill={color} />),
+    code: `<BounceLoader fill="${color}" gap={5} />`,
+    node: (<BounceLoader fill={color} gap={5} />),
   }, {
     code: `<RotateLoader stroke="${color}" opacity={0.4} />`,
     node: (<RotateLoader stroke={color} opacity={0.4} />),
   }, {
-    code: `<SpinLoader fill="${color}" borderRadius={2} />`,
-    node: (<SpinLoader fill={color} borderRadius={2} />),
+    code: `<SpinLoader fill="${color}" borderRadius={2} count={12} />`,
+    node: (<SpinLoader fill={color} borderRadius={2} count={12} />),
   }, {
     code: `<WaveLoader stroke="${color}" strokeWidth={3} />`,
     node: (<WaveLoader stroke={color} strokeWidth={3} />),
