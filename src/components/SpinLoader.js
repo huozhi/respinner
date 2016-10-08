@@ -3,7 +3,7 @@ import cx from 'classnames'
 import {repeat} from '../helpers'
 import './SpinLoader.css'
 
-const SpinLoader = ({size, barWidth, barHeight, className, count, fill, borderRadius, ...rest}) => {
+const SpinLoader = ({size, barWidth, barHeight, className, count, duration, fill, borderRadius, ...rest}) => {
   const radius = size / 2 - barHeight / 2
 
   return (
@@ -12,7 +12,7 @@ const SpinLoader = ({size, barWidth, barHeight, className, count, fill, borderRa
         const angle = 360 / count * i
         const style = {
           transform: `rotate(${90 + angle}deg)`,
-          animationDelay: `${i * 0.12}s`,
+          animationDelay: `${duration * .8 / count * i}s`,
         }
 
         /* (barWidth + borderRadius) / 2 is used to fix the excursion caused by thickness */
@@ -41,6 +41,7 @@ SpinLoader.defaultProps = {
   size: 40,
   count: 8,
   barWidth: 4,
+  duration: 1,
   barHeight: 10,
   borderRadius: 1,
 }

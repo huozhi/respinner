@@ -14,9 +14,9 @@ const BeatLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
       className={cx('BeatLoader', className)}
     >
       {repeat(count).map((_, i) => {
-        const style = i > 0 ? {
-          animationDelay: `${duration / count * (i)}s`
-        } : {}
+        const style = {
+          animationDelay: `${duration / count * i}s`
+        }
 
         return (
           <circle

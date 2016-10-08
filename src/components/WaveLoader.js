@@ -3,7 +3,7 @@ import cx from 'classnames'
 import {repeat} from '../helpers'
 import './WaveLoader.css'
 
-const WaveLoader = ({size, className, count, stroke, strokeWidth, ...rest}) => {
+const WaveLoader = ({size, className, count, stroke, duration, strokeWidth, ...rest}) => {
   const radius = size / 2 - strokeWidth
 
   return (
@@ -15,7 +15,7 @@ const WaveLoader = ({size, className, count, stroke, strokeWidth, ...rest}) => {
     >
       {repeat(count).map((_, i) => {
         const style = {
-          animationDelay: `${0.4 * i}s`
+          animationDelay: `${duration / count * i}s`
         }
 
         return (
@@ -39,6 +39,7 @@ const WaveLoader = ({size, className, count, stroke, strokeWidth, ...rest}) => {
 WaveLoader.defaultProps = {
   size: 40,
   count: 3,
+  duration: 1.5,
   strokeWidth: 2,
 }
 
