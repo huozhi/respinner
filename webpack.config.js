@@ -24,6 +24,19 @@ module.exports = {
         loader: 'style!css!postcss',
       },
     ],
+    resolve: {
+      alias: {
+        'react': path.resolve(__dirname, 'node_modules/react'),
+      }
+    }
+  },
+  externals: {
+    'react': {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react',
+    }
   },
   postcss: webpack => [
     require('postcss-import')({addDependencyTo: webpack}),
@@ -33,6 +46,7 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       compressor: {warnings: false},
       output: {comments: false},
+      sourceMap: false,
     }),
   ],
 }
