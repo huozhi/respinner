@@ -17,7 +17,7 @@ const BounceLoader = ({
     >
       {repeat(count).map((_, i) => {
         const style = {
-          animationDelay: `${duration / count * i}s`
+          animationDelay: `${-duration / (count + 1) * (count - i)}s`
         }
 
         return (

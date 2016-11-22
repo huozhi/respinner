@@ -52,8 +52,8 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 .App-demo {
-  width: 33.3%;
-  min-height: 150px;
+  width: 33.33%;
+  padding: 0 30px; min-height: 150px;
   margin-bottom: 4em;
   display: inline-flex;
   align-items: center;
@@ -79,8 +79,9 @@ h1, h2, h3, h4, h5, h6, p, span {
   text-align: center;
 }
 
-@media (max-width: 650px) {
-  .App-code {
+@media (max-width: 767px) {
+  .App-code,
+  .playgroundCode {
     display: none;
   }
 
@@ -89,5 +90,25 @@ h1, h2, h3, h4, h5, h6, p, span {
     width: 50%;
     margin-bottom: 2em;
     min-height: 25%;
+  }
+}
+
+.playground {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  height: 150px;
+
+  .CodeMirror {
+    height: 60px;
+    background: rgba(255, 243, 243, 0.07);
+  }
+
+  .playgroundPreview {
+    text-align: center;
+    margin: 20px auto;
   }
 }

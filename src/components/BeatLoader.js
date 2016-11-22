@@ -15,7 +15,7 @@ const BeatLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
     >
       {repeat(count).map((_, i) => {
         const style = {
-          animationDelay: `${duration / count * i}s`
+          animationDelay: `${-duration / (count + 1) * (count - i)}s`
         }
 
         return (
@@ -25,7 +25,7 @@ const BeatLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
             style={style}
             fill={fill}
             r={size / 2}
-            cx={size / 2 + (size + gap) * (i + 1)}
+            cx={size * (i + 1) + gap * i - size / 2}
             cy={size / 2}
           />
         )

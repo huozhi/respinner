@@ -6,7 +6,7 @@ const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
   entry: {
-    app: [joinPath('index.js')],
+    app: [joinPath('app.js')],
   },
   output: {
     publicPath: isProduction ? '/respinner' : '/',
