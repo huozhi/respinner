@@ -3,29 +3,36 @@ import {render} from 'react-dom'
 import {
   BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader, WaveLoader
 } from 'respinner'
-import './demo.css'
+import Playground from 'component-playground'
+import './app.css'
 
 const color = '#4197ff'
 
 const loaders = [
   {
-    code: `<BeatLoader fill="${color}" />`,
-    node: (<BeatLoader fill={color} />),
+    code: `<BeatLoader fill="${color}" count={4} />`,
+    node: (<BeatLoader fill={color} count={4} />),
+    component: {BeatLoader},
   }, {
     code: `<CircularLoader stroke="${color}" />`,
     node: (<CircularLoader stroke={color} />),
+    component: {CircularLoader},
   }, {
     code: `<BounceLoader fill="${color}" gap={5} />`,
     node: (<BounceLoader fill={color} gap={5} />),
+    component: {BounceLoader},
   }, {
     code: `<RotateLoader stroke="${color}" opacity={0.4} />`,
     node: (<RotateLoader stroke={color} opacity={0.4} />),
+    component: {RotateLoader},
   }, {
     code: `<SpinLoader fill="${color}" borderRadius={2} count={12} />`,
     node: (<SpinLoader fill={color} borderRadius={2} count={12} />),
+    component: {SpinLoader},
   }, {
     code: `<WaveLoader stroke="${color}" strokeWidth={3} />`,
     node: (<WaveLoader stroke={color} strokeWidth={3} />),
+    component: {WaveLoader},
   },
 ]
 
@@ -42,10 +49,16 @@ const App = () => (
       </div>
     </div>
     <div className="App-container">
-      {loaders.map(({node, code}, idx) => (
+      {loaders.map(({node, code, component}, idx) => (
         <div key={`loader-${idx}`} className="App-demo">
-          <div className="App-loader">{node}</div>
-          <code className="App-code">{code}</code>
+          <Playground
+            theme="paraiso-dark"
+            codeText={code}
+            scope={{
+              React,
+              ...component,
+            }}
+          />
         </div>
       ))}
     </div>
