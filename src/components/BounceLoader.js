@@ -17,12 +17,13 @@ const BounceLoader = ({
     >
       {repeat(count).map((_, i) => {
         const style = {
-          animationDelay: `${-duration / (count + 1) * (count - i)}s`
+          animationDelay: `${-duration / (count + 1) * (count - i)}s`,
+          animationDuration: `${duration}s`,
         }
 
         return (
           <rect key={`rect-${i}`}
-            className="BounceLoader-child"
+            className="BounceLoader-item"
             style={style}
             fill={fill}
             height={barHeight}

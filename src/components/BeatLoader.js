@@ -15,12 +15,13 @@ const BeatLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
     >
       {repeat(count).map((_, i) => {
         const style = {
-          animationDelay: `${-duration / (count + 1) * (count - i)}s`
+          animationDelay: `${-duration / (count + 1) * (count - i)}s`,
+          animationDuration: `${duration}s`,
         }
 
         return (
           <circle
-            className="BeatLoader-child"
+            className="BeatLoader-item"
             key={`c-${i}`}
             style={style}
             fill={fill}
