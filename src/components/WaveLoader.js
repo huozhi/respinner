@@ -1,6 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
-import {repeat} from '../helpers'
+import {repeat, getCSSSecond} from '../helpers'
 import './WaveLoader.css'
 
 const WaveLoader = ({size, className, count, stroke, duration, strokeWidth, ...rest}) => {
@@ -15,12 +15,13 @@ const WaveLoader = ({size, className, count, stroke, duration, strokeWidth, ...r
     >
       {repeat(count).map((_, i) => {
         const style = {
-          animationDelay: `${duration / count * i}s`
+          animationDelay: `${duration / count * i}s`,
+          animationDuration: getCSSSecond(duration)
         }
 
         return (
           <circle
-            className="WaveLoader-child"
+            className="WaveLoader-item"
             key={`c-${i}`}
             style={style}
             stroke={stroke}

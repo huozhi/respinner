@@ -1,14 +1,11 @@
-.BounceLoader {
-  .BounceLoader-child {
-    border-radius: 50%;
-    display: inline-block;
-    animation-fill-mode: both;
-    animation-name: Bounce;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: .8s;
-    transform-origin: center;
-  }
+.BounceLoader .BounceLoader-item {
+  border-radius: 50%;
+  display: inline-block;
+  animation-fill-mode: both;
+  animation-name: Bounce;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  transform-origin: center;
 }
 
 @keyframes Bounce {

@@ -1,17 +1,11 @@
-.RotateLoader {
-  .RotateLoader-child:first-child {
-    opacity: .2;
-  }
+@import '../styles/common.css';
 
-  .RotateLoader-child:last-child {
-    animation: Rotate .8s linear infinite;
-    stroke-dasharray: 20 180;
-    transform-origin: center;
-  }
+.RotateLoader .RotateLoader-item:first-child {
+  opacity: .2;
 }
 
-@keyframes Rotate {
-  0% { transform: rotate(0deg); }
-  30% { transform: rotate(200deg); }
-  100% { transform: rotate(360deg); }
+.RotateLoader .RotateLoader-item:last-child {
+  animation: Rotate linear infinite;
+  stroke-dasharray: 20 180;
+  transform-origin: center;
 }
