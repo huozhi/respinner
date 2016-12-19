@@ -3,6 +3,8 @@ import {render} from 'react-dom'
 import {
   BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader, WaveLoader
 } from 'respinner'
+
+import ClockLoader from '../src/components/ClockLoader'
 import Playground from 'component-playground'
 import './app.css'
 
@@ -11,29 +13,26 @@ const color = '#4197ff'
 const loaders = [
   {
     code: `<BeatLoader fill="${color}" count={4} />`,
-    node: (<BeatLoader fill={color} count={4} />),
     component: {BeatLoader},
   }, {
-    code: `<CircularLoader stroke="${color}" />`,
-    node: (<CircularLoader stroke={color} />),
+    code: `<CircularLoader size={40} duration={1} stroke="${color}" />`,
     component: {CircularLoader},
   }, {
     code: `<BounceLoader fill="${color}" gap={5} />`,
-    node: (<BounceLoader fill={color} gap={5} />),
     component: {BounceLoader},
   }, {
-    code: `<RotateLoader stroke="${color}" opacity={0.4} />`,
-    node: (<RotateLoader stroke={color} opacity={0.4} />),
+    code: `<RotateLoader duration={1} stroke="${color}" opacity={0.4} />`,
     component: {RotateLoader},
   }, {
     code: `<SpinLoader fill="${color}" borderRadius={2} count={12} />`,
-    node: (<SpinLoader fill={color} borderRadius={2} count={12} />),
     component: {SpinLoader},
   }, {
     code: `<WaveLoader stroke="${color}" strokeWidth={3} />`,
-    node: (<WaveLoader stroke={color} strokeWidth={3} />),
     component: {WaveLoader},
-  },
+  }, {
+    code: `<ClockLoader size={40} stroke="${color}" duration={2} strokeWidth={2} />`,
+    component: {ClockLoader},
+  }
 ]
 
 const user = 'huozhi'
@@ -49,7 +48,7 @@ const App = () => (
       </div>
     </div>
     <div className="App-container">
-      {loaders.map(({node, code, component}, idx) => (
+      {loaders.map(({code, component}, idx) => (
         <div key={`loader-${idx}`} className="App-demo">
           <Playground
             theme="paraiso-dark"
