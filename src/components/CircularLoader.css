@@ -1,28 +1,31 @@
 .CircularLoader {
-  animation: CircularRotate 1s linear infinite;
+  animation: CircularRotate linear infinite;
+}
 
-  .CircularLoader-bar {
-    stroke-dasharray: 120;
-    stroke-dashoffset: 0;
-    transform-origin: center;
-    animation: CircularBarDash 1s ease-in-out infinite;
-  }
+.CircularLoader .CircularLoader-bar {
+  transform-origin: center;
+  animation: CircularBarDash ease-in-out infinite;
 }
 
 @keyframes CircularRotate {
-  100% { transform: rotate(270deg); }
+  100% { transform: rotate(360deg); }
 }
 
+/*
+ * from: https://codepen.io/jczimm/pen/vEBpoL
+ */
+
 @keyframes CircularBarDash {
-  0% { stroke-dashoffset: 120; }
-
-  50% {
-    stroke-dashoffset: 40;
-    transform: rotate(120deg);
-  }
-
-  100% {
-    stroke-dashoffset: 120;
-    transform: rotate(360deg);
-  }
+  0% {
+   stroke-dasharray: 1, 200;
+   stroke-dashoffset: 0;
+ }
+ 50% {
+   stroke-dasharray: 78, 200;
+   stroke-dashoffset: -35px;
+ }
+ 100% {
+   stroke-dasharray: 78, 200;
+   stroke-dashoffset: -124px;
+ }
 }

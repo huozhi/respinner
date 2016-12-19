@@ -1,14 +1,12 @@
-.BeatLoader {
-  .BeatLoader-child {
-    border-radius: 50%;
-    display: inline-block;
-    animation-fill-mode: both;
-    animation-name: Beat;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: .8s;
-    transform-origin: center;
-  }
+.BeatLoader .BeatLoader-item {
+  border-radius: 50%;
+  display: inline-block;
+  animation-fill-mode: both;
+  animation-name: Beat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: .8s;
+  transform-origin: center;
 }
 
 @keyframes Beat {
