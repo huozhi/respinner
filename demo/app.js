@@ -1,10 +1,9 @@
 import React from 'react'
 import {render} from 'react-dom'
 import {
-  BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader, WaveLoader
+  BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader, WaveLoader, ClockLoader
 } from 'respinner'
 
-import ClockLoader from '../src/components/ClockLoader'
 import Playground from 'component-playground'
 import './app.css'
 
