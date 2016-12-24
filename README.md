@@ -16,12 +16,12 @@ See more details in `demo` directory or visit website: [huozhi.github.io/respinn
 npm install --save respinner
 ```
 
-Yet **6** kinds of loaders supported, just import it when use with react. Any suggestions on [issues](https://github.com/huozhi/respinner/issues).
+Yet **7** kinds of loaders supported, just import it when use with react. Any suggestions on [issues](https://github.com/huozhi/respinner/issues).
 
 ```js
 import React, {Component} from 'react'
 import {
-  BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader, WaveLoader
+  BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader, WaveLoader, ClockLoader
 } from 'respinner'
 
 class LoadingComponent extends Component {  
@@ -86,6 +86,12 @@ class LoadingComponent extends Component {
 - count: default 3
 - duration: default 1.5
 - strokeWidth: default 2
+
+### 7. ClockLoader
+
+- size
+- duration
+- strokeWidth
 
 ### Development
 
