@@ -1,15 +1,20 @@
 const path = require('path')
 const webpack = require('webpack')
-const joinPath = path.join.bind(null, __dirname)
 
 module.exports = {
   entry: {
-    index: [joinPath('src/index.js')],
+    index: './src/index',
+    BeatLoader: './src/components/BeatLoader',
+    BounceLoader: './src/components/BounceLoader',
+    CircularLoader: './src/components/CircularLoader',
+    ClockLoader: './src/components/ClockLoader',
+    RotateLoader: './src/components/RotateLoader',
+    SpinLoader: './src/components/SpinLoader',
+    WaveLoader: './src/components/WaveLoader',
   },
   output: {
-    publicPath: '/',
-    path: joinPath('lib'),
-    filename: 'index.js',
+    path: './lib',
+    filename: '[name].js',
   },
   module: {
     loaders: [

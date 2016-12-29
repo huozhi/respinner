@@ -20,9 +20,13 @@ Yet **7** kinds of loaders supported, just import it when use with react. Any su
 
 ```js
 import React, {Component} from 'react'
-import {
-  BeatLoader, CircularLoader, RotateLoader, BounceLoader, SpinLoader, WaveLoader, ClockLoader
-} from 'respinner'
+import BeatLoader from 'respinner/lib/BeatLoader'
+import BounceLoader from 'respinner/lib/BounceLoader'
+import CircularLoader from 'respinner/lib/CircularLoader'
+import ClockLoader from 'respinner/lib/ClockLoader'
+import RotateLoader from 'respinner/lib/RotateLoader'
+import SpinLoader from 'respinner/lib/SpinLoader'
+import WaveLoader from 'respinner/lib/WaveLoader'
 
 class LoadingComponent extends Component {  
   render() {
