@@ -29,7 +29,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'respinner': joinPath('../src/index.js'),
+      'respinner/lib': joinPath('../src/components'),
     },
     extensions: ['', '.js'],
   },
