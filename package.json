@@ -6,9 +6,11 @@
   "scripts": {
     "build:demo": "npm run clean:demo && NODE_ENV=production webpack --colors --progress --config demo/webpack.config.js",
     "ghpages": "npm run build:demo && gh-pages -d demo/dist",
+    "clean": "rm -rf ./lib",
     "clean:demo": "rm -rf demo/dist",
     "build": "NODE_ENV=production webpack --colors --progress --config webpack.config.js",
     "start": "webpack-dev-server --progress --colors --content-base demo --config demo/webpack.config.js --port 3000",
+    "prepublish": "npm run clean && npm run build",
     "postversion": "git push && git push --tags"
   },
   "files": [

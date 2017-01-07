@@ -15,6 +15,8 @@ module.exports = {
   output: {
     path: './lib',
     filename: '[name].js',
+    library: '[name]',
+    libraryTarget: 'umd',
   },
   module: {
     loaders: [
