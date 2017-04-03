@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build:demo": "npm run clean:demo && NODE_ENV=production webpack --colors --progress --config demo/webpack.config.js",
-    "ghpages": "npm run build:demo && gh-pages -d demo/dist",
+    "ghpages": "npm run build:demo && gh-pages -p demo/dist",
     "clean": "rm -rf ./lib",
     "clean:demo": "rm -rf demo/dist",
     "build": "NODE_ENV=production webpack --colors --progress --config webpack.config.js",
@@ -39,7 +39,7 @@
     "classnames": "^2.2.5",
     "component-playground": "^1.3.1",
     "css-loader": "^0.25.0",
-    "gh-pages": "^0.11.0",
+    "gh-pages": "^0.12.0",
     "html-webpack-plugin": "^2.22.0",
     "postcss-cssnext": "^2.8.0",
     "postcss-import": "^8.1.2",
