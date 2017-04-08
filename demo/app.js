@@ -1,12 +1,15 @@
 import React from 'react'
 import {render} from 'react-dom'
-import BeatLoader from 'respinner/lib/BeatLoader'
-import BounceLoader from 'respinner/lib/BounceLoader'
-import CircularLoader from 'respinner/lib/CircularLoader'
-import ClockLoader from 'respinner/lib/ClockLoader'
-import RotateLoader from 'respinner/lib/RotateLoader'
-import SpinLoader from 'respinner/lib/SpinLoader'
-import WaveLoader from 'respinner/lib/WaveLoader'
+import {
+  BeatLoading,
+  BounceLoading,
+  CircularLoading,
+  ClockLoading,
+  RotateLoading,
+  SpinLoading,
+  WaveLoading,
+} from 'respinner'
+import CodeMirror from 'react-codemirror'
 import Playground from 'component-playground'
 import './app.css'
 
@@ -14,31 +17,51 @@ const color = '#4197ff'
 
 const loaders = [
   {
-    code: `<BeatLoader fill="${color}" count={4} />`,
-    component: {BeatLoader},
+    code: `<BeatLoading fill="${color}" count={4} />`,
+    component: {BeatLoading},
   }, {
-    code: `<CircularLoader size={40} duration={1} stroke="${color}" />`,
-    component: {CircularLoader},
+    code: `<CircularLoading size={40} duration={1} stroke="${color}" />`,
+    component: {CircularLoading},
   }, {
-    code: `<BounceLoader fill="${color}" gap={5} />`,
-    component: {BounceLoader},
+    code: `<BounceLoading fill="${color}" gap={5} />`,
+    component: {BounceLoading},
   }, {
-    code: `<RotateLoader duration={1} stroke="${color}" opacity={0.4} />`,
-    component: {RotateLoader},
+    code: `<RotateLoading duration={1} stroke="${color}" opacity={0.4} />`,
+    component: {RotateLoading},
   }, {
-    code: `<SpinLoader fill="${color}" borderRadius={2} count={10} />`,
-    component: {SpinLoader},
+    code: `<SpinLoading fill="${color}" borderRadius={2} count={10} />`,
+    component: {SpinLoading},
   }, {
-    code: `<WaveLoader stroke="${color}" strokeWidth={3} />`,
-    component: {WaveLoader},
+    code: `<WaveLoading stroke="${color}" strokeWidth={3} />`,
+    component: {WaveLoading},
   }, {
-    code: `<ClockLoader size={40} stroke="${color}" duration={2} strokeWidth={2} />`,
-    component: {ClockLoader},
+    code: `<ClockLoading size={40} stroke="${color}" duration={2} strokeWidth={2} />`,
+    component: {ClockLoading},
   }
 ]
 
 const user = 'huozhi'
 const repo = 'respinner'
+
+const getStartCode = `
+import {
+  BeatLoading, BounceLoading, CircularLoading,
+  ClockLoading, RotateLoading, SpinLoading, WaveLoading
+} from 'respinner'
+
+// or import one directly, like the following
+import BeatLoading from 'respinner/lib/beat'
+import BounceLoading from 'respinner/lib/bounce'
+import CircularLoading from 'respinner/lib/circular'
+import ClockLoading from 'respinner/lib/clock'
+import RotateLoading from 'respinner/lib/rotate'
+import SpinLoading from 'respinner/lib/spin'
+import WaveLoading from 'respinner/lib/wave'
+
+// Then juse use it with customized or default props, see the examples below
+
+const Spinner = () => <CircularLoading />
+`
 
 const App = () => (
   <div className="App">
@@ -50,6 +73,20 @@ const App = () => (
       </div>
     </div>
     <div className="App-container">
+      <div className="App-getStart">
+        <CodeMirror
+          options={{
+            mode: 'jsx',
+            theme: 'paraiso-dark',
+            readOnly: true,
+            lineNumbers: false,
+            lineWrapping: true,
+            smartIndent: false,
+            matchBrackets: true,
+          }}
+          value={getStartCode}
+        />
+      </div>
       {loaders.map(({code, component}, idx) => (
         <div key={`loader-${idx}`} className="App-demo">
           <Playground
