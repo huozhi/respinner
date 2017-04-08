@@ -2,7 +2,6 @@ import React from 'react'
 import cx from 'classnames'
 import {repeat} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
-// import './BounceLoading.css'
 
 const BounceLoading = ({
   className, duration, count, fill, barWidth, barHeight, gap, ...rest
