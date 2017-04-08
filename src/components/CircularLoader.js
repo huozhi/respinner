@@ -4,8 +4,10 @@ import './CircularLoader.css'
 
 /*
  * hard to find the law of google style circular loading
- * set 40 x 40 as basic viewbox size. scale viewbox when use.
+ * set 50 x 50 as basic viewbox size. scale viewbox when use.
  */
+
+const CIRCLE_RADIUS = 50 / 2
 
 const CircularLoader = ({className, duration, stroke, strokeWidth, linecap, size, ...rest}) => {
   const radius = size / 2 - strokeWidth
@@ -13,11 +15,11 @@ const CircularLoader = ({className, duration, stroke, strokeWidth, linecap, size
   return (
     <svg
       {...rest}
-      viewBox="0 0 40 40"
+      viewBox={`0 0 ${CIRCLE_RADIUS * 2} ${CIRCLE_RADIUS * 2}`}
       className={cx('CircularLoader', className)}
       width={size}
       height={size}
-      style={{animationDuration: `${duration * 2}s`}}
+      style={{animationDuration: `${duration * 4 / 3}s`}}
     >
       <circle
         className="CircularLoader-bar"
@@ -26,9 +28,9 @@ const CircularLoader = ({className, duration, stroke, strokeWidth, linecap, size
         stroke={stroke}
         strokeWidth={strokeWidth}
         strokeLinecap={linecap}
-        cx={20}
-        cy={20}
-        r={20 - strokeWidth}
+        cx={CIRCLE_RADIUS}
+        cy={CIRCLE_RADIUS}
+        r={CIRCLE_RADIUS - strokeWidth}
       />
     </svg>
   )
