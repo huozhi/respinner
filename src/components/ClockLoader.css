@@ -1,6 +1,0 @@
-@import '../styles/common.css';
-
-.ClockLoader-needle {
-  transform-origin: center;
-  animation: Rotate linear infinite;
-}
