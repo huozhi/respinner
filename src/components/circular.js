@@ -2,7 +2,6 @@ import React from 'react'
 import cx from 'classnames'
 import {embeddedStyle} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
-// import './CircularLoading.css'
 
 /*
  * hard to find the law of google style circular loading

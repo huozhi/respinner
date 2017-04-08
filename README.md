@@ -20,20 +20,16 @@ Yet **7** kinds of loaders supported, just import it when use with react. Any su
 
 ```js
 import React, {Component} from 'react'
-import BeatLoader from 'respinner/lib/BeatLoader'
-import BounceLoader from 'respinner/lib/BounceLoader'
-import CircularLoader from 'respinner/lib/CircularLoader'
-import ClockLoader from 'respinner/lib/ClockLoader'
-import RotateLoader from 'respinner/lib/RotateLoader'
-import SpinLoader from 'respinner/lib/SpinLoader'
-import WaveLoader from 'respinner/lib/WaveLoader'
+// easily import from entry
+import {CircularLoading} from 'respinner'
+ // or import one directly
+import SpinLoading from 'respinner/lib/spin'
 
 class LoadingComponent extends Component {  
   render() {
     <div className="spinners">
-      <BeatLoader fill="#333" count={3} />
-      <CircularLoader stroke="#666" />
-      <SpinLoader fill="#777" borderRadius={4} />
+      <SpinLoading fill="#777" borderRadius={4} count={12} /> // use with customized props
+      <CircularLoading /> // or just use with default props
     </div>
   }
 }
@@ -48,20 +44,20 @@ class LoadingComponent extends Component {
 - height
 - stroke/fill (stroke for circle ones, fill for rectangle ones)
 
-#### 1. BeatLoader
+#### 1. BeatLoading
 
 - gap: default 6
 - size: default 8
 - count: default 6
 - duration: default 0.8
 
-#### 2. CircularLoader
+#### 2. CircularLoading
 
 - size: default 40
 - strokeWidth: default 4
 - linecap: default 'round'
 
-#### 3. BounceLoader
+#### 3. BounceLoading
 
 - gap: default 6
 - count: default 4
@@ -69,13 +65,13 @@ class LoadingComponent extends Component {
 - barHeight: default 16
 - duration: default 0.8
 
-#### 4. RotateLoader
+#### 4. RotateLoading
 
 - size: default 40
 - opacity: default 0.2
 - strokeWidth: default 4
 
-#### 5. SpinLoader
+#### 5. SpinLoading
 
 - size: default 40
 - count: default 8
@@ -84,14 +80,14 @@ class LoadingComponent extends Component {
 - barHeight: default 10
 - borderRadius: default 1
 
-#### 6. WaveLoader
+#### 6. WaveLoading
 
 - size: default 40
 - count: default 3
 - duration: default 1.5
 - strokeWidth: default 2
 
-### 7. ClockLoader
+### 7. ClockLoading
 
 - size
 - duration
