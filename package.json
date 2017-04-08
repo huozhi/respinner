@@ -4,12 +4,12 @@
   "description": "react components for loadere or spinner",
   "main": "lib/index.js",
   "scripts": {
-    "build:demo": "npm run clean:demo && NODE_ENV=production webpack --colors --progress --config demo/webpack.config.js",
-    "ghpages": "npm run build:demo && gh-pages -p demo/dist",
+    "build:docs": "npm run clean:docs && NODE_ENV=production webpack --colors --progress --config docs/webpack.config.js",
+    "ghpages": "npm run build:docs && gh-pages -p docs/dist",
     "clean": "rm -rf ./lib",
-    "clean:demo": "rm -rf demo/dist",
+    "clean:docs": "rm -rf docs/dist",
     "build": "webpack --colors --progress --config webpack.config.js",
-    "start": "webpack-dev-server --progress --colors --content-base demo --config demo/webpack.config.js --port 3000",
+    "start": "webpack-dev-server --progress --colors --content-base docs --config docs/webpack.config.js --port 3000",
     "prepublish": "npm run clean && npm run build",
     "postversion": "git push && git push --tags"
   },
