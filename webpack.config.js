@@ -13,39 +13,47 @@ module.exports = {
     WaveLoader: './src/components/WaveLoader',
   },
   output: {
-    path: './lib',
+    path: path.join(__dirname, 'lib'),
     filename: '[name].js',
     library: '[name]',
     libraryTarget: 'umd',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: /node_modules/,
       },
       {
         test: /\.css$/,
-        loader: 'style!css!postcss',
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
-    resolve: {
-      alias: {
-        'react': path.resolve(__dirname, 'node_modules/react'),
-      }
+  },
+  resolve: {
+    alias: {
+      react: path.resolve(__dirname, 'node_modules/react'),
     }
   },
+  plugins: ([
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+    // new webpack.LoaderOptionsPlugin({
+    //   options: {
+    //     postcss: [
+    //       require('postcss-import')({addDependencyTo: webpack}),
+    //     ],
+    //   }
+    // })
+  ]),
   externals: {
-    'react': {
+    react: {
       root: 'React',
       commonjs2: 'react',
       commonjs: 'react',
       amd: 'react',
     }
   },
-  postcss: webpack => [
-    require('postcss-import')({addDependencyTo: webpack}),
-    require('postcss-nested'),
-  ],
 }

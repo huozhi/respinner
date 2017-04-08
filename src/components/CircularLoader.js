@@ -1,10 +1,14 @@
 import React from 'react'
 import cx from 'classnames'
-import './CircularLoader.css'
+import {embeddedStyle} from '../helpers'
+import SVGEmbeddedStyle from './SVGEmbeddedStyle'
+// import './CircularLoader.css'
 
 /*
  * hard to find the law of google style circular loading
  * set 50 x 50 as basic viewbox size. scale viewbox when use.
+ *
+ * from: https://codepen.io/jczimm/pen/vEBpoL
  */
 
 const CIRCLE_RADIUS = 50 / 2
@@ -19,10 +23,37 @@ const CircularLoader = ({className, duration, stroke, strokeWidth, linecap, size
       className={cx('CircularLoader', className)}
       width={size}
       height={size}
-      style={{animationDuration: `${duration * 4 / 3}s`}}
+      style={{
+        animation: 'Rotate linear infinite',
+        animationDuration: `${duration * 4 / 3}s`
+      }}
     >
+      <SVGEmbeddedStyle>
+        {`
+          @keyframes Rotate { 100% { transform: rotate(360deg); } }
+
+          .CircularLoader circle {
+            transform-origin: center;
+            animation: CircularBarDash ease-in-out infinite;
+          }
+
+          @keyframes CircularBarDash {
+            0% {
+             stroke-dasharray: 1, 200;
+             stroke-dashoffset: 0;
+           }
+           50% {
+             stroke-dasharray: 89, 200;
+             stroke-dashoffset: -35;
+           }
+           100% {
+             stroke-dasharray: 89, 200;
+             stroke-dashoffset: -124;
+           }
+          }
+        `}
+      </SVGEmbeddedStyle>
       <circle
-        className="CircularLoader-bar"
         style={{animationDuration: `${duration}s`}}
         fill="none"
         stroke={stroke}

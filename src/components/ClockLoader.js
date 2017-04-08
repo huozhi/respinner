@@ -1,6 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
-import './ClockLoader.css'
+import {embeddedStyle} from '../helpers'
+import SVGEmbeddedStyle from './SVGEmbeddedStyle'
 
 const ClockLoader = ({size, strokeWidth, duration, className, ...rest}) => {
   const needleProps = {
@@ -14,6 +15,16 @@ const ClockLoader = ({size, strokeWidth, duration, className, ...rest}) => {
 
   return (
     <svg {...rest} className={cx('ClockLoader', className)} width={size} height={size}>
+      <SVGEmbeddedStyle>
+        {`
+          @keyframes Rotate { 100% { transform: rotate(360deg); } }
+
+          .ClockLoader line {
+            transform-origin: center;
+            animation: Rotate linear infinite;
+          }
+        `}
+      </SVGEmbeddedStyle>
       <circle
         fill="none"
         strokeWidth={strokeWidth}
@@ -22,7 +33,6 @@ const ClockLoader = ({size, strokeWidth, duration, className, ...rest}) => {
         r={size / 2 - strokeWidth}
       />
       <line
-        className="ClockLoader-needle"
         {...needleProps}
         strokeDasharray={`${size / 3} ${size / 2}`}
         strokeDashoffset={size / 3 + strokeWidth * 2}
