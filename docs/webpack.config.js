@@ -52,7 +52,7 @@ module.exports = {
     }),
   ] : [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
   ]),
   devServer: {
     hot: true,
