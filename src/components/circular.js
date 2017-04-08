@@ -1,8 +1,8 @@
 import React from 'react'
 import cx from 'classnames'
-import {embeddedStyle} from '../helpers'
-import SVGEmbeddedStyle from './SVGEmbeddedStyle'
-// import './CircularLoader.css'
+import {embeddedStyle} from '../lib'
+import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
+// import './CircularLoading.css'
 
 /*
  * hard to find the law of google style circular loading
@@ -13,14 +13,14 @@ import SVGEmbeddedStyle from './SVGEmbeddedStyle'
 
 const CIRCLE_RADIUS = 50 / 2
 
-const CircularLoader = ({className, duration, stroke, strokeWidth, linecap, size, ...rest}) => {
+const CircularLoading = ({className, duration, stroke, strokeWidth, linecap, size, ...rest}) => {
   const radius = size / 2 - strokeWidth
 
   return (
     <svg
       {...rest}
       viewBox={`0 0 ${CIRCLE_RADIUS * 2} ${CIRCLE_RADIUS * 2}`}
-      className={cx('CircularLoader', className)}
+      className={cx('CircularLoading', className)}
       width={size}
       height={size}
       style={{
@@ -32,7 +32,7 @@ const CircularLoader = ({className, duration, stroke, strokeWidth, linecap, size
         {`
           @keyframes Rotate { 100% { transform: rotate(360deg); } }
 
-          .CircularLoader circle {
+          .CircularLoading circle {
             transform-origin: center;
             animation: CircularBarDash ease-in-out infinite;
           }
@@ -67,11 +67,11 @@ const CircularLoader = ({className, duration, stroke, strokeWidth, linecap, size
   )
 }
 
-CircularLoader.defaultProps = {
+CircularLoading.defaultProps = {
   size: 40,
   strokeWidth: 4,
   linecap: 'round',
   duration: 1,
 }
 
-export default CircularLoader
+export default CircularLoading

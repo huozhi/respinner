@@ -1,10 +1,10 @@
 import React from 'react'
 import cx from 'classnames'
-import {repeat} from '../helpers'
-import SVGEmbeddedStyle from './SVGEmbeddedStyle'
-// import './BounceLoader.css'
+import {repeat} from '../lib'
+import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
+// import './BounceLoading.css'
 
-const BounceLoader = ({
+const BounceLoading = ({
   className, duration, count, fill, barWidth, barHeight, gap, ...rest
 }) => {
   const viewWidth = (barWidth + gap) * count - gap
@@ -13,12 +13,12 @@ const BounceLoader = ({
     <svg
       width={viewWidth}
       height={barHeight * 3}
-      className={cx('BounceLoader', className)}
+      className={cx('BounceLoading', className)}
       {...rest}
     >
       <SVGEmbeddedStyle>
         {
-          `.BounceLoader rect {
+          `.BounceLoading rect {
             display: 'inline-block';
             border-radius: 50%;
             animation: Bounce ease-in-out infinite;
@@ -53,7 +53,7 @@ const BounceLoader = ({
   )
 }
 
-BounceLoader.defaultProps = {
+BounceLoading.defaultProps = {
   gap: 6,
   count: 4,
   barWidth: 4,
@@ -61,4 +61,4 @@ BounceLoader.defaultProps = {
   duration: 0.8,
 }
 
-export default BounceLoader
+export default BounceLoading

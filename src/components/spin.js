@@ -1,20 +1,20 @@
 import React from 'react'
 import cx from 'classnames'
-import {repeat, getCSSSecond} from '../helpers'
-import SVGEmbeddedStyle from './SVGEmbeddedStyle'
+import {repeat, getCSSSecond} from '../lib'
+import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
-const SpinLoader = ({size, barWidth, barHeight, className, count, duration, fill, borderRadius, ...rest}) => {
+const SpinLoading = ({size, barWidth, barHeight, className, count, duration, fill, borderRadius, ...rest}) => {
   const radius = size / 2 - barHeight / 2
 
   return (
     <svg
       width={size}
       height={size}
-      className={cx('SpinLoader', className)}
+      className={cx('SpinLoading', className)}
     >
       <SVGEmbeddedStyle>
         {`
-          .SpinLoader rect {
+          .SpinLoading rect {
             transform-origin: center;
             animation: SpinFade linear infinite both;
           }
@@ -54,7 +54,7 @@ const SpinLoader = ({size, barWidth, barHeight, className, count, duration, fill
   )
 }
 
-SpinLoader.defaultProps = {
+SpinLoading.defaultProps = {
   size: 40,
   count: 8,
   barWidth: 4,
@@ -63,4 +63,4 @@ SpinLoader.defaultProps = {
   borderRadius: 1,
 }
 
-export default SpinLoader
+export default SpinLoading

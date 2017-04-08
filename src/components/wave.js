@@ -1,21 +1,21 @@
 import React from 'react'
 import cx from 'classnames'
-import {repeat, getCSSSecond} from '../helpers'
-import SVGEmbeddedStyle from './SVGEmbeddedStyle'
+import {repeat, getCSSSecond} from '../lib'
+import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
-const WaveLoader = ({size, className, count, stroke, duration, strokeWidth, ...rest}) => {
+const WaveLoading = ({size, className, count, stroke, duration, strokeWidth, ...rest}) => {
   const radius = size / 2 - strokeWidth
 
   return (
     <svg
       {...rest}
-      className={cx('WaveLoader', className)}
+      className={cx('WaveLoading', className)}
       width={size}
       height={size}
     >
       <SVGEmbeddedStyle>
         {`
-          .WaveLoader circle {
+          .WaveLoading circle {
             border-radius: 50%;
             animation: Wave ease-in-out infinite both;
             transform-origin: center;
@@ -51,11 +51,11 @@ const WaveLoader = ({size, className, count, stroke, duration, strokeWidth, ...r
   )
 }
 
-WaveLoader.defaultProps = {
+WaveLoading.defaultProps = {
   size: 40,
   count: 3,
   duration: 1.5,
   strokeWidth: 2,
 }
 
-export default WaveLoader
+export default WaveLoading

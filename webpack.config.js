@@ -4,13 +4,13 @@ const webpack = require('webpack')
 module.exports = {
   entry: {
     index: './src/index',
-    BeatLoader: './src/components/BeatLoader',
-    BounceLoader: './src/components/BounceLoader',
-    CircularLoader: './src/components/CircularLoader',
-    ClockLoader: './src/components/ClockLoader',
-    RotateLoader: './src/components/RotateLoader',
-    SpinLoader: './src/components/SpinLoader',
-    WaveLoader: './src/components/WaveLoader',
+    beat: './src/components/beat',
+    bounce: './src/components/bounce',
+    circular: './src/components/circular',
+    clock: './src/components/clock',
+    rotate: './src/components/rotate',
+    spin: './src/components/spin',
+    wave: './src/components/wave',
   },
   output: {
     path: path.join(__dirname, 'lib'),

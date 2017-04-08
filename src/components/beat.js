@@ -1,10 +1,9 @@
 import React from 'react'
 import cx from 'classnames'
-import {repeat} from '../helpers'
-import SVGEmbeddedStyle from './SVGEmbeddedStyle'
-// import './BeatLoader.css'
+import {repeat} from '../lib'
+import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
-const BeatLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
+const BeatLoading = ({className, duration, count, fill, size, gap, ...rest}) => {
   const viewWidth = (size + gap) * count - gap
 
   return (
@@ -12,11 +11,11 @@ const BeatLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
       {...rest}
       width={viewWidth}
       height={size}
-      className={cx('BeatLoader', className)}
+      className={cx('BeatLoading', className)}
     >
       <SVGEmbeddedStyle>
         {`
-          .BeatLoader circle {
+          .BeatLoading circle {
             border-radius: 50%;
             display: inline-block;
             animation: Beat ease-in-out infinite both;
@@ -54,11 +53,11 @@ const BeatLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
   )
 }
 
-BeatLoader.defaultProps = {
+BeatLoading.defaultProps = {
   gap: 6,
   size: 8,
   count: 6,
   duration: 0.8,
 }
 
-export default BeatLoader
+export default BeatLoading
