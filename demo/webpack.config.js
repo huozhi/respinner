@@ -15,32 +15,32 @@ module.exports = {
   },
   devtool: !isProduction && 'cheap-eval-source-map',
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
+        loader: 'babel-loader',
         exclude: /node_modules/,
-        loader: 'babel',
       },
       {
         test: /\.css$/,
-        loader: 'style!css!postcss',
-      }
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
     ],
   },
   resolve: {
     alias: {
       'respinner/lib': joinPath('../src/components'),
     },
-    extensions: ['', '.js'],
   },
-  postcss: webpack => [
-    require('postcss-import')({addDependencyTo: webpack}),
-    require('postcss-nested'),
-  ],
   plugins: ([
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: [
+          require('postcss-import')({addDependencyTo: webpack}),
+          require('postcss-nested'),
+        ],
+      }
+    })
   ]).concat(isProduction ? [
     new webpack.optimize.UglifyJsPlugin({
       compressor: {warnings: false},

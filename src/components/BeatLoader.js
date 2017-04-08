@@ -1,7 +1,8 @@
 import React from 'react'
 import cx from 'classnames'
 import {repeat} from '../helpers'
-import './BeatLoader.css'
+import SVGEmbeddedStyle from './SVGEmbeddedStyle'
+// import './BeatLoader.css'
 
 const BeatLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
   const viewWidth = (size + gap) * count - gap
@@ -13,6 +14,25 @@ const BeatLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
       height={size}
       className={cx('BeatLoader', className)}
     >
+      <SVGEmbeddedStyle>
+        {`
+          .BeatLoader circle {
+            border-radius: 50%;
+            display: inline-block;
+            animation: Beat ease-in-out infinite both;
+            transform-origin: center;
+          }
+
+          @keyframes Beat {
+            0%, 80%, 100% {
+              transform: scale(0);
+            }
+            40% {
+              transform: scale(1);
+            }
+          }
+        `}
+      </SVGEmbeddedStyle>
       {repeat(count).map((_, i) => {
         const style = {
           animationDelay: `${-duration / (count + 1) * (count - i)}s`,
@@ -21,7 +41,6 @@ const BeatLoader = ({className, duration, count, fill, size, gap, ...rest}) => {
 
         return (
           <circle
-            className="BeatLoader-item"
             key={`c-${i}`}
             style={style}
             fill={fill}

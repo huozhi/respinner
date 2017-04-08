@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import {repeat, getCSSSecond} from '../helpers'
-import './SpinLoader.css'
+import SVGEmbeddedStyle from './SVGEmbeddedStyle'
 
 const SpinLoader = ({size, barWidth, barHeight, className, count, duration, fill, borderRadius, ...rest}) => {
   const radius = size / 2 - barHeight / 2
@@ -12,6 +12,19 @@ const SpinLoader = ({size, barWidth, barHeight, className, count, duration, fill
       height={size}
       className={cx('SpinLoader', className)}
     >
+      <SVGEmbeddedStyle>
+        {`
+          .SpinLoader rect {
+            transform-origin: center;
+            animation: SpinFade linear infinite both;
+          }
+
+          @keyframes SpinFade {
+            50% { opacity: .3; }
+            100% { opacity: 1; }
+          }
+        `}
+      </SVGEmbeddedStyle>
       {repeat(count).map((_, i) => {
         const angle = 360 / count * i
         const style = {
@@ -25,7 +38,6 @@ const SpinLoader = ({size, barWidth, barHeight, className, count, duration, fill
         const y = Math.sin(Math.PI * angle / 180) * radius + radius
         return (
           <rect
-            className="SpinLoader-child"
             style={style}
             x={x}
             y={y}

@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import {repeat, getCSSSecond} from '../helpers'
-import './WaveLoader.css'
+import SVGEmbeddedStyle from './SVGEmbeddedStyle'
 
 const WaveLoader = ({size, className, count, stroke, duration, strokeWidth, ...rest}) => {
   const radius = size / 2 - strokeWidth
@@ -13,6 +13,21 @@ const WaveLoader = ({size, className, count, stroke, duration, strokeWidth, ...r
       width={size}
       height={size}
     >
+      <SVGEmbeddedStyle>
+        {`
+          .WaveLoader circle {
+            border-radius: 50%;
+            animation: Wave ease-in-out infinite both;
+            transform-origin: center;
+          }
+
+          @keyframes Wave {
+            0% { transform: scale(.1); opacity: 1; }
+            70% { transform: scale(1); opacity: .7; }
+            100% { transform: scale(1); opacity: 0; }
+          }
+        `}
+      </SVGEmbeddedStyle>
       {repeat(count).map((_, i) => {
         const style = {
           animationDelay: `${duration / count * i}s`,
@@ -21,7 +36,6 @@ const WaveLoader = ({size, className, count, stroke, duration, strokeWidth, ...r
 
         return (
           <circle
-            className="WaveLoader-item"
             key={`c-${i}`}
             style={style}
             stroke={stroke}

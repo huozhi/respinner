@@ -26,7 +26,7 @@ const loaders = [
     code: `<RotateLoader duration={1} stroke="${color}" opacity={0.4} />`,
     component: {RotateLoader},
   }, {
-    code: `<SpinLoader fill="${color}" borderRadius={2} count={12} />`,
+    code: `<SpinLoader fill="${color}" borderRadius={2} count={10} />`,
     component: {SpinLoader},
   }, {
     code: `<WaveLoader stroke="${color}" strokeWidth={3} />`,
