@@ -21,11 +21,11 @@
    stroke-dashoffset: 0;
  }
  50% {
-   stroke-dasharray: 78, 200;
-   stroke-dashoffset: -35px;
+   stroke-dasharray: 89, 200;
+   stroke-dashoffset: -35;
  }
  100% {
-   stroke-dasharray: 78, 200;
-   stroke-dashoffset: -124px;
+   stroke-dasharray: 89, 200;
+   stroke-dashoffset: -124;
  }
 }
