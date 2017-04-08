@@ -1209,7 +1209,7 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/code-point-at/download/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-codemirror@^5.13.4, codemirror@^5.15.2:
+codemirror@^5.13.4, codemirror@^5.15.2, codemirror@^5.18.2:
   version "5.25.0"
   resolved "http://registry.npm.taobao.org/codemirror/download/codemirror-5.25.0.tgz#78e06939c7bb41f65707b8aa9c5328111948b756"
 
@@ -2576,7 +2576,7 @@ lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
 
-lodash.debounce@^4.0.4:
+lodash.debounce@^4.0.4, lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "http://registry.npm.taobao.org/lodash.debounce/download/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
 
@@ -3759,6 +3759,14 @@ react-codemirror@^0.2.6:
     classnames "^2.2.3"
     codemirror "^5.13.4"
     lodash.debounce "^4.0.4"
+
+react-codemirror@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-codemirror/-/react-codemirror-0.3.0.tgz#cd6bd6ef458ec1e035cfd8b3fe7b30c8c7883c6c"
+  dependencies:
+    classnames "^2.2.5"
+    codemirror "^5.18.2"
+    lodash.debounce "^4.0.8"
 
 "react-dom@^15.0.1 || ^0.14.7", react-dom@^15.5.3:
   version "15.5.3"
