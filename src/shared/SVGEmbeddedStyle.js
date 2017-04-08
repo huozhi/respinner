@@ -1,5 +1,5 @@
 import React from 'react'
-import {embeddedStyle} from '../helpers'
+import {embeddedStyle} from '../lib'
 
 const SVGEmbeddedStyle = ({children}) => (
   <style scoped>

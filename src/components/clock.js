@@ -1,9 +1,9 @@
 import React from 'react'
 import cx from 'classnames'
-import {embeddedStyle} from '../helpers'
-import SVGEmbeddedStyle from './SVGEmbeddedStyle'
+import {embeddedStyle} from '../lib'
+import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
-const ClockLoader = ({size, strokeWidth, duration, className, ...rest}) => {
+const ClockLoading = ({size, strokeWidth, duration, className, ...rest}) => {
   const needleProps = {
     strokeWidth: strokeWidth,
     strokeLinecap: 'round',
@@ -14,12 +14,12 @@ const ClockLoader = ({size, strokeWidth, duration, className, ...rest}) => {
   }
 
   return (
-    <svg {...rest} className={cx('ClockLoader', className)} width={size} height={size}>
+    <svg {...rest} className={cx('ClockLoading', className)} width={size} height={size}>
       <SVGEmbeddedStyle>
         {`
           @keyframes Rotate { 100% { transform: rotate(360deg); } }
 
-          .ClockLoader line {
+          .ClockLoading line {
             transform-origin: center;
             animation: Rotate linear infinite;
           }
@@ -42,4 +42,4 @@ const ClockLoader = ({size, strokeWidth, duration, className, ...rest}) => {
   )
 }
 
-export default ClockLoader
+export default ClockLoading

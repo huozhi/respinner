@@ -1,10 +1,9 @@
 import React from 'react'
 import cx from 'classnames'
-import {getCSSSecond} from '../helpers'
-import SVGEmbeddedStyle from './SVGEmbeddedStyle'
-// import './RotateLoader.css'
+import {getCSSSecond} from '../lib'
+import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
-const RotateLoader = ({size, strokeWidth, duration, opacity, className, ...rest}) => {
+const RotateLoading = ({size, strokeWidth, duration, opacity, className, ...rest}) => {
   const radius = size / 2 - strokeWidth
 
   const circleProps = {
@@ -13,18 +12,18 @@ const RotateLoader = ({size, strokeWidth, duration, opacity, className, ...rest}
     cx: radius + strokeWidth,
     cy: radius + strokeWidth,
     fill: 'none',
-    className: 'RotateLoader-item',
+    className: 'RotateLoading-item',
     ...rest,
   }
 
   return (
-    <svg className={cx('RotateLoader', className)} width={size} height={size}>
+    <svg className={cx('RotateLoading', className)} width={size} height={size}>
       <SVGEmbeddedStyle>
         {`
           @keyframes Rotate { 100% { transform: rotate(360deg); } }
 
-          .RotateLoader circle:first-child { opacity: .2; }
-          .RotateLoader circle:last-child {
+          .RotateLoading circle:first-child { opacity: .2; }
+          .RotateLoading circle:last-child {
             animation: Rotate linear infinite;
             stroke-dasharray: 20 180;
             transform-origin: center;
@@ -37,11 +36,11 @@ const RotateLoader = ({size, strokeWidth, duration, opacity, className, ...rest}
   )
 }
 
-RotateLoader.defaultProps = {
+RotateLoading.defaultProps = {
   size: 40,
   opacity: 0.2,
   strokeWidth: 4,
   duration: 1.6,
 }
 
-export default RotateLoader
+export default RotateLoading
