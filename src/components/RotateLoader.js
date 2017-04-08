@@ -1,7 +1,8 @@
 import React from 'react'
 import cx from 'classnames'
 import {getCSSSecond} from '../helpers'
-import './RotateLoader.css'
+import SVGEmbeddedStyle from './SVGEmbeddedStyle'
+// import './RotateLoader.css'
 
 const RotateLoader = ({size, strokeWidth, duration, opacity, className, ...rest}) => {
   const radius = size / 2 - strokeWidth
@@ -16,13 +17,21 @@ const RotateLoader = ({size, strokeWidth, duration, opacity, className, ...rest}
     ...rest,
   }
 
-  const bgStyle = {
-    opacity,
-  }
-
   return (
     <svg className={cx('RotateLoader', className)} width={size} height={size}>
-      <circle {...circleProps} style={bgStyle} />
+      <SVGEmbeddedStyle>
+        {`
+          @keyframes Rotate { 100% { transform: rotate(360deg); } }
+
+          .RotateLoader circle:first-child { opacity: .2; }
+          .RotateLoader circle:last-child {
+            animation: Rotate linear infinite;
+            stroke-dasharray: 20 180;
+            transform-origin: center;
+          }
+        `}
+      </SVGEmbeddedStyle>
+      <circle {...circleProps} style={{opacity}} />
       <circle {...circleProps} style={{animationDuration: getCSSSecond(duration)}} />
     </svg>
   )

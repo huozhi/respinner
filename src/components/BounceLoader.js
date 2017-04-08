@@ -1,7 +1,8 @@
 import React from 'react'
 import cx from 'classnames'
 import {repeat} from '../helpers'
-import './BounceLoader.css'
+import SVGEmbeddedStyle from './SVGEmbeddedStyle'
+// import './BounceLoader.css'
 
 const BounceLoader = ({
   className, duration, count, fill, barWidth, barHeight, gap, ...rest
@@ -15,6 +16,22 @@ const BounceLoader = ({
       className={cx('BounceLoader', className)}
       {...rest}
     >
+      <SVGEmbeddedStyle>
+        {
+          `.BounceLoader rect {
+            display: 'inline-block';
+            border-radius: 50%;
+            animation: Bounce ease-in-out infinite;
+            transform-origin: center;
+          }
+
+          @keyframes Bounce {
+            0%, 100% { transform: translateY(0); }
+            25% { transform: translateY(8px); }
+            75% { transform: translateY(-8px); }
+          }
+        `}
+      </SVGEmbeddedStyle>
       {repeat(count).map((_, i) => {
         const style = {
           animationDelay: `${-duration / (count + 1) * (count - i)}s`,
@@ -23,7 +40,6 @@ const BounceLoader = ({
 
         return (
           <rect key={`rect-${i}`}
-            className="BounceLoader-item"
             style={style}
             fill={fill}
             height={barHeight}
