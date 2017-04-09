@@ -2,18 +2,19 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
+  context: path.join(__dirname, '../src'),
   entry: {
-    index: './src/index',
-    beat: './src/components/beat',
-    bounce: './src/components/bounce',
-    circular: './src/components/circular',
-    clock: './src/components/clock',
-    rotate: './src/components/rotate',
-    spin: './src/components/spin',
-    wave: './src/components/wave',
+    index: './index',
+    beat: './components/beat',
+    bounce: './components/bounce',
+    circular: './components/circular',
+    clock: './components/clock',
+    rotate: './components/rotate',
+    spin: './components/spin',
+    wave: './components/wave',
   },
   output: {
-    path: path.join(__dirname, 'lib'),
+    path: path.join(__dirname, '../lib'),
     filename: '[name].js',
     library: '[name]',
     libraryTarget: 'umd',
@@ -24,10 +25,6 @@ module.exports = {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
   },

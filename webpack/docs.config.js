@@ -1,16 +1,20 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const joinPath = path.join.bind(null, __dirname)
 const isProduction = process.env.NODE_ENV === 'production'
 
+console.log('isProduction', isProduction)
+
 module.exports = {
+  context: joinPath('../docs'),
   entry: {
-    app: [joinPath('app.js')],
+    app: './app',
   },
   output: {
     publicPath: isProduction ? '/respinner' : '/',
-    path: joinPath('dist'),
+    path: joinPath('../docs/dist'),
     filename: isProduction ? 'app.[hash].js' : 'app.js',
   },
   devtool: !isProduction && 'cheap-eval-source-map',
@@ -23,17 +27,26 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: isProduction ?
+          ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: ['css-loader', 'postcss-loader'],
+          }) :
+          ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
   },
   resolve: {
     alias: {
-      'respinner': joinPath('../src'),
+      respinner: joinPath('../src'),
     },
   },
   plugins: ([
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
     new webpack.LoaderOptionsPlugin({
+      minimize: true,
       options: {
         postcss: [
           require('postcss-import')({addDependencyTo: webpack}),
@@ -42,15 +55,13 @@ module.exports = {
       }
     })
   ]).concat(isProduction ? [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
+    new ExtractTextPlugin('app.css'),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {warnings: false},
       output: {comments: false},
     }),
     new HtmlWebpackPlugin({
-      template: joinPath('index-tpl.html'),
+      template: joinPath('../docs/index-tpl.html'),
       minify: false,
     }),
   ] : [
@@ -58,6 +69,7 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
   ]),
   devServer: {
+    contentBase: joinPath('../docs'),
     hot: true,
     inline: true,
     stats: {
