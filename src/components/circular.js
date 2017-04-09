@@ -68,7 +68,7 @@ const CircularLoading = ({className, duration, stroke, strokeWidth, linecap, siz
 
 CircularLoading.defaultProps = {
   size: 40,
-  strokeWidth: 4,
+  strokeWidth: 5,
   linecap: 'round',
   duration: 1,
 }
