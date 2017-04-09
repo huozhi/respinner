@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {render} from 'react-dom'
 import {
   BeatLoading,
@@ -9,8 +9,10 @@ import {
   SpinLoading,
   WaveLoading,
 } from 'respinner'
-import CodeMirror from 'react-codemirror'
-import Playground from 'component-playground'
+import hljs from 'highlight.js'
+// import CodeMirror from 'react-codemirror'
+// import Playground from 'component-playground'
+import 'highlight.js/styles/paraiso-dark.css'
 import './app.css'
 
 const color = '#4197ff'
@@ -18,33 +20,33 @@ const color = '#4197ff'
 const loaders = [
   {
     code: `<BeatLoading fill="${color}" count={4} />`,
-    component: {BeatLoading},
+    component: <BeatLoading fill={color} count={4} />,
   }, {
     code: `<CircularLoading size={40} duration={1} stroke="${color}" />`,
-    component: {CircularLoading},
+    component: <CircularLoading size={40} duration={1} stroke={color} />,
   }, {
     code: `<BounceLoading fill="${color}" gap={5} />`,
-    component: {BounceLoading},
+    component: <BounceLoading fill={color} gap={5} />,
   }, {
     code: `<RotateLoading duration={1} stroke="${color}" opacity={0.4} />`,
-    component: {RotateLoading},
+    component: <RotateLoading duration={1} stroke={color} opacity={0.4} />,
   }, {
     code: `<SpinLoading fill="${color}" borderRadius={2} count={10} />`,
-    component: {SpinLoading},
+    component: <SpinLoading fill={color} borderRadius={2} count={10} />,
   }, {
     code: `<WaveLoading stroke="${color}" strokeWidth={3} />`,
-    component: {WaveLoading},
+    component: <WaveLoading stroke={color} strokeWidth={3} />,
   }, {
     code: `<ClockLoading size={40} stroke="${color}" duration={2} strokeWidth={2} />`,
-    component: {ClockLoading},
+    component: <ClockLoading size={40} stroke={color} duration={2} strokeWidth={2} />,
   }
 ]
 
 const user = 'huozhi'
 const repo = 'respinner'
 
-const getStartCode = `
-import {
+const getStartCode =
+`import {
   BeatLoading, BounceLoading, CircularLoading,
   ClockLoading, RotateLoading, SpinLoading, WaveLoading
 } from 'respinner'
@@ -63,7 +65,7 @@ import WaveLoading from 'respinner/lib/wave'
 const Spinner = () => <CircularLoading />
 `
 
-const App = () => (
+const Demo = () => (
   <div className="App">
     <div className="App-title">
       <h1>React SVG Spinners</h1>
@@ -74,9 +76,14 @@ const App = () => (
     </div>
     <div className="App-container">
       <div className="App-getStart">
-        <CodeMirror
+        <pre>
+          <code className="lang-js">
+            {getStartCode}
+          </code>
+        </pre>
+        {/* <CodeMirror
           options={{
-            mode: 'jsx',
+            mode: 'xml',
             theme: 'paraiso-dark',
             readOnly: true,
             lineNumbers: false,
@@ -85,23 +92,32 @@ const App = () => (
             matchBrackets: true,
           }}
           value={getStartCode}
-        />
+        /> */}
       </div>
       {loaders.map(({code, component}, idx) => (
         <div key={`loader-${idx}`} className="App-demo">
-          <Playground
-            theme="paraiso-dark"
-            codeText={code}
-            scope={{
-              React,
-              ...component,
-            }}
-          />
+          <div className="Example">
+            <div className="Example-preview">
+              {component}
+            </div>
+            <pre>
+              <code className="Example-code lang-xml">{code}</code>
+            </pre>
+          </div>
         </div>
       ))}
     </div>
   </div>
 )
+
+class App extends Component {
+  componentDidMount() {
+    hljs.initHighlighting()
+  }
+  render() {
+    return <Demo />
+  }
+}
 
 render(
   <App />,

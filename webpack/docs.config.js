@@ -49,6 +49,7 @@ module.exports = {
       minimize: true,
       options: {
         postcss: [
+          require('autoprefixer'),
           require('postcss-import')({addDependencyTo: webpack}),
           require('postcss-nested'),
         ],
