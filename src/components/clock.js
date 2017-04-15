@@ -1,6 +1,5 @@
 import React from 'react'
 import cx from 'classnames'
-import {embeddedStyle} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
 const ClockLoading = ({size, strokeWidth, duration, className, ...rest}) => {
