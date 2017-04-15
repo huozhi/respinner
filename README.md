@@ -21,11 +21,15 @@ Yet **7** kinds of loaders supported, just import it when use with react. Any su
 ```js
 import React, {Component} from 'react'
 // easily import from entry
-import {CircularLoading} from 'respinner'
- // or import one directly
+import {
+  BeatLoading, BounceLoading, CircularLoading,
+  ClockLoading, RotateLoading, SpinLoading,
+  WaveLoading, LinearLoading, SugarcubeLoading
+} from 'respinner'
+// or import single spinner directly, smaller size if your code don't have tree shaking
 import SpinLoading from 'respinner/lib/spin'
 
-class LoadingComponent extends Component {  
+class LoadingComponents extends Component {  
   render() {
     <div className="spinners">
       <SpinLoading fill="#777" borderRadius={4} count={12} /> // use with customized props
@@ -33,6 +37,21 @@ class LoadingComponent extends Component {
     </div>
   }
 }
+```
+### Dist directory
+
+```
+lib
+├── beat.js
+├── bounce.js
+├── circular.js
+├── clock.js
+├── index.js
+├── linear.js
+├── rotate.js
+├── spin.js
+├── sugarcube.js
+└── wave.js
 ```
 
 ### API
@@ -92,6 +111,19 @@ class LoadingComponent extends Component {
 - size
 - duration
 - strokeWidth
+
+### 8. LinearLoading
+
+- count: default 3
+- height: default 3
+- width: default 100
+- duration: default 1.6
+
+### 9. SugarcubeLoading
+
+- size: default 40
+- strokeWidth: default 2
+- stroke: default 'none'
 
 ### Development
 
