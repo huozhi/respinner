@@ -8,10 +8,10 @@ import {
   RotateLoading,
   SpinLoading,
   WaveLoading,
+  LinearLoading,
+  SugarcubeLoading
 } from 'respinner'
 import hljs from 'highlight.js'
-// import CodeMirror from 'react-codemirror'
-// import Playground from 'component-playground'
 import 'highlight.js/styles/paraiso-dark.css'
 import './app.css'
 
@@ -34,11 +34,17 @@ const loaders = [
     code: `<SpinLoading fill="${color}" borderRadius={2} count={10} />`,
     component: <SpinLoading fill={color} borderRadius={2} count={10} />,
   }, {
-    code: `<WaveLoading stroke="${color}" strokeWidth={3} />`,
-    component: <WaveLoading stroke={color} strokeWidth={3} />,
+    code: `<WaveLoading stroke="${color}" strokeWidth={3} count={2} />`,
+    component: <WaveLoading stroke={color} strokeWidth={3} count={2} />,
   }, {
     code: `<ClockLoading size={40} stroke="${color}" duration={2} strokeWidth={2} />`,
     component: <ClockLoading size={40} stroke={color} duration={2} strokeWidth={2} />,
+  }, {
+    code: `<LinearLoading width={70} count={3} height={3} dotColor="#282838" bgColor="${color}" />`,
+    component: <LinearLoading width={70} count={3} height={3} dotColor="#282838" bgColor={color} />,
+  }, {
+    code: `<SugarcubeLoading size={40} strokeWidth={3} fill="${color}" />`,
+    component: <SugarcubeLoading size={40} strokeWidth={3} fill={color} />,
   }
 ]
 
@@ -47,17 +53,12 @@ const repo = 'respinner'
 
 const getStartCode =
 `import {
-  BeatLoading, BounceLoading, CircularLoading,
-  ClockLoading, RotateLoading, SpinLoading, WaveLoading
+  BeatLoading, BounceLoading, CircularLoading, ...
 } from 'respinner'
 
 // or import one directly, like the following
-import BeatLoading from 'respinner/lib/beat'
 import BounceLoading from 'respinner/lib/bounce'
 import CircularLoading from 'respinner/lib/circular'
-import ClockLoading from 'respinner/lib/clock'
-import RotateLoading from 'respinner/lib/rotate'
-import SpinLoading from 'respinner/lib/spin'
 import WaveLoading from 'respinner/lib/wave'
 
 // Then juse use it with customized or default props, see the examples below
@@ -81,18 +82,6 @@ const Demo = () => (
             {getStartCode}
           </code>
         </pre>
-        {/* <CodeMirror
-          options={{
-            mode: 'xml',
-            theme: 'paraiso-dark',
-            readOnly: true,
-            lineNumbers: false,
-            lineWrapping: true,
-            smartIndent: false,
-            matchBrackets: true,
-          }}
-          value={getStartCode}
-        /> */}
       </div>
       {loaders.map(({code, component}, idx) => (
         <div key={`loader-${idx}`} className="App-demo">
