@@ -12,6 +12,8 @@ module.exports = {
     rotate: './components/rotate',
     spin: './components/spin',
     wave: './components/wave',
+    linear: './components/linear',
+    sugarcube: './components/sugarcube',
   },
   output: {
     path: path.join(__dirname, '../lib'),
