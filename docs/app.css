@@ -6,7 +6,6 @@ html {
 
 html, body {
   position: relative;
-  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -15,10 +14,11 @@ body {
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
-  background: #282838;
+  background-color: #282838;
   color: #ccc;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
+  overflow-y: scroll;
 }
 
 h1, h2, h3, h4, h5, h6, p, span {
@@ -26,8 +26,6 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 .App {
-  height: 100%;
-
   code {
     background: rgba(255, 243, 243, 0.07);
   }
@@ -73,20 +71,6 @@ h1, h2, h3, h4, h5, h6, p, span {
   align-items: center;
 }
 
-@media (max-width: 767px) {
-  .App-code,
-  .playgroundCode {
-    display: none;
-  }
-
-  .App-demo {
-    padding: 0;
-    width: 50%;
-    margin-bottom: 2em;
-    min-height: 25%;
-  }
-}
-
 .Example {
   width: 100%;
   margin-left: auto;
@@ -103,13 +87,15 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 .Example-preview {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 20px auto;
   flex-grow: 1;
 }
 
 .Example-code {
-  height: 60px;
+  height: 74px;
   color: #cc7171;
   padding: 4px 1em;
   margin: auto 8px;
@@ -132,5 +118,28 @@ h1, h2, h3, h4, h5, h6, p, span {
 
   .CodeMirror {
     height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .App-code,
+  .playgroundCode {
+    display: none;
+  }
+
+  .App-demo {
+    padding: 0;
+    width: 50%;
+    margin-bottom: 2em;
+    min-height: 25%;
+  }
+
+  .Example {
+    height: 100px;
+  }
+
+  .App-getStart,
+  .Example-code {
+    display: none;
   }
 }
