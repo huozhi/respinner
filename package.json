@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build:docs": "npm run clean:docs && NODE_ENV=production webpack -p --colors --progress --config webpack/docs.config.js",
-    "ghpages": "npm run build:docs && gh-pages -d docs/dist",
+    "deploy:docs":"npm run build:docs && gh-pages -d docs/dist",
     "clean": "rm -rf ./lib",
     "clean:docs": "rm -rf docs/dist",
     "build": "webpack --colors --progress --config webpack/prod.config.js",
