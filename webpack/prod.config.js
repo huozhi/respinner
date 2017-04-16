@@ -13,7 +13,7 @@ module.exports = {
     spin: './components/spin',
     wave: './components/wave',
     linear: './components/linear',
-    sugarcube: './components/sugarcube',
+    copper: './components/copper',
   },
   output: {
     path: path.join(__dirname, '../lib'),

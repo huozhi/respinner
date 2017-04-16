@@ -24,7 +24,7 @@ import React, {Component} from 'react'
 import {
   BeatLoading, BounceLoading, CircularLoading,
   ClockLoading, RotateLoading, SpinLoading,
-  WaveLoading, LinearLoading, SugarcubeLoading
+  WaveLoading, LinearLoading, CopperLoading
 } from 'respinner'
 // or import single spinner directly, smaller size if your code don't have tree shaking
 import SpinLoading from 'respinner/lib/spin'
@@ -50,7 +50,7 @@ lib
 ├── linear.js
 ├── rotate.js
 ├── spin.js
-├── sugarcube.js
+├── copper.js
 └── wave.js
 ```
 
@@ -119,11 +119,10 @@ lib
 - width: default 100
 - duration: default 1.6
 
-### 9. SugarcubeLoading
+### 9. CopperLoading
 
 - size: default 40
-- strokeWidth: default 2
-- stroke: default 'none'
+- strokeWidth: default 4
 
 ### Development
 

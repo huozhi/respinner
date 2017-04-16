@@ -9,7 +9,7 @@ import {
   SpinLoading,
   WaveLoading,
   LinearLoading,
-  SugarcubeLoading
+  CopperLoading
 } from 'respinner'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/paraiso-dark.css'
@@ -43,8 +43,8 @@ const loaders = [
     code: `<LinearLoading width={70} count={3} height={3} dotColor="#282838" bgColor="${color}" />`,
     component: <LinearLoading width={70} count={3} height={3} dotColor="#282838" bgColor={color} />,
   }, {
-    code: `<SugarcubeLoading size={40} strokeWidth={3} fill="${color}" />`,
-    component: <SugarcubeLoading size={40} strokeWidth={3} fill={color} />,
+    code: `<CopperLoading size={40} strokeWidth={3} fill="${color}" />`,
+    component: <CopperLoading size={40} strokeWidth={3} fill={color} />,
   }
 ]
 
