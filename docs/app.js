@@ -8,8 +8,8 @@ import {
   RotateLoading,
   SpinLoading,
   WaveLoading,
-  LinearLoading,
-  CopperLoading
+  CopperLoading,
+  DashLoading
 } from 'respinner'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/paraiso-dark.css'
@@ -40,8 +40,8 @@ const loaders = [
     code: `<ClockLoading size={40} stroke="${color}" duration={2} strokeWidth={2} />`,
     component: <ClockLoading size={40} stroke={color} duration={2} strokeWidth={2} />,
   }, {
-    code: `<LinearLoading width={70} count={3} height={3} dotColor="#282838" bgColor="${color}" />`,
-    component: <LinearLoading width={70} count={3} height={3} dotColor="#282838" bgColor={color} />,
+    code: `<DashLoading size={40} stroke="${color}" duration={1.6} />`,
+    component: <DashLoading stroke={color} duration={1.6} />,
   }, {
     code: `<CopperLoading size={40} strokeWidth={3} fill="${color}" />`,
     component: <CopperLoading size={40} strokeWidth={3} fill={color} />,
