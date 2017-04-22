@@ -12,7 +12,7 @@ module.exports = {
     rotate: './components/rotate',
     spin: './components/spin',
     wave: './components/wave',
-    linear: './components/linear',
+    dash: './components/dash',
     copper: './components/copper',
   },
   output: {

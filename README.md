@@ -24,7 +24,7 @@ import React, {Component} from 'react'
 import {
   BeatLoading, BounceLoading, CircularLoading,
   ClockLoading, RotateLoading, SpinLoading,
-  WaveLoading, LinearLoading, CopperLoading
+  WaveLoading, DashLoading, CopperLoading
 } from 'respinner'
 // or import single spinner directly, smaller size if your code don't have tree shaking
 import SpinLoading from 'respinner/lib/spin'
@@ -46,8 +46,8 @@ lib
 ├── bounce.js
 ├── circular.js
 ├── clock.js
+├── dash.js
 ├── index.js
-├── linear.js
 ├── rotate.js
 ├── spin.js
 ├── copper.js
@@ -112,12 +112,11 @@ lib
 - duration
 - strokeWidth
 
-### 8. LinearLoading
+### 8. DashLoading
 
-- count: default 3
-- height: default 3
-- width: default 100
-- duration: default 1.6
+- size: default 40
+- duration: default 1.8
+- stroke
 
 ### 9. CopperLoading
 
