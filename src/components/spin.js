@@ -1,6 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
-import {repeat, getCSSSecond} from '../lib'
+import {repeat} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
 const SpinLoading = ({size, barWidth, barHeight, className, count, duration, fill, borderRadius, ...rest}) => {
@@ -14,11 +14,6 @@ const SpinLoading = ({size, barWidth, barHeight, className, count, duration, fil
     >
       <SVGEmbeddedStyle>
         {`
-          .SpinLoading rect {
-            transform-origin: center;
-            animation: SpinFade linear infinite both;
-          }
-
           @keyframes SpinFade {
             50% { opacity: .3; }
             100% { opacity: 1; }
@@ -29,8 +24,10 @@ const SpinLoading = ({size, barWidth, barHeight, className, count, duration, fil
         const angle = 360 / count * i
         const style = {
           transform: `rotate(${90 + angle}deg)`,
+          animation: 'SpinFade linear infinite both',
           animationDelay: `${duration * .8 / count * i}s`,
-          animationDuration: getCSSSecond(duration),
+          animationDuration: `${duration}s`,
+          transformOrigin: 'center',
         }
 
         /* (barWidth + borderRadius) / 2 is used to fix the excursion caused by thickness */

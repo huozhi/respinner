@@ -17,13 +17,7 @@ const BounceLoading = ({
     >
       <SVGEmbeddedStyle>
         {
-          `.BounceLoading rect {
-            display: 'inline-block';
-            border-radius: 50%;
-            animation: Bounce ease-in-out infinite;
-            transform-origin: center;
-          }
-
+          `
           @keyframes Bounce {
             0%, 100% { transform: translateY(0); }
             25% { transform: translateY(8px); }
@@ -35,6 +29,9 @@ const BounceLoading = ({
         const style = {
           animationDelay: `${-duration / (count + 1) * (count - i)}s`,
           animationDuration: `${duration}s`,
+          animationName: 'Bounce',
+          animationIterationCount: 'infinite',
+          transformOrigin: 'center',
         }
 
         return (
