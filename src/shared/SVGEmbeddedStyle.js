@@ -2,7 +2,7 @@ import React from 'react'
 import {embeddedStyle} from '../lib'
 
 const SVGEmbeddedStyle = ({children}) => (
-  <style scoped>
+  <style>
     {embeddedStyle(children)}
   </style>
 )
