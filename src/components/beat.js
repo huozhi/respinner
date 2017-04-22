@@ -15,13 +15,6 @@ const BeatLoading = ({className, duration, count, fill, size, gap, ...rest}) => 
     >
       <SVGEmbeddedStyle>
         {`
-          .BeatLoading circle {
-            border-radius: 50%;
-            display: inline-block;
-            animation: Beat ease-in-out infinite both;
-            transform-origin: center;
-          }
-
           @keyframes Beat {
             0%, 80%, 100% {
               transform: scale(0);
@@ -34,6 +27,9 @@ const BeatLoading = ({className, duration, count, fill, size, gap, ...rest}) => 
       </SVGEmbeddedStyle>
       {repeat(count).map((_, i) => {
         const style = {
+          borderRadius: '50%',
+          animation: `Beat infinite both`,
+          transformOrigin: 'center',
           animationDelay: `${-duration / (count + 1) * (count - i)}s`,
           animationDuration: `${duration}s`,
         }

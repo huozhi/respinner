@@ -30,11 +30,6 @@ const CircularLoading = ({className, duration, stroke, strokeWidth, linecap, siz
         {`
           @keyframes Rotate { 100% { transform: rotate(360deg); } }
 
-          .CircularLoading circle {
-            transform-origin: center;
-            animation: CircularBarDash ease-in-out infinite;
-          }
-
           @keyframes CircularBarDash {
             0% {
              stroke-dasharray: 1, 200;
@@ -52,7 +47,6 @@ const CircularLoading = ({className, duration, stroke, strokeWidth, linecap, siz
         `}
       </SVGEmbeddedStyle>
       <circle
-        style={{animationDuration: `${duration}s`}}
         fill="none"
         stroke={stroke}
         strokeWidth={strokeWidth}
@@ -60,6 +54,10 @@ const CircularLoading = ({className, duration, stroke, strokeWidth, linecap, siz
         cx={CIRCLE_RADIUS}
         cy={CIRCLE_RADIUS}
         r={CIRCLE_RADIUS - strokeWidth}
+        style={{
+          transformOrigin: 'center',
+          animation: `CircularBarDash ${duration}s infinite`,
+        }}
       />
     </svg>
   )

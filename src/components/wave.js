@@ -1,6 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
-import {repeat, getCSSSecond} from '../lib'
+import {repeat} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
 const WaveLoading = ({size, className, count, stroke, duration, strokeWidth, ...rest}) => {
@@ -15,12 +15,6 @@ const WaveLoading = ({size, className, count, stroke, duration, strokeWidth, ...
     >
       <SVGEmbeddedStyle>
         {`
-          .WaveLoading circle {
-            border-radius: 50%;
-            animation: Wave ease-in-out infinite both;
-            transform-origin: center;
-          }
-
           @keyframes Wave {
             0% { transform: scale(.1); opacity: 1; }
             70% { transform: scale(1); opacity: .7; }
@@ -30,8 +24,10 @@ const WaveLoading = ({size, className, count, stroke, duration, strokeWidth, ...
       </SVGEmbeddedStyle>
       {repeat(count).map((_, i) => {
         const style = {
+          animation: 'Wave infinite both',
           animationDelay: `${duration / count * i}s`,
-          animationDuration: getCSSSecond(duration)
+          animationDuration: `${duration}s`,
+          transformOrigin: 'center',
         }
 
         return (

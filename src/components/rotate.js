@@ -1,6 +1,5 @@
 import React from 'react'
 import cx from 'classnames'
-import {getCSSSecond} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
 const RotateLoading = ({size, strokeWidth, duration, opacity, className, ...rest}) => {
@@ -12,26 +11,24 @@ const RotateLoading = ({size, strokeWidth, duration, opacity, className, ...rest
     cx: radius + strokeWidth,
     cy: radius + strokeWidth,
     fill: 'none',
-    className: 'RotateLoading-item',
     ...rest,
   }
 
   return (
     <svg className={cx('RotateLoading', className)} width={size} height={size}>
       <SVGEmbeddedStyle>
-        {`
-          @keyframes Rotate { 100% { transform: rotate(360deg); } }
-
-          .RotateLoading circle:first-child { opacity: .2; }
-          .RotateLoading circle:last-child {
-            animation: Rotate linear infinite;
-            stroke-dasharray: 20 180;
-            transform-origin: center;
-          }
-        `}
+        {`@keyframes Rotate { 100% { transform: rotate(360deg); } }`}
       </SVGEmbeddedStyle>
       <circle {...circleProps} style={{opacity}} />
-      <circle {...circleProps} style={{animationDuration: getCSSSecond(duration)}} />
+      <circle
+        {...circleProps}
+        style={{
+          animation: 'Rotate linear infinite',
+          strokeDasharray: '20 180',
+          transformOrigin: 'center',
+          animationDuration: `${duration}s`,
+        }}
+      />
     </svg>
   )
 }

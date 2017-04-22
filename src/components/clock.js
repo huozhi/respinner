@@ -17,11 +17,6 @@ const ClockLoading = ({size, strokeWidth, duration, className, ...rest}) => {
       <SVGEmbeddedStyle>
         {`
           @keyframes Rotate { 100% { transform: rotate(360deg); } }
-
-          .ClockLoading line {
-            transform-origin: center;
-            animation: Rotate linear infinite;
-          }
         `}
       </SVGEmbeddedStyle>
       <circle
@@ -35,7 +30,11 @@ const ClockLoading = ({size, strokeWidth, duration, className, ...rest}) => {
         {...needleProps}
         strokeDasharray={`${size / 3} ${size / 2}`}
         strokeDashoffset={size / 3 + strokeWidth * 2}
-        style={{animationDuration: `${duration}s`}}
+        style={{
+          transformOrigin: 'center',
+          animation: 'Rotate linear infinite',
+          animationDuration: `${duration}s`,
+        }}
       />
     </svg>
   )
