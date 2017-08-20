@@ -1,4 +1,6 @@
 # Respinner
+![npm-download](https://img.shields.io/npm/dm/respinner.svg) ![npm-version](https://img.shields.io/npm/v/respinner.svg) ![license](https://img.shields.io/npm/l/respinner.svg)
+
 > react components for spinners or loaders. Each loader was combined css animation and render dom as svg.
 easily controlled by react porps.
 
