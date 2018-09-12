@@ -77,7 +77,7 @@ const App = () => (
               {component}
             </div>
             <pre>
-              <code className="Example-code lang-xml">{code}</code>
+              <code className="Example-code lang-js">{code}</code>
             </pre>
           </div>
         </div>
