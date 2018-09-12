@@ -1,5 +1,4 @@
 import React from 'react'
-import cx from 'classnames'
 import {repeat, uniqId} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
@@ -8,7 +7,7 @@ const BeatAnimation = `@keyframes Beat${uniqId}` + '{' +
   '40% {transform: scale(1);}' +
 '}'
 
-const BeatLoading = ({className, duration, count, fill, size, gap, ...rest}) => {
+const BeatLoading = ({duration, count, fill, size, gap, ...rest}) => {
   const viewWidth = (size + gap) * count - gap
 
   return (
@@ -16,7 +15,6 @@ const BeatLoading = ({className, duration, count, fill, size, gap, ...rest}) => 
       {...rest}
       width={viewWidth}
       height={size}
-      className={cx('BeatLoading', className)}
     >
       <SVGEmbeddedStyle animation={BeatAnimation} />
       {repeat(count).map((_, i) => {

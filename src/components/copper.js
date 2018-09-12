@@ -1,5 +1,4 @@
 import React from 'react'
-import cx from 'classnames'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 import {uniqId} from '../lib'
 
@@ -9,7 +8,7 @@ const TransRotate = `@keyframes TransRotate${uniqId}` + '{' +
   '100% {transform:rotate(765deg) scale(1);}'
 
 const CopperLoading = ({
-  size, strokeWidth, stroke, fill, duration, className, ...rest
+  size, strokeWidth, stroke, fill, duration, ...rest
 }) => {
   const commonStyle = {
     transformOrigin: 'center',
@@ -18,8 +17,6 @@ const CopperLoading = ({
   return (
     <svg
       {...rest}
-      // xmlnsXlink="http://www.w3.org/1999/xlink"
-      className={cx('CopperLoading', className)}
       width={size}
       height={size}
     >
