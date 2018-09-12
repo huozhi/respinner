@@ -1,5 +1,4 @@
 import React from 'react'
-import cx from 'classnames'
 import {repeat, uniqId} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
@@ -8,7 +7,7 @@ const SpinFadeAnimation = `@keyframes SpinFade${uniqId}` + '{ ' +
   '100% {opacity:1;}' +
 '}'
 
-const SpinLoading = ({size, barWidth, barHeight, className, count, duration, fill, borderRadius, ...rest}) => {
+const SpinLoading = ({size, barWidth, barHeight, count, duration, fill, borderRadius, ...rest}) => {
   const radius = size / 2 - barHeight / 2
 
   return (
@@ -16,7 +15,6 @@ const SpinLoading = ({size, barWidth, barHeight, className, count, duration, fil
       {...rest}
       width={size}
       height={size}
-      className={cx('SpinLoading', className)}
     >
       <SVGEmbeddedStyle animation={SpinFadeAnimation} />
       {repeat(count).map((_, i) => {
