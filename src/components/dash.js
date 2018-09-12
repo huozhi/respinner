@@ -1,5 +1,4 @@
 import React from 'react'
-import cx from 'classnames'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 import {uniqId} from '../lib'
 
@@ -9,12 +8,12 @@ const DashedRotateAnimation = (dash) => `@keyframes DashedRotate${uniqId}` + '{'
   `100% {stroke-dasharray:${dash} ${dash} 1 ${dash};transform:rotate(720deg);}` +
 '}'
 
-const DashLoading = ({size, stroke, strokeWidth, duration, className, ...rest}) => {
+const DashLoading = ({size, stroke, strokeWidth, duration, ...rest}) => {
   const radius = size / 2 - strokeWidth
   const dash = Math.PI * radius / 5
 
   return (
-    <svg {...rest} width={size} height={size} className={cx('DashLoading', className)}>
+    <svg {...rest} width={size} height={size}>
       <SVGEmbeddedStyle animation={DashedRotateAnimation(dash)} />
       <circle
         fill="none"

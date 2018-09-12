@@ -1,5 +1,4 @@
 import React from 'react'
-import cx from 'classnames'
 import {repeat, uniqId} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
@@ -9,13 +8,12 @@ const WaveAnimation = `@keyframes Wave${uniqId}` + '{' +
   '100% {transform:scale(1); opacity:0;}' +
 '}'
 
-const WaveLoading = ({size, className, count, stroke, duration, strokeWidth, ...rest}) => {
+const WaveLoading = ({size, count, stroke, duration, strokeWidth, ...rest}) => {
   const radius = size / 2 - strokeWidth
 
   return (
     <svg
       {...rest}
-      className={cx('WaveLoading', className)}
       width={size}
       height={size}
     >

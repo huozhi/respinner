@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {render} from 'react-dom'
 import {
   BeatLoading,
@@ -12,8 +12,6 @@ import {
   DashLoading
 } from 'respinner'
 import hljs from 'highlight.js'
-import 'highlight.js/styles/paraiso-dark.css'
-import './app.css'
 
 const color = '#4197ff'
 
@@ -56,17 +54,12 @@ const getStartCode =
   BeatLoading, BounceLoading, CircularLoading, ...
 } from 'respinner'
 
-// or import one directly, like the following
-import BounceLoading from 'respinner/lib/bounce'
-import CircularLoading from 'respinner/lib/circular'
-import WaveLoading from 'respinner/lib/wave'
-
 // Then juse use it with customized or default props, see the examples below
 
 const Spinner = () => <CircularLoading />
 `
 
-const Demo = () => (
+const App = () => (
   <div className="App">
     <div className="App-title">
       <h1>React SVG Spinners</h1>
@@ -76,13 +69,6 @@ const Demo = () => (
       </div>
     </div>
     <div className="App-container">
-      <div className="App-getStart">
-        <pre>
-          <code className="lang-js">
-            {getStartCode}
-          </code>
-        </pre>
-      </div>
       {loaders.map(({code, component}, idx) => (
         <div key={`loader-${idx}`} className="App-demo">
           <div className="Example">
@@ -95,20 +81,20 @@ const Demo = () => (
           </div>
         </div>
       ))}
+      <div className="App-getStart">
+        <pre>
+          <code className="lang-js">
+            {getStartCode}
+          </code>
+        </pre>
+      </div>
     </div>
   </div>
 )
-
-class App extends Component {
-  componentDidMount() {
-    hljs.initHighlighting()
-  }
-  render() {
-    return <Demo />
-  }
-}
 
 render(
   <App />,
   document.getElementById('root')
 )
+
+hljs.initHighlighting()

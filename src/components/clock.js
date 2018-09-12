@@ -1,9 +1,8 @@
 import React from 'react'
-import cx from 'classnames'
 import {RotateAnimation, uniqId} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
-const ClockLoading = ({size, strokeWidth, duration, className, ...rest}) => {
+const ClockLoading = ({size, strokeWidth, duration, ...rest}) => {
   const needleProps = {
     strokeWidth: strokeWidth,
     strokeLinecap: 'round',
@@ -14,7 +13,7 @@ const ClockLoading = ({size, strokeWidth, duration, className, ...rest}) => {
   }
 
   return (
-    <svg {...rest} className={cx('ClockLoading', className)} width={size} height={size}>
+    <svg {...rest} width={size} height={size}>
       <SVGEmbeddedStyle animation={RotateAnimation} />
       <circle
         fill="none"

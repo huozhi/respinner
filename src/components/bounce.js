@@ -1,5 +1,4 @@
 import React from 'react'
-import cx from 'classnames'
 import {repeat, uniqId} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
@@ -11,7 +10,7 @@ const BounceAnimation = `@keyframes Bounce${uniqId}` + '{' +
 
 
 const BounceLoading = ({
-  className, duration, count, fill, barWidth, barHeight, gap, ...rest
+  duration, count, fill, barWidth, barHeight, gap, ...rest
 }) => {
   const viewWidth = (barWidth + gap) * count - gap
 
@@ -19,7 +18,6 @@ const BounceLoading = ({
     <svg
       width={viewWidth}
       height={barHeight * 3}
-      className={cx('BounceLoading', className)}
       {...rest}
     >
       <SVGEmbeddedStyle animation={BounceAnimation} />

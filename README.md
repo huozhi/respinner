@@ -28,8 +28,6 @@ import {
   ClockLoading, RotateLoading, SpinLoading,
   WaveLoading, DashLoading, CopperLoading
 } from 'respinner'
-// or import single spinner directly, smaller size if your code don't have tree shaking
-import SpinLoading from 'respinner/lib/spin'
 
 class LoadingComponents extends Component {  
   render() {
@@ -39,21 +37,6 @@ class LoadingComponents extends Component {
     </div>
   }
 }
-```
-### Dist directory
-
-```
-lib
-├── beat.js
-├── bounce.js
-├── circular.js
-├── clock.js
-├── dash.js
-├── index.js
-├── rotate.js
-├── spin.js
-├── copper.js
-└── wave.js
 ```
 
 ### API

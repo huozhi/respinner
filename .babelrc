@@ -1,3 +1,6 @@
 {
-  "plugins": ["transform-react-jsx", "transform-object-rest-spread"]
+  "plugins": [
+    "@babel/plugin-transform-react-jsx",
+    ["@babel/plugin-proposal-object-rest-spread", {"loose": true, "useBuiltIns": true}]
+  ]
 }
