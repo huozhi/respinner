@@ -1,5 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
+import {RotateAnimation, uniqId} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
 const ClockLoading = ({size, strokeWidth, duration, className, ...rest}) => {
@@ -14,11 +15,7 @@ const ClockLoading = ({size, strokeWidth, duration, className, ...rest}) => {
 
   return (
     <svg {...rest} className={cx('ClockLoading', className)} width={size} height={size}>
-      <SVGEmbeddedStyle>
-        {`
-          @keyframes Rotate { 100% { transform: rotate(360deg); } }
-        `}
-      </SVGEmbeddedStyle>
+      <SVGEmbeddedStyle animation={RotateAnimation} />
       <circle
         fill="none"
         strokeWidth={strokeWidth}
@@ -32,7 +29,7 @@ const ClockLoading = ({size, strokeWidth, duration, className, ...rest}) => {
         strokeDashoffset={size / 3 + strokeWidth * 2}
         style={{
           transformOrigin: 'center',
-          animation: 'Rotate linear infinite',
+          animation: `Rotate${uniqId} linear infinite`,
           animationDuration: `${duration}s`,
         }}
       />
