@@ -17,7 +17,7 @@ const DashLoading = ({size, stroke, strokeWidth, duration, className, ...rest}) 
               transform: rotate(0deg);
             }
             50% {
-              stroke-dasharray: ${halfPerimeter / 5};
+              stroke-dasharray: ${dash};
               transform: rotate(360deg);
             }
             100% {
