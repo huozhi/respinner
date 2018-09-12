@@ -1,5 +1,4 @@
 import React from 'react'
-import cx from 'classnames'
 import {uniqId, RotateAnimation} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
@@ -20,12 +19,11 @@ const animation = [RotateAnimation, CircularBarDashAnimation].join('\n')
 
 const CIRCLE_RADIUS = 50 / 2
 
-const CircularLoading = ({className, duration, stroke, strokeWidth, linecap, size, ...rest}) => {
+const CircularLoading = ({duration, stroke, strokeWidth, linecap, size, ...rest}) => {
   return (
     <svg
       {...rest}
       viewBox={`0 0 ${CIRCLE_RADIUS * 2} ${CIRCLE_RADIUS * 2}`}
-      className={cx('CircularLoading', className)}
       width={size}
       height={size}
       style={{

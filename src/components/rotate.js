@@ -1,9 +1,8 @@
 import React from 'react'
-import cx from 'classnames'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 import {uniqId, RotateAnimation} from '../lib';
 
-const RotateLoading = ({size, strokeWidth, duration, opacity, className, ...rest}) => {
+const RotateLoading = ({size, strokeWidth, duration, opacity, ...rest}) => {
   const radius = size / 2 - strokeWidth
 
   const circleProps = {
@@ -16,7 +15,7 @@ const RotateLoading = ({size, strokeWidth, duration, opacity, className, ...rest
   }
 
   return (
-    <svg className={cx('RotateLoading', className)} width={size} height={size}>
+    <svg width={size} height={size}>
       <SVGEmbeddedStyle animation={RotateAnimation} />
       <circle {...circleProps} style={{opacity}} />
       <circle
