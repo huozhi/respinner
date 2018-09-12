@@ -1,5 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
+import {uniqId, RotateAnimation} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
 /*
@@ -9,11 +10,17 @@ import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
  * from: https://codepen.io/jczimm/pen/vEBpoL
  */
 
+const CircularBarDashAnimation = `@keyframes CircularBarDash${uniqId}` + '{' +
+  '0% {stroke-dasharray: 1, 200; stroke-dashoffset: 0;}' +
+  '50% {stroke-dasharray: 89, 200; stroke-dashoffset: -35;}' +
+  '100% {stroke-dasharray: 89, 200; stroke-dashoffset: -124;}' +
+'}'
+
+const animation = [RotateAnimation, CircularBarDashAnimation].join('\n')
+
 const CIRCLE_RADIUS = 50 / 2
 
 const CircularLoading = ({className, duration, stroke, strokeWidth, linecap, size, ...rest}) => {
-  const radius = size / 2 - strokeWidth
-
   return (
     <svg
       {...rest}
@@ -22,30 +29,11 @@ const CircularLoading = ({className, duration, stroke, strokeWidth, linecap, siz
       width={size}
       height={size}
       style={{
-        animation: 'Rotate linear infinite',
+        animation: `Rotate${uniqId} linear infinite`,
         animationDuration: `${duration * 4 / 3}s`
       }}
     >
-      <SVGEmbeddedStyle>
-        {`
-          @keyframes Rotate { 100% { transform: rotate(360deg); } }
-
-          @keyframes CircularBarDash {
-            0% {
-             stroke-dasharray: 1, 200;
-             stroke-dashoffset: 0;
-           }
-           50% {
-             stroke-dasharray: 89, 200;
-             stroke-dashoffset: -35;
-           }
-           100% {
-             stroke-dasharray: 89, 200;
-             stroke-dashoffset: -124;
-           }
-          }
-        `}
-      </SVGEmbeddedStyle>
+      <SVGEmbeddedStyle animation={animation} />
       <circle
         fill="none"
         stroke={stroke}
@@ -56,7 +44,7 @@ const CircularLoading = ({className, duration, stroke, strokeWidth, linecap, siz
         r={CIRCLE_RADIUS - strokeWidth}
         style={{
           transformOrigin: 'center',
-          animation: `CircularBarDash ${duration}s infinite`,
+          animation: `CircularBarDash${uniqId} ${duration}s infinite`,
         }}
       />
     </svg>

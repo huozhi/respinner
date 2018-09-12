@@ -1,25 +1,24 @@
 import React from 'react'
 import cx from 'classnames'
-import {repeat} from '../lib'
+import {repeat, uniqId} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
+
+const SpinFadeAnimation = `@keyframes SpinFade${uniqId}` + '{ ' +
+  '50% {opacity:.3;}' +
+  '100% {opacity:1;}' +
+'}'
 
 const SpinLoading = ({size, barWidth, barHeight, className, count, duration, fill, borderRadius, ...rest}) => {
   const radius = size / 2 - barHeight / 2
 
   return (
     <svg
+      {...rest}
       width={size}
       height={size}
       className={cx('SpinLoading', className)}
     >
-      <SVGEmbeddedStyle>
-        {`
-          @keyframes SpinFade {
-            50% { opacity: .3; }
-            100% { opacity: 1; }
-          }
-        `}
-      </SVGEmbeddedStyle>
+      <SVGEmbeddedStyle animation={SpinFadeAnimation} />
       {repeat(count).map((_, i) => {
         const angle = 360 / count * i
         /* (barWidth + borderRadius) / 2 is used to fix the excursion caused by thickness */
@@ -27,21 +26,20 @@ const SpinLoading = ({size, barWidth, barHeight, className, count, duration, fil
         const y = Math.sin(Math.PI * angle / 180) * radius + radius
 
         const style = {
-          transform: `rotate(${90 + angle}deg)`,
-          animation: 'SpinFade linear infinite both',
+          animation: `SpinFade${uniqId} linear infinite both`,
           animationDelay: `${duration * .8 / count * i}s`,
           animationDuration: `${duration}s`,
-          transformOrigin: `${x + barWidth / 2}px ${y + barHeight / 2}px`,
         }
 
         return (
           <rect
-            // transform-origin={`${x + barWidth / 2}px ${y + barHeight / 2}px`}
-            style={style}
             x={x}
             y={y}
-            key={`r-${i}`}
+            transform-origin={`${x + barWidth / 2}px ${y + barHeight / 2}px`}
+            transform={`rotate(${90 + angle})`}
             fill={fill}
+            style={style}
+            key={`r-${i}`}
             width={barWidth}
             height={barHeight}
             rx={borderRadius}

@@ -1,9 +1,9 @@
 import React from 'react'
 import {embeddedStyle} from '../lib'
 
-const SVGEmbeddedStyle = ({children}) => (
+const SVGEmbeddedStyle = ({animation}) => (
   <style>
-    {embeddedStyle(children)}
+    {embeddedStyle(animation)}
   </style>
 )
 
