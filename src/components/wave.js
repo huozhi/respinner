@@ -1,7 +1,13 @@
 import React from 'react'
 import cx from 'classnames'
-import {repeat} from '../lib'
+import {repeat, uniqId} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
+
+const WaveAnimation = `@keyframes Wave${uniqId}` + '{' +
+  '0% {transform:scale(.1); opacity:1;}' +
+  '70% {transform:scale(1); opacity:.7;}' +
+  '100% {transform:scale(1); opacity:0;}' +
+'}'
 
 const WaveLoading = ({size, className, count, stroke, duration, strokeWidth, ...rest}) => {
   const radius = size / 2 - strokeWidth
@@ -13,22 +19,15 @@ const WaveLoading = ({size, className, count, stroke, duration, strokeWidth, ...
       width={size}
       height={size}
     >
-      <SVGEmbeddedStyle>
-        {`
-          @keyframes Wave {
-            0% { transform: scale(.1); opacity: 1; }
-            70% { transform: scale(1); opacity: .7; }
-            100% { transform: scale(1); opacity: 0; }
-          }
-        `}
-      </SVGEmbeddedStyle>
+      <SVGEmbeddedStyle animation={WaveAnimation} />
       {repeat(count).map((_, i) => {
         const style = {
-          animation: 'Wave infinite both',
+          animation: `Wave${uniqId} infinite both`,
           animationDelay: `${duration / count * i}s`,
           animationDuration: `${duration}s`,
-          transformOrigin: 'center',
         }
+
+        const pos = size / 2
 
         return (
           <circle
@@ -36,10 +35,11 @@ const WaveLoading = ({size, className, count, stroke, duration, strokeWidth, ...
             style={style}
             stroke={stroke}
             strokeWidth={strokeWidth}
+            transform-origin={`${pos}px ${pos}px`}
             fill="none"
             r={radius}
-            cx={size / 2}
-            cy={size / 2}
+            cx={pos}
+            cy={pos}
           />
         )
       })}

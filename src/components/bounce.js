@@ -1,7 +1,14 @@
 import React from 'react'
 import cx from 'classnames'
-import {repeat} from '../lib'
+import {repeat, uniqId} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
+
+const BounceAnimation = `@keyframes Bounce${uniqId}` + '{' +
+  '0%, 100% {transform:translateY(0);}' +
+  '25% {transform:translateY(8px);}' +
+  '75% {transform:translateY(-8px);}' +
+'}'
+
 
 const BounceLoading = ({
   className, duration, count, fill, barWidth, barHeight, gap, ...rest
@@ -15,23 +22,13 @@ const BounceLoading = ({
       className={cx('BounceLoading', className)}
       {...rest}
     >
-      <SVGEmbeddedStyle>
-        {
-          `
-          @keyframes Bounce {
-            0%, 100% { transform: translateY(0); }
-            25% { transform: translateY(8px); }
-            75% { transform: translateY(-8px); }
-          }
-        `}
-      </SVGEmbeddedStyle>
+      <SVGEmbeddedStyle animation={BounceAnimation} />
       {repeat(count).map((_, i) => {
         const style = {
           animationDelay: `${-duration / (count + 1) * (count - i)}s`,
           animationDuration: `${duration}s`,
-          animationName: 'Bounce',
+          animationName: `Bounce${uniqId}`,
           animationIterationCount: 'infinite',
-          transformOrigin: 'center',
         }
 
         return (
