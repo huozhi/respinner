@@ -22,11 +22,11 @@ const SpinLoading = ({size, barWidth, barHeight, count, duration, fill, borderRa
         /* (barWidth + borderRadius) / 2 is used to fix the excursion caused by thickness */
         const x = Math.cos(Math.PI * angle / 180) * radius + radius + (barWidth + borderRadius) / 2
         const y = Math.sin(Math.PI * angle / 180) * radius + radius
-
         const style = {
           animation: `SpinFade${uniqId} linear infinite both`,
           animationDelay: `${duration * .8 / count * i}s`,
           animationDuration: `${duration}s`,
+          transformOrigin: `${x + barWidth / 2}px ${y + barHeight / 2}px`, // firefox compactible
         }
 
         return (
