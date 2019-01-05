@@ -8,7 +8,7 @@ You could change the count of spinner's children by props `count`, also the `col
 
 ### Examples
 
-![demo](http://huozhi.github.io/img/2016/respinner/demo.gif)
+![demo](https://raw.githubusercontent.com/huozhi/respinner/master/docs/demo.gif)
 
 See more details in `demo` directory or visit website: [huozhi.github.io/respinner/](https://huozhi.github.io/respinner/)
 
