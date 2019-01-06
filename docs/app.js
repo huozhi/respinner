@@ -63,7 +63,7 @@ const Spinner = () => <CircularLoading />
 const App = () => (
   <div className="App">
     <div className="App-title">
-      <h1>React SVG Spinners</h1>
+      <h1 style={{fontWeight: 900}}>Respinner</h1>
       <div className="App-github">
         <iframe src={`https://ghbtns.com/github-btn.html?user=${user}&repo=${repo}&type=fork`} frameBorder="0" scrolling="0" width="60px" height="20px" />
         <iframe src={`https://ghbtns.com/github-btn.html?user=${user}&repo=${repo}&type=star`} frameBorder="0" scrolling="0" width="60px" height="20px" />
@@ -82,13 +82,6 @@ const App = () => (
           </div>
         </div>
       ))}
-      <div className="App-getStart">
-        <pre>
-          <code className="lang-js">
-            {getStartCode}
-          </code>
-        </pre>
-      </div>
     </div>
   </div>
 )
