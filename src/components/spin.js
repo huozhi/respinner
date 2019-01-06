@@ -26,15 +26,14 @@ const SpinLoading = ({size, barWidth, barHeight, count, duration, fill, borderRa
           animation: `SpinFade${uniqId} linear infinite both`,
           animationDelay: `${duration * .8 / count * i}s`,
           animationDuration: `${duration}s`,
-          transformOrigin: `${x + barWidth / 2}px ${y + barHeight / 2}px`, // firefox compactible
+          transform: `rotate(${90 + angle}deg)`,
+          transformOrigin: `${x + barWidth / 2}px ${y + barHeight / 2}px`, // safari/firefox compactible
         }
 
         return (
           <rect
             x={x}
             y={y}
-            transform-origin={`${x + barWidth / 2}px ${y + barHeight / 2}px`}
-            transform={`rotate(${90 + angle})`}
             fill={fill}
             style={style}
             key={`r-${i}`}
