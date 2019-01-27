@@ -11,8 +11,7 @@ import {
   CopperLoading,
   DashLoading
 } from 'respinner'
-import hljs from 'highlight.js/lib/highlight'
-import javascript from 'highlight.js/lib/languages/javascript'
+
 
 const color = '#4197ff'
 
@@ -76,8 +75,8 @@ const App = () => (
             <div className="Example-preview">
               {component}
             </div>
-            <pre>
-              <code className="Example-code lang-xml">{code}</code>
+            <pre className="Example-code">
+              <code className="language-javascript">{code}</code>
             </pre>
           </div>
         </div>
@@ -90,6 +89,3 @@ render(
   <App />,
   document.getElementById('root')
 )
-
-hljs.registerLanguage('javascript', javascript)
-hljs.initHighlighting()
