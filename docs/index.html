@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 <title>respinner | huozhi</title>
-<link rel="stylesheet" href="///cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/paraiso-dark.min.css">
+<link rel="stylesheet" href="///cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-tomorrow.min.css" />
+ 
 <style type="text/css">
 html, html * {
   box-sizing: border-box;
@@ -23,15 +24,10 @@ body {
   background-color: #090e40;
   color: #ccc;
   font-weight: 300;
-  overflow-y: scroll;
 }
 
 h1, h2, h3, h4, h5, h6, p, span {
   font-weight: 300;
-}
-
-.App code {
-  background: rgba(255, 255, 255, 0.03);
 }
 
 .App-title {
@@ -54,6 +50,8 @@ h1, h2, h3, h4, h5, h6, p, span {
 .App-container {
   position: relative;
   padding: 2em 0;
+  margin: auto;
+  max-width: 960px;
 }
 
 .App-demo {
@@ -80,12 +78,12 @@ h1, h2, h3, h4, h5, h6, p, span {
   margin-right: auto;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   height: 150px;
 
 }
 .Example  pre {
   margin: auto;
-  white-space: normal;
   max-width: 300px;
 }
 
@@ -93,24 +91,26 @@ h1, h2, h3, h4, h5, h6, p, span {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px auto;
+  margin: auto auto 20px;
   flex-grow: 1;
 }
 
+.Example:hover { cursor: pointer; }
+.Example:hover > .Example-code {
+  opacity: 1;
+}
+
 .Example-code {
+  opacity: 0;
   height: 74px;
-  color: #cc7171;
   padding: 4px 1em;
   margin: auto 8px;
   border-radius: 3px;
+  transition: opacity ease .3s;
 }
 
-.Example-code .hljs-attr {
-  color: #48b685;
-}
-
-.Example-code .hljs-string {
-  color: #fec418
+code[class*=language-], pre[class*=language-] {
+  white-space: pre-wrap;
 }
 
 .App-getStart {
@@ -146,9 +146,14 @@ h1, h2, h3, h4, h5, h6, p, span {
     display: none;
   }
 }
+
+:not(pre)>code[class*=language-], pre[class*=language-] {
+  background: transparent;
+}
 </style>
 </head>
 <body>
   <div id="root"></div>
+  <script src="///cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
 </body>
 </html>
