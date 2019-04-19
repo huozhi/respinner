@@ -11,9 +11,9 @@ module.exports = {
     app: './app',
   },
   output: {
-    publicPath: isProduction ? '/respinner' : '/',
+    publicPath: '/respinner',
     path: joinPath('../docs/dist'),
-    filename: isProduction ? 'app.[hash].js' : 'app.js',
+    filename: 'app.js',
   },
   devtool: !isProduction && 'cheap-eval-source-map',
   module: {
@@ -24,11 +24,6 @@ module.exports = {
         exclude: /node_modules/,
       },
     ],
-  },
-  resolve: {
-    alias: {
-      respinner: joinPath('../src'),
-    },
   },
   plugins: [
     new webpack.DefinePlugin({
