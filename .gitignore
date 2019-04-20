@@ -2,3 +2,5 @@ node_modules
 docs/dist
 lib/
 *.log
+package-lock.json
+
