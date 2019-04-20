@@ -1,19 +1,17 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const joinPath = path.join.bind(null, __dirname)
+const pkg = require('../package.json')
+
 const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
-  context: joinPath('../docs'),
-  entry: {
-    app: './app',
-  },
+  entry: path.resolve(__dirname, './app'),
   output: {
-    publicPath: isProduction ? '/respinner' : '/',
-    path: joinPath('../docs/dist'),
-    filename: isProduction ? 'app.[hash].js' : 'app.js',
+    publicPath: `/${isProduction ? pkg.name : ''}`,
+    path: path.resolve(__dirname, './dist'),
+    filename: 'app.js',
   },
   devtool: !isProduction && 'cheap-eval-source-map',
   module: {
@@ -25,23 +23,17 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    alias: {
-      respinner: joinPath('../src'),
-    },
-  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new HtmlWebpackPlugin({
-      template: joinPath('../docs/index.html'),
-      minify: false,
+      template: path.resolve(__dirname, './index.html'),
     }),
     !isProduction && new webpack.HotModuleReplacementPlugin(),
   ].filter(Boolean),
   devServer: {
-    contentBase: joinPath('../docs/dist'),
+    contentBase: path.resolve('./dist'),
     hot: true,
     inline: true,
     stats: {
