@@ -18,7 +18,7 @@ See more details in `demo` directory or visit website: [huozhi.github.io/respinn
 npm install --save respinner
 ```
 
-Yet **7** kinds of loaders supported, just import it when use with react. Any suggestions on [issues](https://github.com/huozhi/respinner/issues).
+Just import it when use with react. Issues go to [issues](https://github.com/huozhi/respinner/issues).
 
 ```js
 import React, {Component} from 'react'
