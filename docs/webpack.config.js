@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const pkg = require('../package.json')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -9,7 +8,7 @@ module.exports = {
   mode: process.env.NODE_ENV || 'development',
   entry: path.resolve(__dirname, './app'),
   output: {
-    publicPath: `/${isProduction ? pkg.name : ''}`,
+    publicPath: `/`,
     path: path.resolve(__dirname, './dist'),
     filename: 'app.js',
   },

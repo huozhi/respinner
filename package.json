@@ -6,8 +6,7 @@
   "module": "lib/respinner.esm.js",
   "types": "./types.d.ts",
   "scripts": {
-    "build:docs": "npm run clean:docs && NODE_ENV=production webpack -p --colors --progress --config docs/webpack.config.js",
-    "deploy:docs": "npm run build:docs && gh-pages -d docs/dist",
+    "build:docs": "npm run build && npm run clean:docs && NODE_ENV=production webpack -p --colors --progress --config docs/webpack.config.js",
     "clean": "rm -rf ./lib",
     "clean:docs": "rm -rf docs/dist",
     "build": "bunchee src/index.js",
@@ -38,7 +37,6 @@
     "@babel/plugin-transform-react-jsx": "^7.0.0",
     "babel-loader": "^8.0.2",
     "bunchee": "0.6.0",
-    "gh-pages": "^0.12.0",
     "html-webpack-plugin": "^3.2.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
