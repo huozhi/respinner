@@ -10,7 +10,7 @@ import {
   WaveLoading,
   CopperLoading,
   DashLoading
-} from '..'
+} from 'respinner'
 
 
 const color = '#4197ff'
