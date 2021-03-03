@@ -21,7 +21,7 @@ body {
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
-  background-color: #090e40;
+  background-color: #000;
   color: #ccc;
   font-weight: 300;
 }
@@ -30,28 +30,33 @@ h1, h2, h3, h4, h5, h6, p, span {
   font-weight: 300;
 }
 
+a, a:visited, a:active {
+  color: #fff;
+}
+
 .App-title {
   position: relative;
   padding: 8px 0;
-  border-bottom: 1px dashed #444261;
-  color: #cc7171;
+  color: #4197ff;
   text-align: center;
+  margin-bottom: 120px;
 }
 
-.App-github {
-  max-width: 360px;
+.App-info {
   margin: auto;
   margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 16px;
+}
+
+.App-info span + span {
+  margin-left: 10px;
 }
 
 .App-container {
   position: relative;
   padding: 2em 0;
   margin: auto;
-  max-width: 960px;
+  max-width: 640px;
 }
 
 .App-demo {
@@ -84,7 +89,6 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 .Example  pre {
   margin: auto;
-  max-width: 300px;
 }
 
 .Example-preview {
@@ -110,7 +114,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 code[class*=language-], pre[class*=language-] {
-  white-space: pre-wrap;
+  white-space: no-wrap;
 }
 
 .App-getStart {
@@ -124,12 +128,7 @@ code[class*=language-], pre[class*=language-] {
   height: auto;
 }
 
-@media (max-width: 767px) {
-  .App-code,
-  .playgroundCode {
-    display: none;
-  }
-
+@media (max-width: 640px) {
   .App-demo {
     padding: 0;
     width: 50%;
@@ -155,5 +154,6 @@ code[class*=language-], pre[class*=language-] {
 <body>
   <div id="root"></div>
   <script src="///cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+  <script type="module" src="./app.jsx"></script>
 </body>
 </html>

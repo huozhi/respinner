@@ -1,0 +1,13 @@
+{
+  "name": "respinner-example",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "vite": "2.0.5"
+  }
+}

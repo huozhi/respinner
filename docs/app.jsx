@@ -46,26 +46,15 @@ const loaders = [
   }
 ]
 
-const user = 'huozhi'
-const repo = 'respinner'
-
-const getStartCode =
-`import {
-  BeatLoading, BounceLoading, CircularLoading, ...
-} from 'respinner'
-
-// Then juse use it with customized or default props, see the examples below
-
-const Spinner = () => <CircularLoading />
-`
-
 const App = () => (
   <div className="App">
     <div className="App-title">
-      <h1 style={{fontWeight: 900}}>Respinner</h1>
-      <div className="App-github">
-        <iframe src={`https://ghbtns.com/github-btn.html?user=${user}&repo=${repo}&type=fork`} frameBorder="0" scrolling="0" width="60px" height="20px" />
-        <iframe src={`https://ghbtns.com/github-btn.html?user=${user}&repo=${repo}&type=star`} frameBorder="0" scrolling="0" width="60px" height="20px" />
+      <h1 style={{fontWeight: 900}}>
+        Respinner
+      </h1>
+      <div className="App-info">
+        <span><a href='https://github.com/huozhi/respinner'>{`github`}</a></span>
+        <span><a href='https://npm.in/respinner'>{`npm`}</a></span>
       </div>
     </div>
     <div className="App-container">
