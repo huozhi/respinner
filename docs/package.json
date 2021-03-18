@@ -11,6 +11,6 @@
   "dependencies": {
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "respinner": "3.0.2"
+    "respinner": "latest"
   }
 }

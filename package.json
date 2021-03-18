@@ -2,20 +2,19 @@
   "name": "respinner",
   "version": "3.0.2",
   "description": "react components for loadere or spinner",
-  "main": "lib/respinner.js",
-  "module": "lib/respinner.esm.js",
-  "types": "./types.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "types.d.ts",
   "scripts": {
-    "clean": "rm -rf ./lib",
-    "build": "bunchee src/index.js",
-    "prepublishOnly": "npm run clean && npm run build",
-    "postversion": "git push && git push --tags"
+    "clean": "rm -rf ./dist",
+    "build": "bunchee src/index.js --no-sourcemap",
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "sideEffects": false,
   "files": [
     "*.md",
-    "lib",
-    "src"
+    "dist",
+    "types.d.ts"
   ],
   "repository": {
     "type": "git",
@@ -29,13 +28,7 @@
   "license": "MIT",
   "homepage": "https://github.com/huozhi/respinner#readme",
   "devDependencies": {
-    "@babel/core": "^7.0.1",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-    "@babel/plugin-transform-react-jsx": "^7.0.0",
-    "babel-loader": "^8.0.2",
-    "bunchee": "0.6.0",
-    "react": "^16.5.0",
-    "react-dom": "^16.5.0"
+    "bunchee": "1.5.1"
   },
   "peerDependencies": {
     "react": "*"
