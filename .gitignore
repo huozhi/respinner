@@ -1,6 +1,6 @@
 node_modules
 docs/dist
-lib/
+dist/
 *.log
 package-lock.json
 
