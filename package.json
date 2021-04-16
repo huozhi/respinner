@@ -28,7 +28,7 @@
   "license": "MIT",
   "homepage": "https://github.com/huozhi/respinner#readme",
   "devDependencies": {
-    "bunchee": "1.5.1"
+    "bunchee": "1.5.4"
   },
   "peerDependencies": {
     "react": "*"
