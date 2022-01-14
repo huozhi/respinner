@@ -4,11 +4,18 @@
   "description": "react components for loadere or spinner",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
+  "exports": {
+    "import": "dist/index.mjs",
+    "require": "dist/index.js",
+    "module": "dist/index.esm.js"
+  },
   "types": "types.d.ts",
   "scripts": {
     "clean": "rm -rf ./dist",
     "build": "bunchee src/index.js --no-sourcemap",
-    "prepublishOnly": "npm run clean && npm run build"
+    "prepublishOnly": "npm run clean && npm run build",
+    "build:docs": "yarn build && yarn vite build ./docs",
+    "dev": "yarn vite dev ./docs"
   },
   "sideEffects": false,
   "files": [
@@ -28,12 +35,13 @@
   "license": "MIT",
   "homepage": "https://github.com/huozhi/respinner#readme",
   "devDependencies": {
-    "bunchee": "1.5.4"
+    "bunchee": "^1.8.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "respinner": "link:./",
+    "vite": "^2.7.12"
   },
   "peerDependencies": {
     "react": "*"
-  },
-  "engines": {
-    "node": ">=6.0"
   }
 }
