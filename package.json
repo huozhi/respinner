@@ -14,7 +14,7 @@
     "clean": "rm -rf ./dist",
     "build": "bunchee src/index.js --no-sourcemap",
     "prepublishOnly": "npm run clean && npm run build",
-    "build:docs": "yarn vite build ./docs",
+    "build:docs": "yarn build && yarn vite build ./docs",
     "dev": "yarn vite dev ./docs"
   },
   "sideEffects": false,
