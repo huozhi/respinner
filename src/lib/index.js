@@ -1,4 +1,4 @@
-export const uniqId = Math.random().toString(36).substr(2, 9)
+export const uniqId = Math.random().toString(36).slice(2, 11)
 
 export const repeat = (count) => Array.apply(null, Array(count))
 export const embeddedStyle = (css) => `/* <![CDATA[ */${(css)}/* ]]> */`
