@@ -10,7 +10,7 @@ You could change the count of spinner's children by props `count`, also the `col
 
 ![demo](https://raw.githubusercontent.com/huozhi/respinner/master/docs/public/demo.gif)
 
-See more details in `demo` directory or visit website: [huozhi.github.io/respinner/](https://huozhi.github.io/respinner/)
+See more details in `demo` directory or visit [website](https://respinner.vercel.app/)
 
 ### Usage
 
