@@ -20,7 +20,9 @@ npm install --save respinner
 
 Just import it when use with react. Issues go to [issues](https://github.com/huozhi/respinner/issues).
 
-```js
+#### Basic
+
+```jsx
 import React, {Component} from 'react'
 // easily import from entry
 import {
@@ -37,6 +39,17 @@ class LoadingComponents extends Component {
     </div>
   }
 }
+```
+
+#### Use with SVG `use`
+
+```jsx
+// pre-define a spinner
+<SpinLoading borderRadius={2} count={10} id="spin" />
+
+// reuse them
+<svg width="40"><use href="#spin" fill="#fff" /></svg>
+<svg width="40"><use href="#spin" fill="#fff" /></svg>
 ```
 
 ### API

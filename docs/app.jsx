@@ -15,7 +15,7 @@ import {
 
 const color = '#4197ff'
 
-const loaders = [
+const spinners = [
   {
     code: `<BeatLoading fill="${color}" count={4} />`,
     component: <BeatLoading fill={color} count={4} />,
@@ -58,7 +58,7 @@ const App = () => (
       </div>
     </div>
     <div className="App-container">
-      {loaders.map(({code, component}, idx) => (
+      {spinners.map(({code, component}, idx) => (
         <div key={`loader-${idx}`} className="App-demo">
           <div className="Example">
             <div className="Example-preview">
