@@ -2,12 +2,12 @@
   "name": "respinner",
   "version": "3.0.5",
   "description": "react components for loadere or spinner",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
   "exports": {
-    "import": "dist/index.mjs",
-    "require": "dist/index.js",
-    "module": "dist/index.esm.js"
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.js",
+    "module": "./dist/index.esm.js"
   },
   "types": "types.d.ts",
   "scripts": {
