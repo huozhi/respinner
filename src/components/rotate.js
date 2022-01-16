@@ -2,7 +2,7 @@ import React from 'react'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 import {uniqId, RotateAnimation} from '../lib';
 
-const RotateLoading = ({size, strokeWidth, duration, opacity, ...rest}) => {
+const RotateLoading = ({size, duration, opacity, strokeWidth, ...rest}) => {
   const radius = size / 2 - strokeWidth
 
   const circleProps = {

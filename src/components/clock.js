@@ -2,7 +2,7 @@ import React from 'react'
 import {RotateAnimation, uniqId} from '../lib'
 import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
-const ClockLoading = ({size, strokeWidth, duration, ...rest}) => {
+const ClockLoading = ({size, duration, strokeWidth, ...rest}) => {
   const needleProps = {
     strokeWidth: strokeWidth,
     strokeLinecap: 'round',
