@@ -1,12 +1,5 @@
 import React from 'react'
-import {repeat, uniqId, createCompatibleAnimation} from '../lib'
-import InlineSvgStyle from '../lib/embed-style'
-
-export const BounceAnimation = createCompatibleAnimation(`Bounce${uniqId}` + '{' +
-  '0%, 100% {transform:translateY(0);}' +
-  '25% {transform:translateY(8px);}' +
-  '75% {transform:translateY(-8px);}' +
-'}')
+import {repeat} from '../lib'
 
 const BounceLoading = ({
   duration, count, fill, barWidth, barHeight, gap, ...rest
@@ -19,24 +12,25 @@ const BounceLoading = ({
       height={barHeight * 3}
       {...rest}
     >
-      <InlineSvgStyle animation={BounceAnimation} />
       {repeat(count).map((_, i) => {
-        const style = {
-          animationDelay: `${-duration / (count + 1) * (count - i)}s`,
-          animationDuration: `${duration}s`,
-          animationName: `Bounce${uniqId}`,
-          animationIterationCount: 'infinite',
-        }
-
         return (
           <rect key={`rect-${i}`}
-            style={style}
             fill={fill}
             height={barHeight}
             width={barWidth}
             x={(barWidth + gap) * i}
             y={barHeight}
-          />
+          >
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              values="0 0; 0 8; 0 -8; 0 0"
+              keyTimes="0; 0.25; 0.75; 1"
+              dur={`${duration}s`}
+              begin={`${-duration / (count + 1) * (count - i)}s`}
+              repeatCount="indefinite"
+            />
+          </rect>
         )}
       )}
     </svg>
