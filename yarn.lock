@@ -161,7 +161,7 @@
   resolved "https://registry.yarnpkg.com/@swc/core-win32-x64-msvc/-/core-win32-x64-msvc-1.3.2.tgz#a6c061a98bf6c70c42ac1fdf27674b085b768285"
   integrity sha512-RSFgS2imGONhdN8anvDI+8wL+sinmeKUy2SmSiy8hSmqke1bCslirULCckyGzQAIMf3qCjuaTXxOFiQrsoSoIA==
 
-"@swc/core@^1.2.249":
+"@swc/core@^1.3.0":
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@swc/core/-/core-1.3.2.tgz#86b1138f9b51e8476f39e2894944fc45585971fc"
   integrity sha512-p2nLRVgtaz/v5UkNW9Ur5WrQUKB5YH1X7mE15UD2kihiAMc/04wvo0SNLW0BIeGSqeFdoZQ45TX5uOIxhAvRSg==
@@ -242,20 +242,20 @@ builtin-modules@^3.3.0:
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-3.3.0.tgz#cae62812b89801e9656336e46223e030386be7b6"
   integrity sha512-zhaCDicdLuWN5UbN5IMnFqNMhNfo919sH85y2/ea+5Yg9TsTkeZxpL+JLbp6cgYFS4sRLp3YV4S6yDuqVWHYOw==
 
-bunchee@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/bunchee/-/bunchee-2.1.2.tgz#664c71b6bfc8de83b4e9361ce22dee39c6490627"
-  integrity sha512-CzPMoM6Hws6X1TZrcDIJnOymX5s8XiXGHGxO9cknEmJnxvfEiAHazqPQtDwnWVOXQI68a8JhvYJQ1Gh9uSa0Ag==
+bunchee@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/bunchee/-/bunchee-2.1.3.tgz#31d4fcf95586e1e29770294ee94860192ad95a4d"
+  integrity sha512-bVA5aeM9neeWQKXFCfUk3+27Q1iAhtW4qDcVar7+On4JsBOXTF9PlMCNlfnl5AoyCSidSuaVAwDrSaC0+7Oydw==
   dependencies:
     "@rollup/plugin-commonjs" "22.0.2"
     "@rollup/plugin-json" "4.1.0"
     "@rollup/plugin-node-resolve" "13.3.0"
-    "@swc/core" "^1.2.249"
+    "@swc/core" "^1.3.0"
     arg "5.0.0"
     rollup "2.74.1"
     rollup-plugin-dts "4.2.2"
     rollup-plugin-preserve-shebang "1.0.1"
-    rollup-plugin-swc3 "0.5.0"
+    rollup-plugin-swc3 "0.6.0"
     tslib "2.4.0"
 
 chalk@^2.0.0:
@@ -459,6 +459,11 @@ function-bind@^1.1.1:
   resolved "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
 
+get-tsconfig@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/get-tsconfig/-/get-tsconfig-4.2.0.tgz#ff368dd7104dab47bf923404eb93838245c66543"
+  integrity sha512-X8u8fREiYOE6S8hLbq99PeykTDoLVnxvF4DjWKJmz9xy2nNRdUcV8ZN9tniJFeKyTU3qnC9lL8n4Chd6LmVKHg==
+
 glob@^7.1.6:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.2.0.tgz#d15535af7732e02e948f4c41628bd910293f6023"
@@ -529,20 +534,10 @@ is-reference@^1.2.1:
   dependencies:
     "@types/estree" "*"
 
-joycon@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/joycon/-/joycon-3.1.1.tgz#bce8596d6ae808f8b68168f5fc69280996894f03"
-  integrity sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==
-
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
-
-jsonc-parser@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/jsonc-parser/-/jsonc-parser-3.2.0.tgz#31ff3f4c2b9793f89c67212627c51c6394f88e76"
-  integrity sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==
 
 loose-envify@^1.1.0:
   version "1.4.0"
@@ -665,15 +660,14 @@ rollup-plugin-preserve-shebang@1.0.1:
   dependencies:
     magic-string "^0.25.7"
 
-rollup-plugin-swc3@0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-swc3/-/rollup-plugin-swc3-0.5.0.tgz#caf745811d1377226ebb41e368eb0a38c70a30c1"
-  integrity sha512-Y5zJAsvksM39YAmjNje9rWtRMrJefaieDfkv52B2H7PsFj9EuYsrgGJRRUZCiOjMkQwdkiAEYfobqMZFV1X6pg==
+rollup-plugin-swc3@0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-swc3/-/rollup-plugin-swc3-0.6.0.tgz#c9db634bd0d7f3d11e617a76f5e66847330d06dd"
+  integrity sha512-nNG2T3x3wq6e7H+8ZHB0CxJ3H9QeYZUh+DwCjwWEyGCaIwIMyIaq/30ZJlYK8/OWWhCfYMwxKRcZGirPg6nPqA==
   dependencies:
     "@rollup/pluginutils" "^4.2.1"
     deepmerge "^4.2.2"
-    joycon "^3.1.1"
-    jsonc-parser "^3.2.0"
+    get-tsconfig "^4.2.0"
 
 rollup@2.74.1:
   version "2.74.1"
