@@ -2,6 +2,7 @@ import React from 'react'
 import {repeat} from '../lib'
 
 const BounceLoading = ({
+  gap = 6,
   count = 4,
   barWidth = 4,
   barHeight = 16,

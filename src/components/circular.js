@@ -40,7 +40,7 @@ const CircularLoading = ({
         />
         <animate
           attributeName='stroke-dasharray'
-          values='1, 200;89, 200;89 200;'
+          values='1,200; 89,200; 89 200;'
           dur={`${duration}s`}
           repeatCount='indefinite'
         />
