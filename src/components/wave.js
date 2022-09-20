@@ -1,12 +1,13 @@
 import React from 'react'
-import {repeat, uniqId} from '../lib'
-import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
+import {repeat, uniqId, createCompatibleAnimation} from '../lib'
+import InlineSvgStyle from '../lib/embed-style'
 
-const WaveAnimation = `@keyframes Wave${uniqId}` + '{' +
+const WaveAnimation = createCompatibleAnimation(`Wave${uniqId}` + '{' +
   '0% {transform:scale(.1); opacity:1;}' +
   '70% {transform:scale(1); opacity:.7;}' +
   '100% {transform:scale(1); opacity:0;}' +
-'}'
+  '}'
+)
 
 const WaveLoading = ({size, count, stroke, duration, strokeWidth, ...rest}) => {
   const radius = size / 2 - strokeWidth
@@ -17,7 +18,7 @@ const WaveLoading = ({size, count, stroke, duration, strokeWidth, ...rest}) => {
       width={size}
       height={size}
     >
-      <SVGEmbeddedStyle animation={WaveAnimation} />
+      <InlineSvgStyle animation={WaveAnimation} />
       {repeat(count).map((_, i) => {
         const style = {
           animation: `Wave${uniqId} infinite both`,

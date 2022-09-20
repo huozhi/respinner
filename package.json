@@ -14,8 +14,8 @@
     "clean": "rm -rf ./dist",
     "build": "bunchee src/index.js",
     "prepublishOnly": "npm run clean && npm run build",
-    "build:docs": "yarn build && yarn vite build ./docs",
-    "dev": "yarn vite dev ./docs"
+    "build:docs": "yarn build && vite build ./docs",
+    "dev": "vite dev ./docs --port 3000"
   },
   "sideEffects": false,
   "files": [
@@ -35,11 +35,11 @@
   "license": "MIT",
   "homepage": "https://github.com/huozhi/respinner#readme",
   "devDependencies": {
-    "bunchee": "^2.0.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "bunchee": "^2.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "respinner": "link:./",
-    "vite": "^2.7.12"
+    "vite": "^3.1.3"
   },
   "peerDependencies": {
     "react": "*"

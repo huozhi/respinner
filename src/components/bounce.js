@@ -1,13 +1,12 @@
 import React from 'react'
-import {repeat, uniqId} from '../lib'
-import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
+import {repeat, uniqId, createCompatibleAnimation} from '../lib'
+import InlineSvgStyle from '../lib/embed-style'
 
-const BounceAnimation = `@keyframes Bounce${uniqId}` + '{' +
+export const BounceAnimation = createCompatibleAnimation(`Bounce${uniqId}` + '{' +
   '0%, 100% {transform:translateY(0);}' +
   '25% {transform:translateY(8px);}' +
   '75% {transform:translateY(-8px);}' +
-'}'
-
+'}')
 
 const BounceLoading = ({
   duration, count, fill, barWidth, barHeight, gap, ...rest
@@ -20,7 +19,7 @@ const BounceLoading = ({
       height={barHeight * 3}
       {...rest}
     >
-      <SVGEmbeddedStyle animation={BounceAnimation} />
+      <InlineSvgStyle animation={BounceAnimation} />
       {repeat(count).map((_, i) => {
         const style = {
           animationDelay: `${-duration / (count + 1) * (count - i)}s`,

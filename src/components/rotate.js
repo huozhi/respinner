@@ -1,10 +1,8 @@
 import React from 'react'
-import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
-import {uniqId, RotateAnimation} from '../lib';
 
 const RotateLoading = ({size, duration, opacity, strokeWidth, ...rest}) => {
   const radius = size / 2 - strokeWidth
-
+  const center = radius + strokeWidth
   const circleProps = {
     strokeWidth,
     r: radius,
@@ -16,17 +14,21 @@ const RotateLoading = ({size, duration, opacity, strokeWidth, ...rest}) => {
 
   return (
     <svg width={size} height={size}>
-      <SVGEmbeddedStyle animation={RotateAnimation} />
       <circle {...circleProps} style={{opacity}} />
       <circle
         {...circleProps}
-        style={{
-          animation: `Rotate${uniqId} linear infinite`,
-          strokeDasharray: '20 180',
-          transformOrigin: 'center',
-          animationDuration: `${duration}s`,
-        }}
-      />
+        strokeDasharray='20 180'
+      >
+        <animateTransform
+          attributeName='transform'
+          attributeType='XML'
+          type='rotate'
+          from={`0 ${center} ${center}`}
+          to={`360 ${center} ${center}`}
+          dur={`${duration}s`}
+          repeatCount='indefinite'
+        />
+      </circle>
     </svg>
   )
 }

@@ -1,6 +1,13 @@
-export const uniqId = '__RESPINNER__'
+export const uniqId = '__respinner__'
 
 export const repeat = (count) => Array.apply(null, Array(count))
-export const embeddedStyle = (css) => `/* <![CDATA[ */${(css)}/* ]]> */`
 
-export const RotateAnimation = `@keyframes Rotate${uniqId}{100%{transform:rotate(360deg);}}`
+const baseRotateAnimation = `Rotate${uniqId}{100%{transform:rotate(360deg)}}`
+export const keyFrame = '@keyframes'
+export const webkitKeyFrame = '@-webkit-keyframes'
+
+export const createCompatibleAnimation = (animation) => {
+  return `${webkitKeyFrame} ${animation.replace(/transform:/g, '-webkit-transform:')}; ${keyFrame} ${animation};`
+}
+
+export const RotateAnimation = createCompatibleAnimation(baseRotateAnimation)

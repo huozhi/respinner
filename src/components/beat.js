@@ -1,11 +1,13 @@
 import React from 'react'
-import {repeat, uniqId} from '../lib'
-import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
+import {repeat, uniqId, createCompatibleAnimation} from '../lib'
+import InlineSvgStyle from '../lib/embed-style'
 
-const BeatAnimation = `@keyframes Beat${uniqId}` + '{' +
+
+const BeatAnimation = createCompatibleAnimation(`Beat${uniqId}` + '{' +
   '0%, 80%, 100% {transform: scale(0);}' +
   '40% {transform: scale(1);}' +
-'}'
+  '}'
+)
 
 const BeatLoading = ({duration, count, fill, size, gap, ...rest}) => {
   const viewWidth = (size + gap) * count - gap
@@ -16,7 +18,7 @@ const BeatLoading = ({duration, count, fill, size, gap, ...rest}) => {
       width={viewWidth}
       height={size}
     >
-      <SVGEmbeddedStyle animation={BeatAnimation} />
+      <InlineSvgStyle animation={BeatAnimation} />
       {repeat(count).map((_, i) => {
         const style = {
           borderRadius: '50%',

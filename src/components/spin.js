@@ -1,11 +1,12 @@
 import React from 'react'
-import {repeat, uniqId} from '../lib'
-import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
+import {repeat, uniqId, createCompatibleAnimation} from '../lib'
+import InlineSvgStyle from '../lib/embed-style'
 
-const SpinFadeAnimation = `@keyframes SpinFade${uniqId}` + '{ ' +
+const SpinFadeAnimation = createCompatibleAnimation(`SpinFade${uniqId}` + '{ ' +
   '50% {opacity:.3;}' +
   '100% {opacity:1;}' +
 '}'
+)
 
 const SpinLoading = ({size, barWidth, barHeight, count, duration, fill, borderRadius, ...rest}) => {
   const radius = size / 2 - barHeight / 2
@@ -16,7 +17,7 @@ const SpinLoading = ({size, barWidth, barHeight, count, duration, fill, borderRa
       width={size}
       height={size}
     >
-      <SVGEmbeddedStyle animation={SpinFadeAnimation} />
+      <InlineSvgStyle animation={SpinFadeAnimation} />
       {repeat(count).map((_, i) => {
         const angle = 360 / count * i
         /* (barWidth + borderRadius) / 2 is used to fix the excursion caused by thickness */
