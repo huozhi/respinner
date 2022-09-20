@@ -9,7 +9,13 @@ const DashedRotateAnimation = (dash) => createCompatibleAnimation(`DashedRotate$
   '}'
 )
 
-const DashLoading = ({size, stroke, strokeWidth, duration, ...rest}) => {
+const DashLoading = ({
+  size = 40,
+  strokeWidth = 4,
+  duration = 1.8,
+  stroke,
+  ...rest
+}) => {
   const radius = size / 2 - strokeWidth
   const dash = Math.PI * radius / 5
 
@@ -17,9 +23,9 @@ const DashLoading = ({size, stroke, strokeWidth, duration, ...rest}) => {
     <svg {...rest} width={size} height={size}>
       <InlineSvgStyle animation={DashedRotateAnimation(dash)} />
       <circle
-        fill="none"
+        fill='none'
         stroke={stroke}
-        strokeLinecap="round"
+        strokeLinecap='round'
         strokeWidth={strokeWidth}
         cx={size / 2}
         cy={size / 2}
@@ -33,12 +39,6 @@ const DashLoading = ({size, stroke, strokeWidth, duration, ...rest}) => {
       />
     </svg>
   )
-}
-
-DashLoading.defaultProps = {
-  size: 40,
-  duration: 1.8,
-  strokeWidth: 4,
 }
 
 export default DashLoading

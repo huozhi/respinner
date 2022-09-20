@@ -4,7 +4,14 @@ import React from 'react'
 // from: https://codepen.io/jczimm/pen/vEBpoL
 const CIRCLE_RADIUS = 50 / 2
 
-const CircularLoading = ({duration, stroke, strokeWidth, linecap, size, ...rest}) => {
+const CircularLoading = ({
+  size = 40,
+  strokeWidth = 5,
+  linecap = 'round',
+  duration = 1,
+  stroke,
+  ...rest
+}) => {
   const center = CIRCLE_RADIUS
   return (
     <svg
@@ -33,7 +40,7 @@ const CircularLoading = ({duration, stroke, strokeWidth, linecap, size, ...rest}
         />
         <animate
           attributeName='stroke-dasharray'
-          values='1, 200;89, 200;89 200;'
+          values='1,200; 89,200; 89 200;'
           dur={`${duration}s`}
           repeatCount='indefinite'
         />
@@ -46,13 +53,6 @@ const CircularLoading = ({duration, stroke, strokeWidth, linecap, size, ...rest}
       </circle>
     </svg>
   )
-}
-
-CircularLoading.defaultProps = {
-  size: 40,
-  strokeWidth: 5,
-  linecap: 'round',
-  duration: 1,
 }
 
 export default CircularLoading

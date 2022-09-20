@@ -1,7 +1,7 @@
 {
   "name": "respinner",
   "version": "3.0.7",
-  "description": "react components for loadere or spinner",
+  "description": "React SVG spinner components",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "exports": {
@@ -12,10 +12,11 @@
   "types": "types.d.ts",
   "scripts": {
     "clean": "rm -rf ./dist",
-    "build": "bunchee src/index.js",
     "prepublishOnly": "npm run clean && npm run build",
     "build:docs": "yarn build && vite build ./docs",
-    "dev": "vite dev ./docs --port 3000"
+    "build": "bunchee src/index.js",
+    "dev": "yarn build --watch",
+    "dev:docs": "vite dev ./docs --port 3000"
   },
   "sideEffects": false,
   "files": [

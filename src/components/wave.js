@@ -1,15 +1,14 @@
 import React from 'react'
-import {repeat, uniqId, createCompatibleAnimation} from '../lib'
-import InlineSvgStyle from '../lib/embed-style'
+import {repeat} from '../lib'
 
-const WaveAnimation = createCompatibleAnimation(`Wave${uniqId}` + '{' +
-  '0% {transform:scale(.1); opacity:1;}' +
-  '70% {transform:scale(1); opacity:.7;}' +
-  '100% {transform:scale(1); opacity:0;}' +
-  '}'
-)
-
-const WaveLoading = ({size, count, stroke, duration, strokeWidth, ...rest}) => {
+const WaveLoading = ({
+  size = 40,
+  count = 3,
+  duration = 1.5,
+  strokeWidth = 2,
+  stroke,
+  ...rest
+}) => {
   const radius = size / 2 - strokeWidth
 
   return (
@@ -18,20 +17,12 @@ const WaveLoading = ({size, count, stroke, duration, strokeWidth, ...rest}) => {
       width={size}
       height={size}
     >
-      <InlineSvgStyle animation={WaveAnimation} />
       {repeat(count).map((_, i) => {
-        const style = {
-          animation: `Wave${uniqId} infinite both`,
-          animationDelay: `${duration / count * i}s`,
-          animationDuration: `${duration}s`,
-        }
-
         const pos = size / 2
 
         return (
           <circle
             key={`c-${i}`}
-            style={style}
             stroke={stroke}
             strokeWidth={strokeWidth}
             transform-origin={`${pos}px ${pos}px`}
@@ -39,18 +30,29 @@ const WaveLoading = ({size, count, stroke, duration, strokeWidth, ...rest}) => {
             r={radius}
             cx={pos}
             cy={pos}
-          />
+          >
+            <animate
+              attributeName='opacity'
+              values='1; 0.7; 0'
+              keyTimes='0; 0.7; 1'
+              dur={`${duration}s`}
+              begin={`${duration / count * i}s`}
+            />
+            <animateTransform
+              attributeName='transform'
+              attributeType='XML'
+              type='scale'
+              values='.1; 1; 1'
+              keyTimes='0; 0.7; 1'
+              dur={`${duration}s`}
+              begin={`${duration / count * i}s`}
+              repeatCount='indefinite'
+            />
+          </circle>
         )
       })}
     </svg>
   )
-}
-
-WaveLoading.defaultProps = {
-  size: 40,
-  count: 3,
-  duration: 1.5,
-  strokeWidth: 2,
 }
 
 export default WaveLoading
