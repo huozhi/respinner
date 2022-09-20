@@ -1,7 +1,14 @@
 import React from 'react'
 import {repeat} from '../lib'
 
-const WaveLoading = ({size, count, stroke, duration, strokeWidth, ...rest}) => {
+const WaveLoading = ({
+  size = 40,
+  count = 3,
+  duration = 1.5,
+  strokeWidth = 2,
+  stroke,
+  ...rest
+}) => {
   const radius = size / 2 - strokeWidth
 
   return (
@@ -46,13 +53,6 @@ const WaveLoading = ({size, count, stroke, duration, strokeWidth, ...rest}) => {
       })}
     </svg>
   )
-}
-
-WaveLoading.defaultProps = {
-  size: 40,
-  count: 3,
-  duration: 1.5,
-  strokeWidth: 2,
 }
 
 export default WaveLoading

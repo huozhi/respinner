@@ -1,6 +1,12 @@
 import React from 'react'
 
-const RotateLoading = ({size, duration, opacity, strokeWidth, ...rest}) => {
+const RotateLoading = ({
+  size = 40,
+  opacity = 0.2,
+  strokeWidth = 4,
+  duration = 1.6,
+  ...rest
+}) => {
   const radius = size / 2 - strokeWidth
   const center = radius + strokeWidth
   const circleProps = {
@@ -31,13 +37,6 @@ const RotateLoading = ({size, duration, opacity, strokeWidth, ...rest}) => {
       </circle>
     </svg>
   )
-}
-
-RotateLoading.defaultProps = {
-  size: 40,
-  opacity: 0.2,
-  strokeWidth: 4,
-  duration: 1.6,
 }
 
 export default RotateLoading

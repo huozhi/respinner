@@ -9,7 +9,12 @@ const TransRotate = createCompatibleAnimation(`TransRotate${uniqId}` + '{' +
 )
 
 const CopperLoading = ({
-  size, strokeWidth, stroke, fill, duration, ...rest
+  size = 40,
+  strokeWidth = 4,
+  duration = 2,
+  stroke,
+  fill,
+  ...rest
 }) => {
   const commonStyle = {
     transformOrigin: 'center',
@@ -37,12 +42,6 @@ const CopperLoading = ({
       />
     </svg>
   )
-}
-
-CopperLoading.defaultProps = {
-  size: 40,
-  strokeWidth: 4,
-  duration: 2,
 }
 
 export default CopperLoading

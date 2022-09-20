@@ -2,7 +2,12 @@ import React from 'react'
 import {repeat} from '../lib'
 
 const BounceLoading = ({
-  duration, count, fill, barWidth, barHeight, gap, ...rest
+  count = 4,
+  barWidth = 4,
+  barHeight = 16,
+  duration = 0.8,
+  fill,
+  ...rest
 }) => {
   const viewWidth = (barWidth + gap) * count - gap
 
@@ -35,14 +40,6 @@ const BounceLoading = ({
       )}
     </svg>
   )
-}
-
-BounceLoading.defaultProps = {
-  gap: 6,
-  count: 4,
-  barWidth: 4,
-  barHeight: 16,
-  duration: 0.8,
 }
 
 export default BounceLoading
