@@ -1,6 +1,6 @@
 {
   "name": "respinner",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "react components for loadere or spinner",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
