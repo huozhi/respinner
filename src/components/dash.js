@@ -1,12 +1,13 @@
 import React from 'react'
-import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
-import {uniqId} from '../lib'
+import InlineSvgStyle from '../lib/embed-style'
+import {uniqId, createCompatibleAnimation} from '../lib'
 
-const DashedRotateAnimation = (dash) => `@keyframes DashedRotate${uniqId}` + '{' +
+const DashedRotateAnimation = (dash) => createCompatibleAnimation(`DashedRotate${uniqId}` + '{' +
   `0% {stroke-dasharray:${dash} ${dash} 1 ${dash};transform:rotate(0deg);}` +
   `50% {stroke-dasharray:${dash};transform:rotate(360deg);}` +
   `100% {stroke-dasharray:${dash} ${dash} 1 ${dash};transform:rotate(720deg);}` +
-'}'
+  '}'
+)
 
 const DashLoading = ({size, stroke, strokeWidth, duration, ...rest}) => {
   const radius = size / 2 - strokeWidth
@@ -14,7 +15,7 @@ const DashLoading = ({size, stroke, strokeWidth, duration, ...rest}) => {
 
   return (
     <svg {...rest} width={size} height={size}>
-      <SVGEmbeddedStyle animation={DashedRotateAnimation(dash)} />
+      <InlineSvgStyle animation={DashedRotateAnimation(dash)} />
       <circle
         fill="none"
         stroke={stroke}

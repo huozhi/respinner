@@ -1,50 +1,49 @@
 import React from 'react'
-import {uniqId, RotateAnimation} from '../lib'
-import SVGEmbeddedStyle from '../shared/SVGEmbeddedStyle'
 
-/*
- * hard to find the law of google style circular loading
- * set 50 x 50 as basic viewbox size. scale viewbox when use.
- *
- * from: https://codepen.io/jczimm/pen/vEBpoL
- */
-
-const CircularBarDashAnimation = `@keyframes CircularBarDash${uniqId}` + '{' +
-  '0% {stroke-dasharray: 1, 200; stroke-dashoffset: 0;}' +
-  '50% {stroke-dasharray: 89, 200; stroke-dashoffset: -35;}' +
-  '100% {stroke-dasharray: 89, 200; stroke-dashoffset: -124;}' +
-'}'
-
-const animation = [RotateAnimation, CircularBarDashAnimation].join('\n')
-
+// View box is based on 50x50 size
+// from: https://codepen.io/jczimm/pen/vEBpoL
 const CIRCLE_RADIUS = 50 / 2
 
 const CircularLoading = ({duration, stroke, strokeWidth, linecap, size, ...rest}) => {
+  const center = CIRCLE_RADIUS
   return (
     <svg
       {...rest}
       viewBox={`0 0 ${CIRCLE_RADIUS * 2} ${CIRCLE_RADIUS * 2}`}
       width={size}
       height={size}
-      style={{
-        animation: `Rotate${uniqId} linear infinite`,
-        animationDuration: `${duration * 4 / 3}s`
-      }}
     >
-      <SVGEmbeddedStyle animation={animation} />
       <circle
-        fill="none"
+        fill='none'
         stroke={stroke}
         strokeWidth={strokeWidth}
         strokeLinecap={linecap}
         cx={CIRCLE_RADIUS}
         cy={CIRCLE_RADIUS}
         r={CIRCLE_RADIUS - strokeWidth}
-        style={{
-          transformOrigin: 'center',
-          animation: `CircularBarDash${uniqId} ${duration}s infinite`,
-        }}
-      />
+      >
+        <animateTransform
+          attributeName='transform'
+          attributeType='XML'
+          type='rotate'
+          from={`0 ${center} ${center}`}
+          to={`360 ${center} ${center}`}
+          dur={`${duration * 4 / 3}s`}
+          repeatCount='indefinite'
+        />
+        <animate
+          attributeName='stroke-dasharray'
+          values='1, 200;89, 200;89 200;'
+          dur={`${duration}s`}
+          repeatCount='indefinite'
+        />
+        <animate
+          attributeName='stroke-dashoffset'
+          values='0;-35;-124;'
+          dur={`${duration}s`}
+          repeatCount='indefinite'
+        />
+      </circle>
     </svg>
   )
 }
