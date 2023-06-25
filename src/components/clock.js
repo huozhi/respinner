@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ClockLoading = ({ size, duration, strokeWidth, ...rest }) => {
+const ClockLoading = ({ size = 40, duration = 2, strokeWidth = 2, ...rest }) => {
   const center = size / 2
   const needleProps = {
     strokeWidth: strokeWidth,

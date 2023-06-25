@@ -8,7 +8,7 @@ You could change the count of spinner's children by props `count`, also the `col
 
 ### Examples
 
-![demo](https://raw.githubusercontent.com/huozhi/respinner/main/docs/public/respinner.gif)
+![demo](https://raw.githubusercontent.com/huozhi/respinner/56c645bffed017c785e82c8fc1e3336f7dbe5f6b/docs/public/respinner.gif)
 
 See more details in `demo` directory or visit [website](https://respinner.vercel.app/)
 
@@ -24,7 +24,6 @@ Just import it when use with react. Issues go to [issues](https://github.com/huo
 
 ```tsx
 import React from 'react'
-// easily import from entry
 import {
   BeatLoading, BounceLoading, CircularLoading,
   ClockLoading, RotateLoading, SpinLoading,
@@ -52,72 +51,66 @@ function LoadingComponents() {
 
 ### API
 
-#### Common Props
-
-- className
-- width
-- height
-- stroke/fill (stroke for circle ones, fill for rectangle ones)
-
+Any SVG props could be used in these components. The following are the default props for these components:
 #### 1. BeatLoading
 
-- gap: default 6
-- size: default 8
-- count: default 6
-- duration: default 0.8
+- `gap`: `6`
+- `size`: `8`
+- `count`: `6`
+- `duration`: `0.8`
 
 #### 2. CircularLoading
 
-- size: default 40
-- strokeWidth: default 4
-- linecap: default 'round'
+- `size`: `40`
+- `strokeWidth`: `4`
+- `linecap`: `'round'`
 
 #### 3. BounceLoading
 
-- gap: default 6
-- count: default 4
-- barWidth: default 4
-- barHeight: default 16
-- duration: default 0.8
+- `gap`: `6`
+- `count`: `4`
+- `barWidth`: `4`
+- `barHeight`: `16`
+- `duration`: `0.8`
 
 #### 4. RotateLoading
 
-- size: default 40
-- opacity: default 0.2
-- strokeWidth: default 4
+- `size`: `40`
+- `opacity`: `0.2`
+- `strokeWidth`: `4`
 
 #### 5. SpinLoading
 
-- size: default 40
-- count: default 8
-- barWidth: default 4
-- duration: default 1
-- barHeight: default 10
-- borderRadius: default 1
+- `size`: `40`
+- `count`: `8`
+- `barWidth`: `4`
+- `duration`: `1`
+- `barHeight`: `10`
+- `borderRadius`: `1`
 
 #### 6. WaveLoading
 
-- size: default 40
-- count: default 3
-- duration: default 1.5
-- strokeWidth: default 2
+- `size`: `40`
+- `count`: `3`
+- `duration`: `1.5`
+- `strokeWidth`: `2`
 
 ### 7. ClockLoading
 
-- size
-- duration
-- strokeWidth
+- `size`: `40`
+- `duration`: `2`
+- `strokeWidth`: `2`
 
 ### 8. DashLoading
 
-- size: default 40
-- duration: default 1.8
-- stroke
+- `size`: `40`
+- `duration`: `1.8`
+- `strokeWidth`: `4`
 
 ### 9. CopperLoading
 
-- size: default 40
-- strokeWidth: default 4
+- `size`: `40`
+- `strokeWidth`: `4`
 
 ### Development
 
