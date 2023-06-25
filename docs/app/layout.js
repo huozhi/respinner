@@ -20,6 +20,6 @@ export const metadata = {
     images: 'https://repository-images.githubusercontent.com/69757325/82b6b3cf-548f-4afe-a2f3-d1f7a2fd7874',
   },
   twitter: {
-    type: 'summary_large_image',
+    card: 'summary_large_image',
   }
 }
