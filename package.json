@@ -9,14 +9,14 @@
     "require": "./dist/index.js",
     "module": "./dist/index.esm.js"
   },
-  "types": "types.d.ts",
+  "types": "./types.d.ts",
   "scripts": {
     "clean": "rm -rf ./dist",
     "prepublishOnly": "npm run clean && npm run build",
-    "build:docs": "yarn build && vite build ./docs",
-    "build": "bunchee src/index.js",
-    "dev": "yarn build --watch",
-    "dev:docs": "vite dev ./docs --port 3000"
+    "build:docs": "pnpm build && next build ./docs",
+    "build": "bunchee",
+    "build:watch": "pnpm build --watch",
+    "dev": "next dev ./docs"
   },
   "sideEffects": false,
   "files": [
@@ -36,11 +36,11 @@
   "license": "MIT",
   "homepage": "https://github.com/huozhi/respinner#readme",
   "devDependencies": {
-    "bunchee": "^2.1.3",
+    "bunchee": "^3.4.1",
+    "next": "^13.4.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "respinner": "link:./",
-    "vite": "^3.1.3"
+    "respinner": "link:./"
   },
   "peerDependencies": {
     "react": "*"

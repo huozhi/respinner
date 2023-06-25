@@ -22,8 +22,8 @@ Just import it when use with react. Issues go to [issues](https://github.com/huo
 
 #### Basic
 
-```jsx
-import React, {Component} from 'react'
+```tsx
+import React from 'react'
 // easily import from entry
 import {
   BeatLoading, BounceLoading, CircularLoading,
@@ -31,19 +31,17 @@ import {
   WaveLoading, DashLoading, CopperLoading
 } from 'respinner'
 
-class LoadingComponents extends Component {  
-  render() {
-    <div className="spinners">
-      <SpinLoading fill="#777" borderRadius={4} count={12} /> // use with customized props
-      <CircularLoading /> // or just use with default props
-    </div>
-  }
+function LoadingComponents() {
+  <div className="spinners">
+    <SpinLoading fill="#777" borderRadius={4} count={12} /> // use with customized props
+    <CircularLoading /> // or just use with default props
+  </div>
 }
 ```
 
 #### Use with SVG `use`
 
-```jsx
+```tsx
 // pre-define a spinner
 <SpinLoading borderRadius={2} count={10} id="spin" />
 
@@ -124,14 +122,15 @@ class LoadingComponents extends Component {
 ### Development
 
 ```sh
-npm install
-npm start
+pnpm install
+pnpm dev
 
 # see demo in http://localhost:3000
 ```
 
 ### Build
 
-```
-npm run build
+```sh
+pnpm run build # build lib
+pnpm run build:docs # build docs
 ```
