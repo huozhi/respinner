@@ -3,4 +3,5 @@ docs/dist
 dist/
 *.log
 package-lock.json
+.DS_Store
 

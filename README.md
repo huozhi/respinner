@@ -31,7 +31,7 @@ import {
   WaveLoading, DashLoading, CopperLoading
 } from 'respinner'
 
-class LoadingComponents extends Component {  
+class LoadingComponents extends Component {
   render() {
     <div className="spinners">
       <SpinLoading fill="#777" borderRadius={4} count={12} /> // use with customized props
@@ -124,14 +124,15 @@ class LoadingComponents extends Component {
 ### Development
 
 ```sh
-npm install
-npm start
+pnpm install
+pnpm dev
 
 # see demo in http://localhost:3000
 ```
 
 ### Build
 
-```
-npm run build
+```sh
+pnpm run build # build lib
+pnpm run build:docs # build docs
 ```
