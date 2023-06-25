@@ -82,5 +82,3 @@ export default function App() {
   )
 }
 
-// const root = createRoot(document.getElementById('root'))
-// root.render(<App />)
