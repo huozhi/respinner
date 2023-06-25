@@ -62,7 +62,7 @@ export default function App() {
             <a href="https://github.com/huozhi/respinner">{`github`}</a>
           </span>
           <span>
-            <a href="https://npm.in/respinner">{`npm`}</a>
+            <a href="https://www.npmjs.com/package/respinner">{`npm`}</a>
           </span>
         </div>
       </div>
