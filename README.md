@@ -8,7 +8,7 @@ You could change the count of spinner's children by props `count`, also the `col
 
 ### Examples
 
-![demo](https://raw.githubusercontent.com/huozhi/respinner/master/docs/public/demo.gif)
+![demo](https://raw.githubusercontent.com/huozhi/respinner/main/docs/public/respinner.gif)
 
 See more details in `demo` directory or visit [website](https://respinner.vercel.app/)
 
