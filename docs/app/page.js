@@ -9,7 +9,7 @@ import {
   WaveLoading,
   CopperLoading,
   DashLoading,
-} from 'respinner'
+} from '../../src/index'
 
 const color = '#4197ff'
 
@@ -59,10 +59,10 @@ export default function App() {
         <h1 style={{ fontWeight: 900 }}>Respinner</h1>
         <div className="App-info">
           <span>
-            <a href="https://github.com/huozhi/respinner">{`github`}</a>
+            <a href="https://github.com/huozhi/respinner" target='_blank'>{`github`}</a>
           </span>
           <span>
-            <a href="https://www.npmjs.com/package/respinner">{`npm`}</a>
+            <a href="https://www.npmjs.com/package/respinner" target='_blank'>{`npm`}</a>
           </span>
         </div>
       </div>
