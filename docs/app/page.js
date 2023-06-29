@@ -9,48 +9,53 @@ import {
   WaveLoading,
   CopperLoading,
   DashLoading,
+  HourglassLoading,
 } from '../../src/index'
 
 const color = '#4197ff'
 
 const spinners = [
-  {
-    code: `<BeatLoading fill="${color}" count={4} />`,
-    component: <BeatLoading fill={color} count={4} />,
-  },
-  {
-    code: `<CircularLoading size={40} duration={1} stroke="${color}" />`,
-    component: <CircularLoading size={40} duration={1} stroke={color} />,
-  },
-  {
-    code: `<BounceLoading fill="${color}" gap={5} />`,
-    component: <BounceLoading fill={color} gap={5} />,
-  },
-  {
-    code: `<RotateLoading duration={1} stroke="${color}" opacity={0.4} />`,
-    component: <RotateLoading duration={1} stroke={color} opacity={0.4} />,
-  },
-  {
-  code: `<SpinLoading fill="${color}" borderRadius={2} count={10} />`,
-    component: <SpinLoading fill={color} borderRadius={2} count={10} />,
-  },
-  {
-    code: `<WaveLoading stroke="${color}" strokeWidth={3} count={2} />`,
-    component: <WaveLoading stroke={color} strokeWidth={3} count={2} />,
-  },
-  {
-    code: `<ClockLoading size={40} stroke="${color}" duration={2} strokeWidth={2} />`,
-    component: <ClockLoading size={40} stroke={color} duration={2} strokeWidth={2} />,
-  },
-  {
-    code: `<DashLoading size={40} stroke="${color}" duration={1.6} />`,
-    component: <DashLoading stroke={color} duration={1.6} />,
-  },
-  {
-    code: `<CopperLoading size={40} strokeWidth={3} fill="${color}" />`,
-    component: <CopperLoading size={40} strokeWidth={3} fill={color} />,
-  },
-]
+	{
+		code: `<BeatLoading fill="${color}" count={4} />`,
+		component: <BeatLoading fill={color} count={4} />,
+	},
+	{
+		code: `<CircularLoading size={40} duration={1} stroke="${color}" />`,
+		component: <CircularLoading size={40} duration={1} stroke={color} />,
+	},
+	{
+		code: `<BounceLoading fill="${color}" gap={5} />`,
+		component: <BounceLoading fill={color} gap={5} />,
+	},
+	{
+		code: `<RotateLoading duration={1} stroke="${color}" opacity={0.4} />`,
+		component: <RotateLoading duration={1} stroke={color} opacity={0.4} />,
+	},
+	{
+		code: `<SpinLoading fill="${color}" borderRadius={2} count={10} />`,
+		component: <SpinLoading fill={color} borderRadius={2} count={10} />,
+	},
+	{
+		code: `<WaveLoading stroke="${color}" strokeWidth={3} count={2} />`,
+		component: <WaveLoading stroke={color} strokeWidth={3} count={2} />,
+	},
+	{
+		code: `<ClockLoading size={40} stroke="${color}" duration={2} strokeWidth={2} />`,
+		component: <ClockLoading size={40} stroke={color} duration={2} strokeWidth={2} />,
+	},
+	{
+		code: `<DashLoading size={40} stroke="${color}" duration={1.6} />`,
+		component: <DashLoading stroke={color} duration={1.6} />,
+	},
+	{
+		code: `<CopperLoading size={40} strokeWidth={3} fill="${color}" />`,
+		component: <CopperLoading size={40} strokeWidth={3} fill={color} />,
+	},
+	{
+		code: `<HourglassLoading size={40} fill={color} duration={3} />`,
+		component: <HourglassLoading size={40} fill={color} duration={3} />,
+	},
+];
 
 export default function App() {
   return (
