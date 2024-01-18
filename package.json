@@ -43,8 +43,5 @@
   },
   "peerDependencies": {
     "react": "*"
-  },
-  "dependencies": {
-    "vite": "^4.4.9"
   }
 }
