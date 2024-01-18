@@ -3,13 +3,12 @@
   "version": "4.0.1",
   "description": "React SVG spinner components",
   "main": "./dist/index.js",
-  "module": "./dist/index.esm.js",
+  "module": "./dist/index.mjs",
   "exports": {
     "import": "./dist/index.mjs",
-    "require": "./dist/index.js",
-    "module": "./dist/index.esm.js"
+    "require": "./dist/index.js"
   },
-  "types": "./types.d.ts",
+  "types": "./index.d.ts",
   "scripts": {
     "clean": "rm -rf ./dist",
     "prepublishOnly": "npm run clean && npm run build",
@@ -22,7 +21,7 @@
   "files": [
     "*.md",
     "dist",
-    "types.d.ts"
+    "index.d.ts"
   ],
   "repository": {
     "type": "git",
@@ -36,8 +35,8 @@
   "license": "MIT",
   "homepage": "https://github.com/huozhi/respinner#readme",
   "devDependencies": {
-    "bunchee": "^3.4.1",
-    "next": "13.4.8-canary.2",
+    "bunchee": "^4.4.1",
+    "next": "14.0.5-canary.58",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "respinner": "link:./"
