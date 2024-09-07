@@ -6,7 +6,8 @@
   "module": "./dist/index.mjs",
   "exports": {
     "import": "./dist/index.mjs",
-    "require": "./dist/index.js"
+    "require": "./dist/index.js",
+    "types": "./index.d.ts"
   },
   "types": "./index.d.ts",
   "scripts": {
@@ -39,7 +40,7 @@
     "next": "14.0.5-canary.58",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "respinner": "link:./"
+    "respinner": "file:./"
   },
   "peerDependencies": {
     "react": "*"
