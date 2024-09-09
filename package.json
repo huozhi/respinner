@@ -13,9 +13,9 @@
       "default": "./dist/index.js",
       "import": "./dist/index.d.ts"
     },
-    "types": "./index.d.ts"
+    "types": "./dist/index.d.ts"
   },
-  "types": "./index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf ./dist",
     "prepublishOnly": "npm run clean && npm run build",
@@ -28,8 +28,7 @@
   "sideEffects": false,
   "files": [
     "*.md",
-    "dist",
-    "index.d.ts"
+    "dist"
   ],
   "repository": {
     "type": "git",
