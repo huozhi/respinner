@@ -20,7 +20,8 @@
     "clean": "rm -rf ./dist",
     "prepublishOnly": "npm run clean && npm run build",
     "build:docs": "pnpm build && next build ./docs",
-    "build": "bunchee",
+    "build": "bunchee --no-dts && pnpm copy-types",
+    "copy-types": "cp ./index.d.ts ./dist/index.d.ts && cp ./index.d.ts ./dist/index.d.mts",
     "build:watch": "pnpm build --watch",
     "dev": "next dev ./docs"
   },
