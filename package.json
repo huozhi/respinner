@@ -5,8 +5,15 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.js"
+    "import": {
+      "default": "./dist/index.mjs",
+      "require": "./dist/index.d.mts"
+    },
+    "require": {
+      "default": "./dist/index.js",
+      "import": "./dist/index.d.ts"
+    },
+    "types": "./index.d.ts"
   },
   "types": "./index.d.ts",
   "scripts": {
@@ -35,7 +42,7 @@
   "license": "MIT",
   "homepage": "https://github.com/huozhi/respinner#readme",
   "devDependencies": {
-    "bunchee": "^4.4.1",
+    "bunchee": "^5.4.0",
     "next": "14.0.5-canary.58",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -43,5 +50,6 @@
   },
   "peerDependencies": {
     "react": "*"
-  }
+  },
+  "packageManager": "pnpm@7.33.5"
 }
