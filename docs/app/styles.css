@@ -128,10 +128,6 @@ pre code {
   border-radius: 3px;
 }
 
-code[class*=language-], pre[class*=language-] {
-  white-space: nowrap;
-}
-
 .App-getStart {
   margin-bottom: 60px;
   padding: 10px 8px;
