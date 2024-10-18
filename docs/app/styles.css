@@ -31,12 +31,17 @@ a, a:visited, a:active {
   position: relative;
   color: #4197ff;
   text-align: center;
-  font-size: 36px;
+}
+
+.App-title h1 {
+  font-size: 3rem;
+  padding: 0 8px;
 }
 
 .App-title__subtitle {
   font-size: 24px;
   font-weight: 300;
+  padding: 0 8px;
 }
 
 .App-info {
