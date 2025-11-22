@@ -1,6 +1,6 @@
 {
   "name": "respinner",
-  "version": "4.0.3",
+  "version": "5.0.0",
   "description": "React SVG spinner components",
   "type": "module",
   "main": "./dist/index.js",
