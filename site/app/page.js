@@ -79,7 +79,7 @@ export default function App() {
         <div className="header-content">
           <h1 className="App-title__main">RESPINNER</h1>
           <p className="App-title__subtitle">
-            React SVG Spinners Component Collection
+            Elegant Spinners for React
             <br />
             v1.0.0 // MIT License
           </p>
