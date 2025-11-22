@@ -1,19 +1,27 @@
 import React from 'react'
-import { repeat } from '../lib/styles'
 
-const WaveLoading = ({ size = 40, count = 3, duration = 1.5, strokeWidth = 2, stroke, ...rest }) => {
+const WaveLoading = (
+  { size = 40, count = 3, duration = 1.5, strokeWidth = 2, color, stroke, ...rest }: {
+    size?: number
+    count?: number
+    duration?: number
+    strokeWidth?: number
+    color?: string
+  } & React.SVGProps<SVGSVGElement>) => {
   const radius = size / 2 - strokeWidth
+  const strokeColor = color || stroke
 
   return (
     <svg {...rest} width={size} height={size}>
-      {repeat(count).map((_, i) => {
+      {Array.from({ length: count }).map((_, i) => {
         const pos = size / 2
 
         return (
           <circle
             key={`c-${i}`}
-            stroke={stroke}
+            stroke={strokeColor}
             strokeWidth={strokeWidth}
+            // @ts-expect-error transformOrigin is not a valid prop for svg <circle>
             transformOrigin={`${pos}px ${pos}px`}
             fill="none"
             r={radius}

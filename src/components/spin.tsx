@@ -1,5 +1,4 @@
 import React from 'react'
-import { repeat } from '../lib/styles'
 
 const SpinLoading = ({
   size = 40,
@@ -8,14 +7,24 @@ const SpinLoading = ({
   barHeight = 10,
   duration = 1,
   borderRadius = 1,
+  color,
   fill,
   ...rest
-}) => {
+}: {
+  size?: number
+  count?: number
+  barWidth?: number
+  barHeight?: number
+  duration?: number
+  borderRadius?: number
+  color?: string
+} & React.SVGProps<SVGSVGElement>) => {
   const radius = size / 2 - barHeight / 2
+  const fillColor = color || fill
 
   return (
     <svg {...rest} width={size} height={size}>
-      {repeat(count).map((_, i) => {
+      {Array.from({ length: count }).map((_, i) => {
         const angle = (360 / count) * i
         /* (barWidth + borderRadius) / 2 is used to fix the excursion caused by thickness */
         const x = Math.cos((Math.PI * angle) / 180) * radius + radius + (barWidth + borderRadius) / 2
@@ -25,7 +34,7 @@ const SpinLoading = ({
           <rect
             x={x}
             y={y}
-            fill={fill}
+            fill={fillColor}
             key={`r-${i}`}
             width={barWidth}
             height={barHeight}
