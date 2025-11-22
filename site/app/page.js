@@ -121,7 +121,6 @@ export default function App() {
           {spinners.map(({ code, component, name, id }, idx) => (
             <div key={`loader-${idx}`} className="spinner-card">
               <div className="card-header">
-                <span className="card-type">COMPONENT</span>
                 <span className="card-id">{id}</span>
               </div>
               <div className="spinner-preview">

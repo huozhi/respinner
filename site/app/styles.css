@@ -134,14 +134,18 @@ body::before {
   width: 100%;
   background: repeating-linear-gradient(
     90deg,
-    var(--ink-color),
-    var(--ink-color) 2px,
-    transparent 2px,
-    transparent 4px,
-    var(--ink-color) 4px,
-    var(--ink-color) 5px,
-    transparent 5px,
-    transparent 8px
+    var(--ink-color) 0px, var(--ink-color) 2px,
+    transparent 2px, transparent 4px,
+    var(--ink-color) 4px, var(--ink-color) 5px,
+    transparent 5px, transparent 8px,
+    var(--ink-color) 8px, var(--ink-color) 12px,
+    transparent 12px, transparent 14px,
+    var(--ink-color) 14px, var(--ink-color) 15px,
+    transparent 15px, transparent 18px,
+    var(--ink-color) 18px, var(--ink-color) 20px,
+    transparent 20px, transparent 21px,
+    var(--ink-color) 21px, var(--ink-color) 25px,
+    transparent 25px, transparent 28px
   );
   margin-bottom: 10px;
 }
