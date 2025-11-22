@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 import {
   BeatLoading,
@@ -80,8 +78,6 @@ export default function App() {
           <h1 className="App-title__main">RESPINNER</h1>
           <p className="App-title__subtitle">
             Elegant Spinners for React
-            <br />
-            v1.0.0 // MIT License
           </p>
           <div className="App-links">
             <a 
