@@ -1,8 +1,6 @@
-import React from 'react'
-import InlineSvgStyle from '../lib/inline-style'
-import { uniqId } from '../lib/styles'
+import React, { useId } from 'react'
 
-const TransRotate = (
+const createTransRotate = (uniqId: string) => (
   `@keyframes TransRotate${uniqId}` +
     '{' +
     '0% {transform:rotate(45deg) scale(1);}' +
@@ -10,21 +8,30 @@ const TransRotate = (
     '100% {transform:rotate(765deg) scale(1);}'
 )
 
-const CopperLoading = ({ size = 40, strokeWidth = 4, duration = 2, stroke, fill, ...rest }) => {
+const CopperLoading = (
+  { size = 40, strokeWidth = 4, duration = 2, color, stroke, fill, ...rest }: {
+    size?: number
+    strokeWidth?: number
+    duration?: number
+    color?: string
+  } & React.SVGProps<SVGSVGElement>) => {
+  const uniqId = useId()
+  const fillColor = color || fill
+  const strokeColor = color || stroke || fill
   const commonStyle = {
     transformOrigin: 'center',
     animation: `TransRotate${uniqId} ${duration}s infinite`,
   }
   return (
     <svg {...rest} width={size} height={size}>
-      <InlineSvgStyle animation={TransRotate} />
-      <rect width={size / 3} height={size / 3} x={size / 3} y={size / 3} fill={fill} style={commonStyle} />
+      <style>{createTransRotate(uniqId)}</style>
+      <rect width={size / 3} height={size / 3} x={size / 3} y={size / 3} fill={fillColor} style={commonStyle} />
       <circle
         cx={size / 2}
         cy={size / 2}
         r={size / 2 - strokeWidth}
         fill="transparent"
-        stroke={fill}
+        stroke={strokeColor}
         strokeWidth={strokeWidth}
         style={{
           ...commonStyle,

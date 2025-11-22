@@ -4,13 +4,22 @@ import React from 'react'
 // from: https://codepen.io/jczimm/pen/vEBpoL
 const CIRCLE_RADIUS = 50 / 2
 
-const CircularLoading = ({ size = 40, strokeWidth = 5, linecap = 'round', duration = 1, stroke, ...rest }) => {
+const CircularLoading = (
+  { size = 40, strokeWidth = 5, linecap = 'round', duration = 1, color, stroke, ...rest }: {
+    size?: number
+    strokeWidth?: number
+    linecap?: React.SVGAttributes<SVGAElement>['strokeLinecap']
+    duration?: number
+    color?: string
+    stroke?: string
+  } & React.SVGProps<SVGSVGElement>) => {
   const center = CIRCLE_RADIUS
+  const strokeColor = color || stroke
   return (
     <svg {...rest} viewBox={`0 0 ${CIRCLE_RADIUS * 2} ${CIRCLE_RADIUS * 2}`} width={size} height={size}>
       <circle
         fill="none"
-        stroke={stroke}
+        stroke={strokeColor}
         strokeWidth={strokeWidth}
         strokeLinecap={linecap}
         cx={CIRCLE_RADIUS}

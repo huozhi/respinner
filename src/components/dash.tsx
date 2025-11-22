@@ -1,8 +1,6 @@
-import React from 'react'
-import InlineSvgStyle from '../lib/inline-style'
-import { uniqId } from '../lib/styles'
+import React, { useId } from 'react'
 
-const DashedRotateAnimation = (dash) =>
+const DashedRotateAnimation = (uniqId: string, dash: number) =>
   `@keyframes DashedRotate${uniqId}` +
   '{' +
   `0% {stroke-dasharray:${dash} ${dash} 1 ${dash};transform:rotate(0deg);}` +
@@ -10,16 +8,25 @@ const DashedRotateAnimation = (dash) =>
   `100% {stroke-dasharray:${dash} ${dash} 1 ${dash};transform:rotate(720deg);}` +
   '}'
 
-const DashLoading = ({ size = 40, strokeWidth = 4, duration = 1.8, stroke, ...rest }) => {
+const DashLoading = (
+  { size = 40, strokeWidth = 4, duration = 1.8, color, stroke, ...rest }: {
+    size?: number
+    strokeWidth?: number
+    duration?: number
+    color?: string
+    stroke?: string
+  } & React.SVGProps<SVGSVGElement>) => {
   const radius = size / 2 - strokeWidth
   const dash = (Math.PI * radius) / 5
+  const uniqId = useId()
+  const strokeColor = color || stroke
 
   return (
     <svg {...rest} width={size} height={size}>
-      <InlineSvgStyle animation={DashedRotateAnimation(dash)} />
+      <style>{DashedRotateAnimation(uniqId, dash)}</style>
       <circle
         fill="none"
-        stroke={stroke}
+        stroke={strokeColor}
         strokeLinecap="round"
         strokeWidth={strokeWidth}
         cx={size / 2}

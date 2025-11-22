@@ -1,16 +1,24 @@
 import React from 'react'
-import { repeat } from '../lib/styles'
 
-const BounceLoading = ({ gap = 6, count = 4, barWidth = 4, barHeight = 16, duration = 0.8, fill, ...rest }) => {
+const BounceLoading = (
+  { gap = 6, count = 4, barWidth = 4, barHeight = 16, duration = 0.8, color, fill, ...rest }: {
+    gap?: number
+    count?: number
+    barWidth?: number
+    barHeight?: number
+    duration?: number
+    color?: string
+  } & React.SVGProps<SVGSVGElement>) => {
   const viewWidth = (barWidth + gap) * count - gap
+  const fillColor = color || fill
 
   return (
     <svg width={viewWidth} height={barHeight * 3} {...rest}>
-      {repeat(count).map((_, i) => {
+      {Array.from({ length: count }).map((_, i) => {
         return (
           <rect
             key={`rect-${i}`}
-            fill={fill}
+            fill={fillColor}
             height={barHeight}
             width={barWidth}
             x={(barWidth + gap) * i}
