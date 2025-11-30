@@ -9,12 +9,13 @@ const DashedRotateAnimation = (uniqId: string, dash: number) =>
   '}'
 
 const DashLoading = (
-  { size = 40, strokeWidth = 4, duration = 1.8, color, stroke, ...rest }: {
+  { size = 40, strokeWidth = 4, duration = 1.8, color, stroke, paused, ...rest }: {
     size?: number
     strokeWidth?: number
     duration?: number
     color?: string
     stroke?: string
+    paused?: boolean
   } & React.SVGProps<SVGSVGElement>) => {
   const radius = size / 2 - strokeWidth
   const dash = (Math.PI * radius) / 5
@@ -37,6 +38,7 @@ const DashLoading = (
           animationName: `DashedRotate${uniqId}`,
           animationDuration: `${duration}s`,
           animationIterationCount: 'infinite',
+          animationPlayState: paused ? 'paused' : 'running',
         }}
       />
     </svg>

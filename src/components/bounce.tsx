@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 const BounceLoading = (
-  { gap = 6, count = 4, barWidth = 4, barHeight = 16, duration = 0.8, color, fill, ...rest }: {
+  { gap = 6, count = 4, barWidth = 4, barHeight = 16, duration = 0.8, color, fill, paused, ...rest }: {
     gap?: number
     count?: number
     barWidth?: number
     barHeight?: number
     duration?: number
     color?: string
+    paused?: boolean
   } & React.SVGProps<SVGSVGElement>) => {
   const viewWidth = (barWidth + gap) * count - gap
   const fillColor = color || fill
+  const svgRef = useRef<SVGSVGElement>(null)
+
+  useEffect(() => {
+    if (!svgRef.current) return
+    if (paused) {
+      svgRef.current.pauseAnimations()
+    } else {
+      svgRef.current.unpauseAnimations()
+    }
+  }, [paused])
 
   return (
-    <svg width={viewWidth} height={barHeight * 3} {...rest}>
+    <svg width={viewWidth} height={barHeight * 3} {...rest} ref={svgRef}>
       {Array.from({ length: count }).map((_, i) => {
         return (
           <rect

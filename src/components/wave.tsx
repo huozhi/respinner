@@ -1,18 +1,29 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 const WaveLoading = (
-  { size = 40, count = 3, duration = 1.5, strokeWidth = 2, color, stroke, ...rest }: {
+  { size = 40, count = 3, duration = 1.5, strokeWidth = 2, color, stroke, paused, ...rest }: {
     size?: number
     count?: number
     duration?: number
     strokeWidth?: number
     color?: string
+    paused?: boolean
   } & React.SVGProps<SVGSVGElement>) => {
   const radius = size / 2 - strokeWidth
   const strokeColor = color || stroke
+  const svgRef = useRef<SVGSVGElement>(null)
+
+  useEffect(() => {
+    if (!svgRef.current) return
+    if (paused) {
+      svgRef.current.pauseAnimations()
+    } else {
+      svgRef.current.unpauseAnimations()
+    }
+  }, [paused])
 
   return (
-    <svg {...rest} width={size} height={size}>
+    <svg {...rest} width={size} height={size} ref={svgRef}>
       {Array.from({ length: count }).map((_, i) => {
         const pos = size / 2
 

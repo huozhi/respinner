@@ -1,18 +1,29 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 const BeatLoading = (
-  { duration = 0.8, count = 6, size = 8, gap = 6, color, fill, ...rest }: {
+  { duration = 0.8, count = 6, size = 8, gap = 6, color, fill, paused, ...rest }: {
     duration?: number
     count?: number
     size?: number
     gap?: number
     color?: string
+    paused?: boolean
   } & React.SVGProps<SVGSVGElement>) => {
   const viewWidth = (size + gap) * count - gap
   const fillColor = color || fill
+  const svgRef = useRef<SVGSVGElement>(null)
+
+  useEffect(() => {
+    if (!svgRef.current) return
+    if (paused) {
+      svgRef.current.pauseAnimations()
+    } else {
+      svgRef.current.unpauseAnimations()
+    }
+  }, [paused])
 
   return (
-    <svg {...rest} width={viewWidth} height={size}>
+    <svg {...rest} width={viewWidth} height={size} ref={svgRef}>
       {Array.from({ length: count }).map((_, i) => {
         const cx = size * (i + 1) + gap * i - size / 2
         const cy = size / 2

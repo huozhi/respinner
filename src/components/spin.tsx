@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 const SpinLoading = ({
   size = 40,
@@ -9,6 +9,7 @@ const SpinLoading = ({
   borderRadius = 1,
   color,
   fill,
+  paused,
   ...rest
 }: {
   size?: number
@@ -18,12 +19,23 @@ const SpinLoading = ({
   duration?: number
   borderRadius?: number
   color?: string
+  paused?: boolean
 } & React.SVGProps<SVGSVGElement>) => {
   const radius = size / 2 - barHeight / 2
   const fillColor = color || fill
+  const svgRef = useRef<SVGSVGElement>(null)
+
+  useEffect(() => {
+    if (!svgRef.current) return
+    if (paused) {
+      svgRef.current.pauseAnimations()
+    } else {
+      svgRef.current.unpauseAnimations()
+    }
+  }, [paused])
 
   return (
-    <svg {...rest} width={size} height={size}>
+    <svg {...rest} width={size} height={size} ref={svgRef}>
       {Array.from({ length: count }).map((_, i) => {
         const angle = (360 / count) * i
         /* (barWidth + borderRadius) / 2 is used to fix the excursion caused by thickness */
