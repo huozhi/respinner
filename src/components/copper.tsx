@@ -9,12 +9,11 @@ const createTransRotate = (uniqId: string) => (
 )
 
 const CopperLoading = (
-  { size = 40, strokeWidth = 4, duration = 2, color, stroke, fill, paused, ...rest }: {
+  { size = 40, strokeWidth = 4, duration = 2, color, stroke, fill, ...rest }: {
     size?: number
     strokeWidth?: number
     duration?: number
     color?: string
-    paused?: boolean
   } & React.SVGProps<SVGSVGElement>) => {
   const uniqId = useId()
   const fillColor = color || fill
@@ -22,7 +21,6 @@ const CopperLoading = (
   const commonStyle = {
     transformOrigin: 'center',
     animation: `TransRotate${uniqId} ${duration}s infinite`,
-    animationPlayState: paused ? 'paused' : 'running',
   }
   return (
     <svg {...rest} width={size} height={size}>
