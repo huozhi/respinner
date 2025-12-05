@@ -33,9 +33,9 @@
     "@types/react": "^19.2.6",
     "@types/react-dom": "^19.2.3",
     "bunchee": "^6.6.2",
-    "next": "16.0.3",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "next": "16.0.7",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
     "respinner": "link:./",
     "typescript": "^5.9.3"
   },
