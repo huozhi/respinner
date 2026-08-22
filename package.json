@@ -6,12 +6,11 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "clean": "rm -rf ./dist",
-    "prepublishOnly": "npm run clean && npm run build",
-    "build:docs": "pnpm build && next build ./site",
+    "prepublishOnly": "bun run build",
+    "build:docs": "bun run build && next build ./site",
     "build": "bunchee",
-    "build:watch": "pnpm build --watch",
-    "dev": "next dev ./site"
+    "build:watch": "bun run build --watch",
+    "site": "next dev ./site"
   },
   "sideEffects": false,
   "files": [
@@ -32,15 +31,15 @@
   "devDependencies": {
     "@types/react": "^19.2.6",
     "@types/react-dom": "^19.2.3",
-    "bunchee": "^6.6.2",
-    "next": "16.0.7",
+    "bunchee": "^7.0.1",
+    "next": "16.3.2",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
-    "respinner": "link:./",
+    "respinner": "file:.",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "react": ">= 18"
   },
-  "packageManager": "pnpm@7.33.5"
+  "packageManager": "bun@1.4.0"
 }
