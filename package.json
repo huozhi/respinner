@@ -7,9 +7,9 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "prepublishOnly": "bun run build",
-    "build:docs": "bun run build && next build ./site",
     "build": "bunchee",
-    "build:watch": "bun run build --watch",
+    "dev": "bun run build --watch",
+    "site:build": "bun run build && next build ./site",
     "site": "next dev ./site"
   },
   "sideEffects": false,
